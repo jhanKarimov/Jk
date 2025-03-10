@@ -9,10 +9,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-black text-white font-sans">
+  <!-- The dark textured background is added via CSS -->
+
   <!-- Navigation -->
   <header class="fixed top-0 w-full z-50">
     <nav class="flex justify-between items-center p-4 bg-gray-900 bg-opacity-75">
-      <div class="logo text-3xl font-bold">JHAN</div>
+      <div class="logo text-3xl font-bold">
+        <!-- Animated logo: first letter toggles between J and K -->
+        <span id="logo-letter" class="rollable">J</span>HAN
+      </div>
       <ul class="flex space-x-4">
          <li><a href="#home" class="hover:text-neon transition">Home</a></li>
          <li><a href="#music" class="hover:text-neon transition">Music</a></li>
