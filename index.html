@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JHANKARIMOV</title>
+  <!-- Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Navigation -->
+  <header class="fixed top-0 w-full z-50">
+    <nav class="flex justify-between items-center p-4 bg-gray-900 bg-opacity-75">
+      <div class="logo text-3xl font-bold">JHAN</div>
+      <ul class="flex space-x-4">
+         <li><a href="#home" class="hover:text-neon transition">Home</a></li>
+         <li><a href="#music" class="hover:text-neon transition">Music</a></li>
+         <li><a href="#book" class="hover:text-neon transition">Book</a></li>
+         <li><a href="#media" class="hover:text-neon transition">Media</a></li>
+         <li><a href="#contact" class="hover:text-neon transition">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center pt-20">
+    <h1 class="text-5xl md:text-7xl font-bold mb-4 glitch" data-text="JHAN">JHAN</h1>
+    <p class="text-lg md:text-2xl text-center max-w-xl">
+      Welcome to my digital realm—dive into my music, book, photos, and videos.
+    </p>
+  </section>
+
+  <!-- Music Section -->
+  <section id="music" class="min-h-screen p-8">
+    <h2 class="text-4xl font-bold mb-4">Music</h2>
+    <div class="embed-container">
+      <!-- Replace the src with your embedded player link -->
+      <iframe src="https://open.spotify.com/embed/album/your_album_id" frameborder="0" allowtransparency="true" allow="encrypted-media" class="w-full h-64"></iframe>
+    </div>
+  </section>
+
+  <!-- Book Section -->
+  <section id="book" class="min-h-screen p-8 bg-gray-900">
+    <h2 class="text-4xl font-bold mb-4">Book</h2>
+    <p class="mb-4">A glimpse into my written world. More details coming soon...</p>
+    <a href="#" class="text-neon border border-neon px-4 py-2 hover:bg-neon hover:text-black transition">Learn More</a>
+  </section>
+
+  <!-- Media Section (Photography & Video) -->
+  <section id="media" class="min-h-screen p-8">
+    <h2 class="text-4xl font-bold mb-4">Media</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Example Image -->
+      <div class="media-item">
+        <img src="https://via.placeholder.com/400x300" alt="Photo 1" class="w-full" />
+      </div>
+      <!-- Example Image -->
+      <div class="media-item">
+        <img src="https://via.placeholder.com/400x300" alt="Photo 2" class="w-full" />
+      </div>
+      <!-- Example Video -->
+      <div class="media-item">
+        <iframe src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen class="w-full h-64"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen p-8 bg-gray-900">
+    <h2 class="text-4xl font-bold mb-4">Contact</h2>
+    <form name="contact" method="POST" data-netlify="true" class="flex flex-col space-y-4 max-w-lg">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" placeholder="Your Name" class="p-2 bg-gray-800 border border-gray-700" required />
+      <input type="email" name="email" placeholder="Your Email" class="p-2 bg-gray-800 border border-gray-700" required />
+      <textarea name="message" placeholder="Your Message" rows="4" class="p-2 bg-gray-800 border border-gray-700" required></textarea>
+      <button type="submit" class="px-4 py-2 border border-neon text-neon hover:bg-neon hover:text-black transition">
+        Send
+      </button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
