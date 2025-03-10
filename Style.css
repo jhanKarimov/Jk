@@ -1,0 +1,56 @@
+:root {
+  --neon-color: #0ff;
+}
+
+/* General styling */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+a:hover {
+  color: var(--neon-color);
+}
+
+/* Neon text effect */
+.text-neon {
+  color: var(--neon-color);
+  border-color: var(--neon-color);
+}
+
+/* Glitch effect for the logo */
+.glitch {
+  position: relative;
+  color: var(--neon-color);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  animation: glitch 2s infinite;
+  clip: rect(2px, 9999px, 6px, 0);
+  color: red;
+}
+
+.glitch::after {
+  animation: glitch 3s infinite;
+  clip: rect(85px, 9999px, 140px, 0);
+  color: blue;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
