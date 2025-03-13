@@ -106,17 +106,17 @@ function typeText() {
   } else {
     clearInterval(typingInterval);
     isTyping = false;
-    setTimeout(flashCursor, 500);  // Start flashing underscore after typing is done
+    // setTimeout(flashCursor, 500);  // Start flashing underscore after typing is done
   }
 }
 
-function flashCursor() {
-  let underscore = "_";
-  typingElement.innerHTML += underscore;
-  typingInterval = setInterval(() => {
-    typingElement.innerHTML = typingElement.innerHTML.endsWith("_") ? typingElement.innerHTML.slice(0, -1) : typingElement.innerHTML + "_";
-  }, 500); // Flash cursor every 500ms
-}
+// function flashCursor() {
+//   let underscore = "_";
+//   typingElement.innerHTML += underscore;
+//   typingInterval = setInterval(() => {
+//     typingElement.innerHTML = typingElement.innerHTML.endsWith("_") ? typingElement.innerHTML.slice(0, -1) : typingElement.innerHTML + "_";
+//   }, 500); // Flash cursor every 500ms
+// }
 
 typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per character
 </script>
