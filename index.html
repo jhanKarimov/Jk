@@ -61,7 +61,7 @@
 								  rotateText();
 								</script> -->
 								<!-- <h1 id="rotating-header">XANCAN</h1> -->
-								<p id="rotating-header"></p>
+								<p id="rotating-header" style="font-size: 3em;"></p> <!-- Make the header larger -->
 								<p id="typing-text"></p>
 								
 								<script>
@@ -96,7 +96,6 @@
 								const text = "The one who left the known to explore the unknown";
 								const typingElement = document.getElementById("typing-text");
 								let indexTyping = 0;
-								let isTyping = true;
 								let typingInterval;
 								
 								function typeText() {
@@ -105,22 +104,14 @@
 									indexTyping++;
 								  } else {
 									clearInterval(typingInterval);
-									isTyping = false;
-									setTimeout(flashCursor, 500);  // Start flashing underscore after typing is done
+									// No flashing cursor, just stop typing
 								  }
-								}
-								
-								function flashCursor() {
-								  let underscore = "_";
-								  typingElement.innerHTML += underscore;
-								  typingInterval = setInterval(() => {
-									typingElement.innerHTML = typingElement.innerHTML.endsWith("_") ? typingElement.innerHTML.slice(0, -1) : typingElement.innerHTML + "_";
-								  }, 500); // Flash cursor every 500ms
 								}
 								
 								typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per character
 								</script>
 								
+
 								<!-- <p>the one who left the known to explore the unknown </p> -->
 <!-- 									<a href="https://html5up.net">HTML5 UP</a> and released<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.
