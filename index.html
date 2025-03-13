@@ -66,30 +66,29 @@
 
 <script>
 // Rotating Header Script
-const words = ["XANCAN", "TIMIDUS", "JHAN"];
-let index = 1;
-let currentWord = words[index].split("");  
+const words = ["XANCAN", "TIMIDUS   ", "JHAN  "]; // Added spaces to match letter count
+  let index = 1;
+  let currentWord = words[index].split("");  
 
-function rotateLetters() {
-  let target = document.getElementById("rotating-header");
-  let nextWord = words[(index + 1) % words.length].split("");  
+  function rotateLetters() {
+    let target = document.getElementById("rotating-header");
+    let nextWord = words[(index + 1) % words.length].split("");  
 
-  let i = 0;
-  let interval = setInterval(() => {
-    if (i < currentWord.length) {
-      currentWord[i] = nextWord[i] || ""; // Replace letters left to right
-      target.innerText = currentWord.join(""); 
-      i++;
-    } else {
-      clearInterval(interval);
-      index = (index + 1) % words.length; // Move to next word
-      currentWord = words[index].split(""); // Update currentWord after rotation
-      setTimeout(rotateLetters, 1000); // Pause before next transition
-    }
-  }, 200); // Speed of letter changes
-}
+    let i = 0;
+    let interval = setInterval(() => {
+      if (i < currentWord.length) {
+        currentWord[i] = nextWord[i] || ""; // Replace letters left to right
+        target.innerText = currentWord.join(""); 
+        i++;
+      } else {
+        clearInterval(interval);
+        index = (index + 1) % words.length; // Move to next word
+        setTimeout(rotateLetters, 1000); // Pause before next transition
+      }
+    }, 200); // Speed of letter changes
+  }
 
-setTimeout(rotateLetters, 1000); // Start rotation after a brief pause
+  setTimeout(rotateLetters, 1000); // Start rotation after a brief pause
 
 
 // Typing Effect Script
