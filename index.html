@@ -26,7 +26,41 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>XANCAN</h1>
+								<h1 id="rotating-header">XANCAN</h1>
+
+								<script>
+								  const words = ["XANCAN", "TIMIDUS", "JHAN"];
+								  let index = 0;
+								  let currentWord = words[index];
+								  let currentText = "";
+								  let adding = true;
+								  const speedFast = 100;
+								  const speedSlow = 250;
+								  
+								  function rotateText() {
+									let target = document.getElementById("rotating-header");
+									
+									if (adding) {
+									  currentText = words[index].substring(0, currentText.length + 1);
+									} else {
+									  currentText = currentText.substring(0, currentText.length - 1);
+									}
+								
+									target.innerText = currentText;
+								
+									if (adding && currentText === words[index]) {
+									  setTimeout(() => (adding = false), 800);
+									} else if (!adding && currentText === "") {
+									  index = (index + 1) % words.length;
+									  adding = true;
+									}
+								
+									setTimeout(rotateText, adding ? speedFast : speedSlow);
+								  }
+								
+								  rotateText();
+								</script>
+								
 								<p>the one who left the known to explore the unknown 
 <!-- 									<a href="https://html5up.net">HTML5 UP</a> and released<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.
