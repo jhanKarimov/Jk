@@ -61,56 +61,65 @@
 								  rotateText();
 								</script> -->
 								<!-- <h1 id="rotating-header">XANCAN</h1> -->
-								<p id="rotating-header" style="font-size: 3em;"></p> <!-- Make the header larger -->
-								<p id="typing-text"></p>
-								
-								<script>
-								// Rotating Header Script
-								const words = ["XANCAN", "TIMIDUS", "JHAN"];
-								let index = 0;
-								let currentWord = words[index].split("");  
-								
-								function rotateLetters() {
-								  let target = document.getElementById("rotating-header");
-								  let nextWord = words[(index + 1) % words.length].split("");  
-								
-								  let i = 0;
-								  let interval = setInterval(() => {
-									if (i < currentWord.length) {
-									  currentWord[i] = nextWord[i] || ""; // Replace letters left to right
-									  target.innerText = currentWord.join(""); 
-									  i++;
-									} else {
-									  clearInterval(interval);
-									  index = (index + 1) % words.length; // Move to next word
-									  currentWord = words[index].split(""); // Update currentWord after rotation
-									  setTimeout(rotateLetters, 1000); // Pause before next transition
-									}
-								  }, 200); // Speed of letter changes
-								}
-								
-								setTimeout(rotateLetters, 1000); // Start rotation after a brief pause
-								
-								
-								// Typing Effect Script
-								const text = "The one who left the known to explore the unknown";
-								const typingElement = document.getElementById("typing-text");
-								let indexTyping = 0;
-								let typingInterval;
-								
-								function typeText() {
-								  if (indexTyping < text.length) {
-									typingElement.innerHTML += text.charAt(indexTyping);
-									indexTyping++;
-								  } else {
-									clearInterval(typingInterval);
-									// No flashing cursor, just stop typing
-								  }
-								}
-								
-								typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per character
-								</script>
-								
+<p id="rotating-header"></p>
+<p id="typing-text"></p>
+
+<script>
+// Rotating Header Script
+const words = ["XANCAN", "TIMIDUS", "JHAN"];
+let index = 0;
+let currentWord = words[index].split("");  
+
+function rotateLetters() {
+  let target = document.getElementById("rotating-header");
+  let nextWord = words[(index + 1) % words.length].split("");  
+
+  let i = 0;
+  let interval = setInterval(() => {
+    if (i < currentWord.length) {
+      currentWord[i] = nextWord[i] || ""; // Replace letters left to right
+      target.innerText = currentWord.join(""); 
+      i++;
+    } else {
+      clearInterval(interval);
+      index = (index + 1) % words.length; // Move to next word
+      currentWord = words[index].split(""); // Update currentWord after rotation
+      setTimeout(rotateLetters, 1000); // Pause before next transition
+    }
+  }, 200); // Speed of letter changes
+}
+
+setTimeout(rotateLetters, 1000); // Start rotation after a brief pause
+
+
+// Typing Effect Script
+const text = "The one who left the known to explore the unknown";
+const typingElement = document.getElementById("typing-text");
+let indexTyping = 0;
+let isTyping = true;
+let typingInterval;
+
+function typeText() {
+  if (indexTyping < text.length) {
+    typingElement.innerHTML += text.charAt(indexTyping);
+    indexTyping++;
+  } else {
+    clearInterval(typingInterval);
+    isTyping = false;
+    setTimeout(flashCursor, 500);  // Start flashing underscore after typing is done
+  }
+}
+
+function flashCursor() {
+  let underscore = "_";
+  typingElement.innerHTML += underscore;
+  typingInterval = setInterval(() => {
+    typingElement.innerHTML = typingElement.innerHTML.endsWith("_") ? typingElement.innerHTML.slice(0, -1) : typingElement.innerHTML + "_";
+  }, 500); // Flash cursor every 500ms
+}
+
+typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per character
+</script>
 
 								<!-- <p>the one who left the known to explore the unknown </p> -->
 <!-- 									<a href="https://html5up.net">HTML5 UP</a> and released<br />
