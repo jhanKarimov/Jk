@@ -28,7 +28,7 @@
 							<div class="inner">
 								<h1 id="rotating-header">XANCAN</h1>
 
-								<script>
+								<!-- <script>
 								  const words = ["XANCAN", "TIMIDUS", "JHAN"];
 								  let index = 0;
 								  let currentWord = words[index];
@@ -59,13 +59,70 @@
 								  }
 								
 								  rotateText();
-								</script>
-								
-								<p>the one who left the known to explore the unknown 
+								</script> -->
+								<h1 id="rotating-header">XANCAN</h1>
+
+<script>
+  const words = ["XANCAN", "TIMIDUS", "JHAN  "]; // Added spaces to match letter count
+  let index = 0;
+  let currentWord = words[index].split("");  
+
+  function rotateLetters() {
+    let target = document.getElementById("rotating-header");
+    let nextWord = words[(index + 1) % words.length].split("");  
+
+    let i = 0;
+    let interval = setInterval(() => {
+      if (i < currentWord.length) {
+        currentWord[i] = nextWord[i] || ""; // Replace letters left to right
+        target.innerText = currentWord.join(""); 
+        i++;
+      } else {
+        clearInterval(interval);
+        index = (index + 1) % words.length; // Move to next word
+        setTimeout(rotateLetters, 1000); // Pause before next transition
+      }
+    }, 200); // Speed of letter changes
+  }
+
+  setTimeout(rotateLetters, 1000); // Start rotation after a brief pause
+</script>
+<p id="typing-text"></p>
+
+<script>
+  const text = "The one who left the known to explore the unknown";
+  const typingElement = document.getElementById("typing-text");
+  let index = 0;
+  let isTyping = true;
+  let typingInterval;
+
+  function typeText() {
+    if (index < text.length) {
+      typingElement.innerHTML += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(typingInterval);
+      isTyping = false;
+      setTimeout(flashCursor, 500);  // Start flashing underscore after typing is done
+    }
+  }
+
+  function flashCursor() {
+    let underscore = "_";
+    typingElement.innerHTML += underscore;
+    typingInterval = setInterval(() => {
+      typingElement.innerHTML = typingElement.innerHTML.endsWith("_") ? typingElement.innerHTML.slice(0, -1) : typingElement.innerHTML + "_";
+    }, 500); // Flash cursor every 500ms
+  }
+
+  typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per character
+</script>
+
+								<!-- <p>the one who left the known to explore the unknown </p> -->
 <!-- 									<a href="https://html5up.net">HTML5 UP</a> and released<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.
 								 -->
-								</p>
+								
 							</div>
 						</div>
 						<nav>
