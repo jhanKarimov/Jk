@@ -152,8 +152,83 @@ typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per cha
 								<span class="image main"><img src="images/jhankk.jpeg" alt="" /></span>
 								<!-- <p>	About Jhan Karimov - (xancan | khan jhan | timidus)</p> -->
 									<!-- <p>Jhan Karimov is a multidisciplinary creator with a background in tech, media, and the arts. Known under various aliases—Xancan, Khan Jhan, and Timidus—his work spans multiple fields, including software development, music production, writing, photography, and financial markets.</p> -->
-									<p>Jhan Karimov is a multidisciplinary creator blending technology, media, and the arts into a singular vision. Operating under various aliases—xancan, khan jhan, and timidus—he has built a diverse body of work that spans software development, music production, writing, photography, and financial markets. he continues to push boundaries and shape the future of his work across multiple industries.
-										
+<!-- 									<p>Jhan Karimov is a multidisciplinary creator blending technology, media, and the arts into a singular vision. Operating under various aliases—xancan, khan jhan, and timidus—he has built a diverse body of work that spans software development, music production, writing, photography, and financial markets. he continues to push boundaries and shape the future of his work across multiple industries.
+										 -->
+<style>
+    .terminal {
+        background-color: #0e0e0e;
+        border: 2px solid #00ff00;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        font-family: 'Courier New', monospace;
+        color: #00ff00;
+    }
+    .typing-cursor {
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    .typed-out {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: 
+            typing 2s steps(50, end),
+            blink-caret 0.5s step-end infinite;
+    }
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #00ff00; }
+    }
+    .key {
+        color: #00ffff;
+    }
+    .value {
+        color: #ff9900;
+    }
+    .array-item {
+        margin-left: 20px;
+        color: #ff9900;
+    }
+    .prompt {
+        color: #00ff00;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="terminal">
+    <div class="prompt typed-out">
+        > profile.get("jhanKarimov")
+    </div>
+    <pre>{
+    <span class="key">"name"</span>: <span class="value">"Jhan Karimov"</span>,
+    <span class="key">"aliases"</span>: [
+        <span class="array-item">"xancan"</span>,
+        <span class="array-item">"khan jhan"</span>,
+        <span class="array-item">"timidus"</span>
+    ],
+    <span class="key">"bio"</span>: <span class="value">"A multidisciplinary creator blending technology, media, and the arts into a singular vision."</span>,
+    <span class="key">"location"</span>: <span class="value">"New York City, NY"</span>,
+    <span class="key">"occupations"</span>: [
+        <span class="array-item">"Software Developer"</span>,
+        <span class="array-item">"Music Producer"</span>,
+        <span class="array-item">"Writer"</span>,
+        <span class="array-item">"Photographer"</span>,
+        <span class="array-item">"Investor/Trader"</span>
+    ]
+}<span class="typing-cursor">|</span></pre>
+    <div class="prompt">
+        > 
+    </div>
+</div>
 										<!-- Whether crafting digital experiences, producing music that resonates, capturing evocative visuals, or analyzing market trends, Jhan thrives at the intersection of creativity and strategy. With a relentless drive for innovation and a keen eye for emerging opportunities, 
 										 he continues to push boundaries and shape the future of his work across multiple industries. -->
 									</p>
