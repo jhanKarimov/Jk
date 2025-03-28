@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>XANCAN - Interactive</title>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="https://i.imgur.com/WntAbXK.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Particle.js -->
+		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+		<!-- AOS Animation Library -->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<style>
+			/* Particle Background */
+			#particles-js {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+
+			/* Skills Matrix */
+			.skills-matrix {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 20px;
+				padding: 20px;
+			}
+			.skill-item {
+				background: rgba(0, 0, 0, 0.7);
+				padding: 20px;
+				border-radius: 10px;
+				transition: transform 0.3s ease;
+			}
+			.skill-item:hover {
+				transform: translateY(-5px);
+			}
+
+			/* Timeline */
+			.timeline {
+				position: relative;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.timeline::after {
+				content: '';
+				position: absolute;
+				width: 4px;
+				background: #fff;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				margin-left: -2px;
+			}
+			.timeline-item {
+				padding: 10px 40px;
+				position: relative;
+				width: 50%;
+				left: 0;
+			}
+			.timeline-item:nth-child(even) {
+				left: 50%;
+			}
+			.timeline-content {
+				padding: 20px;
+				background: rgba(0, 0, 0, 0.7);
+				border-radius: 10px;
+			}
+
+			/* Current Status */
+			.status-widget {
+				background: rgba(0, 0, 0, 0.7);
+				padding: 20px;
+				border-radius: 10px;
+				margin: 20px;
+			}
+			.status-indicator {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				display: inline-block;
+				margin-right: 10px;
+			}
+			.status-active {
+				background: #00ff00;
+				box-shadow: 0 0 10px #00ff00;
+			}
+
+			/* Projects Carousel */
+			.projects-carousel {
+				overflow: hidden;
+				position: relative;
+				padding: 20px;
+			}
+			.project-card {
+				background: rgba(0, 0, 0, 0.7);
+				padding: 20px;
+				border-radius: 10px;
+				margin: 10px;
+				transition: transform 0.3s ease;
+			}
+			.project-card:hover {
+				transform: scale(1.05);
+			}
+
+			/* Navigation */
+			.nav-links {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 1000;
+			}
+			.nav-links a {
+				color: white;
+				text-decoration: none;
+				margin-left: 20px;
+				transition: color 0.3s ease;
+			}
+			.nav-links a:hover {
+				color: #00ff00;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Navigation -->
+		<div class="nav-links">
+			<a href="index.html">Main Site</a>
+			<a href="#skills">Skills</a>
+			<a href="#timeline">Timeline</a>
+			<a href="#status">Status</a>
+			<a href="#projects">Projects</a>
+		</div>
+
+		<!-- Particle Background -->
+		<div id="particles-js"></div>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header">
+				<div class="content">
+					<div class="inner">
+						<h1>Interactive Space</h1>
+						<p>Explore the digital realm of XANCAN</p>
+					</div>
+				</div>
+			</header>
+
+			<!-- Main -->
+			<div id="main">
+				<!-- Skills Matrix -->
+				<article id="skills" data-aos="fade-up">
+					<h2 class="major">Skills Matrix</h2>
+					<div class="skills-matrix">
+						<div class="skill-item">
+							<h3>Development</h3>
+							<ul>
+								<li>Software Development</li>
+								<li>Web Technologies</li>
+								<li>System Architecture</li>
+							</ul>
+						</div>
+						<div class="skill-item">
+							<h3>Creative</h3>
+							<ul>
+								<li>Music Production</li>
+								<li>Photography</li>
+								<li>Writing</li>
+							</ul>
+						</div>
+						<div class="skill-item">
+							<h3>Business</h3>
+							<ul>
+								<li>Trading</li>
+								<li>Project Management</li>
+								<li>Innovation</li>
+							</ul>
+						</div>
+					</div>
+				</article>
+
+				<!-- Timeline -->
+				<article id="timeline" data-aos="fade-up">
+					<h2 class="major">Journey Timeline</h2>
+					<div class="timeline">
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<h3>2024</h3>
+								<p>New York City - Current Chapter</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<h3>2023</h3>
+								<p>Boston - Tech Innovation</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<h3>2022</h3>
+								<p>Warsaw - Creative Exploration</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<h3>2021</h3>
+								<p>Ankara - Cultural Fusion</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-content">
+								<h3>2020</h3>
+								<p>Baku - Digital Genesis</p>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<!-- Current Status -->
+				<article id="status" data-aos="fade-up">
+					<h2 class="major">Current Status</h2>
+					<div class="status-widget">
+						<h3><span class="status-indicator status-active"></span>Active Projects</h3>
+						<ul>
+							<li>Developing innovative web applications</li>
+							<li>Creating new music compositions</li>
+							<li>Writing new content</li>
+							<li>Exploring new technologies</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- Projects Carousel -->
+				<article id="projects" data-aos="fade-up">
+					<h2 class="major">Featured Projects</h2>
+					<div class="projects-carousel">
+						<div class="project-card">
+							<h3>soz6.com</h3>
+							<p>Azerbaijani user-based content creation platform</p>
+						</div>
+						<div class="project-card">
+							<h3>Music Production</h3>
+							<p>Spotify artist with multiple releases</p>
+						</div>
+						<div class="project-card">
+							<h3>Photography</h3>
+							<p>Visual storytelling through lens</p>
+						</div>
+						<div class="project-card">
+							<h3>Writing</h3>
+							<p>Author of "Between Being and Nothingness"</p>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; TIMIDUS Design: <a href="https://jhankarimov.com">JHAN</a>.</p>
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			// Initialize AOS
+			AOS.init({
+				duration: 1000,
+				once: true
+			});
+
+			// Initialize Particles.js
+			particlesJS('particles-js', {
+				particles: {
+					number: {
+						value: 80,
+						density: {
+							enable: true,
+							value_area: 800
+						}
+					},
+					color: {
+						value: '#ffffff'
+					},
+					shape: {
+						type: 'circle'
+					},
+					opacity: {
+						value: 0.5,
+						random: false
+					},
+					size: {
+						value: 3,
+						random: true
+					},
+					line_linked: {
+						enable: true,
+						distance: 150,
+						color: '#ffffff',
+						opacity: 0.4,
+						width: 1
+					},
+					move: {
+						enable: true,
+						speed: 6,
+						direction: 'none',
+						random: false,
+						straight: false,
+						out_mode: 'out',
+						bounce: false
+					}
+				},
+				interactivity: {
+					detect_on: 'canvas',
+					events: {
+						onhover: {
+							enable: true,
+							mode: 'repulse'
+						},
+						onclick: {
+							enable: true,
+							mode: 'push'
+						},
+						resize: true
+					}
+				},
+				retina_detect: true
+			});
+
+			// Smooth scroll for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					document.querySelector(this.getAttribute('href')).scrollIntoView({
+						behavior: 'smooth'
+					});
+				});
+			});
+		</script>
+	</body>
+</html> 

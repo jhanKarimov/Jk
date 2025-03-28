@@ -13,6 +13,32 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.image-container {
+				position: relative;
+				width: 100%;
+			}
+			.bio-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(0, 0, 0, 0.7);
+				color: white;
+				padding: 20px;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: 1;
+			}
+			.image-container:hover .bio-overlay {
+				opacity: 1;
+			}
+			.bio-overlay p {
+				margin: 0;
+				font-size: 0.9em;
+				line-height: 1.6;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -133,10 +159,10 @@ typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per cha
 								<li><a href="#intro">Intro</a></li>
 								<!-- <li><a href="#work">Work</a></li>
 								<li><a href="#about">About</a></li> -->
-<li><a href="#music">Music</a></li>
-<li><a href="#media">Media</a></li>
-<li><a href="#book">Book</a></li> 
-
+								<li><a href="#music">Music</a></li>
+								<li><a href="#media">Media</a></li>
+								<li><a href="#book">Book</a></li> 
+								<li><a href="interactive.html">Interactive</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -149,7 +175,12 @@ typingInterval = setInterval(typeText, 100); // Type at a speed of 100ms per cha
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2> 
-								<span class="image main"><img src="images/jhankk.jpeg" alt="" /></span>
+								<div class="image-container">
+									<span class="image main"><img src="images/jhankk.jpeg" alt="" /></span>
+									<div class="bio-overlay">
+										<p>A multidisciplinary creator blending technology, media, and the arts into a singular vision. Operating under various aliases—xancan, khan jhan, and timidus—he has built a diverse body of work that spans software development, music production, writing, photography, and financial markets.</p>
+									</div>
+								</div>
 								<!-- <p>	About Jhan Karimov - (xancan | khan jhan | timidus)</p> -->
 									<!-- <p>Jhan Karimov is a multidisciplinary creator with a background in tech, media, and the arts. Known under various aliases—Xancan, Khan Jhan, and Timidus—his work spans multiple fields, including software development, music production, writing, photography, and financial markets.</p> -->
 <!-- 									<p>Jhan Karimov is a multidisciplinary creator blending technology, media, and the arts into a singular vision. Operating under various aliases—xancan, khan jhan, and timidus—he has built a diverse body of work that spans software development, music production, writing, photography, and financial markets. he continues to push boundaries and shape the future of his work across multiple industries.
