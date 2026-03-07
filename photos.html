@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Photos — jhan karimov</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;font-family:'Helvetica Neue',sans-serif;color:#fff;min-height:100vh}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(0,0,0,0.85),transparent)}
+nav a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.88rem;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:#fff}
+.nav-logo{font-weight:800;font-size:1rem;letter-spacing:-.02em;color:#fff!important}
+
+/* HERO */
+#hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:0 20px}
+#hero h1{font-size:clamp(2.4rem,6vw,5rem);font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+#hero p{color:rgba(255,255,255,0.45);font-size:1rem;max-width:360px;line-height:1.6}
+#pick-btn{padding:14px 38px;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 24px rgba(220,39,67,.45);transition:transform .2s,box-shadow .2s}
+#pick-btn:hover{transform:scale(1.05);box-shadow:0 6px 32px rgba(220,39,67,.65)}
+#file-input{display:none}
+
+/* FLASH STAGE */
+#stage{display:none;position:fixed;inset:0;background:#000;z-index:10}
+.flash-photo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:flashIn var(--d,.8s) ease-in-out forwards}
+@keyframes flashIn{0%{opacity:0;transform:scale(1.07);filter:brightness(2.8)}8%{opacity:1;filter:brightness(1)}78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.95)}}
+
+/* GRID */
+#grid-view{display:none;padding:80px 12px 100px;columns:3 160px;gap:6px}
+.grid-item{break-inside:avoid;margin-bottom:6px;border-radius:6px;overflow:hidden;cursor:pointer;transition:transform .2s,filter .2s;filter:brightness(.88)}
+.grid-item:hover{transform:scale(1.02);filter:brightness(1.1)}
+.grid-item img{width:100%;display:block}
+
+/* CONTROLS */
+#controls{display:none;position:fixed;bottom:0;left:0;right:0;padding:14px 20px 18px;background:linear-gradient(to top,rgba(0,0,0,.95) 60%,transparent);align-items:center;justify-content:center;gap:10px;z-index:150;flex-wrap:wrap}
+.btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:8px 16px;border-radius:28px;font-size:.84rem;font-weight:600;cursor:pointer;transition:background .2s;white-space:nowrap}
+.btn:hover{background:rgba(255,255,255,.22)}
+.btn.on{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);border-color:transparent}
+#spd-lbl{color:rgba(255,255,255,.45);font-size:.8rem;min-width:28px;text-align:center}
+
+/* BADGE */
+#badge{display:none;position:fixed;top:64px;right:18px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);padding:5px 13px;border-radius:20px;font-size:.78rem;color:rgba(255,255,255,.6);z-index:300}
+
+/* PROGRESS */
+#prog{display:none;position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#f09433,#dc2743,#bc1888);z-index:400;transition:width .3s linear}
+
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:500;align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 0 80px rgba(0,0,0,.9)}
+#lb-x{position:fixed;top:18px;right:22px;font-size:1.8rem;cursor:pointer;color:rgba(255,255,255,.7);background:none;border:none;z-index:600}
+#lb-x:hover{color:#fff}
+
+/* SECTION TITLE */
+.section-title{font-size:1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:24px 18px 10px;display:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">jhan karimov</a>
+  <a href="#" id="nav-back" style="display:none" onclick="goHome()">&#8592; back</a>
+</nav>
+
+<div id="hero">
+  <h1>photos</h1>
+  <p>drop in your photos and watch the magic happen</p>
+  <button id="pick-btn" onclick="document.getElementById('file-input').click()">choose photos</button>
+  <input type="file" id="file-input" accept="image/*" multiple webkitdirectory/>
+  <p style="color:rgba(255,255,255,.2);font-size:.75rem">select a folder or individual images</p>
+</div>
+
+<div id="stage"></div>
+<div class="section-title" id="grid-label">all photos</div>
+<div id="grid-view"></div>
+<div id="badge"></div>
+<div id="prog"></div>
+
+<div id="controls">
+  <button class="btn on" id="b-flash" onclick="setMode('flash')">&#9889; flash</button>
+  <button class="btn" id="b-grid" onclick="setMode('grid')">&#9635; grid</button>
+  <button class="btn" onclick="chSpd(1)">&#128022;</button>
+  <span id="spd-lbl">0.8s</span>
+  <button class="btn" onclick="chSpd(-1)">&#9889;</button>
+  <button class="btn" onclick="doShuffle()">&#128256; shuffle</button>
+  <button class="btn" id="b-pause" onclick="togglePause()">&#9208; pause</button>
+  <button class="btn" onclick="document.getElementById('file-input').click()">&#128194; change</button>
+</div>
+
+<div id="lb">
+  <button id="lb-x" onclick="closeLb()">&#10005;</button>
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<script>
+let imgs=[],idx=0,tid=null,spd=800,paused=false,mode='flash';
+const spds=[150,250,400,600,800,1200,1800,2800];
+let si=4;
+
+document.getElementById('file-input').addEventListener('change',function(e){
+  const files=Array.from(e.target.files).filter(f=>f.type.startsWith('image/'));
+  if(!files.length)return;
+  imgs=[];let done=0;
+  files.forEach(f=>{
+    const r=new FileReader();
+    r.onload=ev=>{imgs.push(ev.target.result);done++;if(done===files.length)onReady()};
+    r.readAsDataURL(f);
+  });
+});
+
+function onReady(){
+  doShuffle(false);
+  document.getElementById('hero').style.display='none';
+  document.getElementById('controls').style.display='flex';
+  document.getElementById('badge').style.display='block';
+  document.getElementById('prog').style.display='block';
+  document.getElementById('nav-back').style.display='block';
+  setMode('flash');
+}
+function goHome(){
+  stopFlash();
+  ['stage','grid-view','controls','badge','prog','grid-label'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.style.display='none';
+  });
+  document.getElementById('hero').style.display='flex';
+  document.getElementById('nav-back').style.display='none';
+  imgs=[];idx=0;
+}
+function doShuffle(restart=true){
+  for(let i=imgs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[imgs[i],imgs[j]]=[imgs[j],imgs[i]];}
+  idx=0;
+  if(restart&&mode==='flash'&&!paused)startFlash();
+  if(mode==='grid')buildGrid();
+}
+function startFlash(){stopFlash();showNext();tid=setInterval(showNext,spd);}
+function stopFlash(){if(tid){clearInterval(tid);tid=null;}}
+function showNext(){
+  if(!imgs.length)return;
+  const s=document.getElementById('stage');
+  while(s.children.length>2)s.removeChild(s.firstChild);
+  const d=document.createElement('div');
+  d.className='flash-photo';
+  d.style.backgroundImage='url('+imgs[idx]+')';
+  d.style.setProperty('--d',spd+'ms');
+  s.appendChild(d);
+  idx=(idx+1)%imgs.length;
+  document.getElementById('badge').textContent=idx+' / '+imgs.length;
+  document.getElementById('prog').style.width=(idx/imgs.length*100)+'%';
+}
+function buildGrid(){
+  const g=document.getElementById('grid-view');
+  g.innerHTML='';
+  imgs.forEach(src=>{
+    const wrap=document.createElement('div');wrap.className='grid-item';
+    const img=document.createElement('img');img.src=src;img.loading='lazy';
+    img.onclick=()=>openLb(src);
+    wrap.appendChild(img);g.appendChild(wrap);
+  });
+}
+function setMode(m){
+  mode=m;
+  document.getElementById('b-flash').classList.toggle('on',m==='flash');
+  document.getElementById('b-grid').classList.toggle('on',m==='grid');
+  if(m==='flash'){
+    document.getElementById('grid-view').style.display='none';
+    document.getElementById('grid-label').style.display='none';
+    document.getElementById('stage').style.display='block';
+    if(!paused)startFlash();
+  } else {
+    stopFlash();
+    document.getElementById('stage').style.display='none';
+    document.getElementById('grid-view').style.display='block';
+    document.getElementById('grid-label').style.display='block';
+    buildGrid();
+  }
+}
+function chSpd(dir){
+  si=Math.max(0,Math.min(spds.length-1,si+dir));
+  spd=spds[si];
+  document.getElementById('spd-lbl').textContent=(spd/1000).toFixed(spd<1000?2:1).replace(/\.?0+$/,'')+'s';
+  if(!paused&&mode==='flash')startFlash();
+}
+function togglePause(){
+  paused=!paused;
+  document.getElementById('b-pause').textContent=paused?'&#9654; play':'&#9208; pause';
+  if(paused)stopFlash(); else if(mode==='flash')startFlash();
+}
+function openLb(src){document.getElementById('lb-img').src=src;document.getElementById('lb').classList.add('open');}
+function closeLb(){document.getElementById('lb').classList.remove('open');}
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)closeLb();});
+</script>
+</body>
+</html>
