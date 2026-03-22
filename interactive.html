@@ -259,6 +259,31 @@
 						</div>
 					</div>
 				</article>
+
+				<!-- GitHub Repos — live from GitHub API -->
+				<article id="github" data-aos="fade-up">
+					<h2 class="major">GitHub Repos</h2>
+					<style>
+						.gh-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:8px 0}
+						.gh-card{background:rgba(0,0,0,0.65);border:1px solid rgba(0,255,136,0.15);border-radius:8px;padding:14px 16px;text-decoration:none;color:#fff;transition:border-color .25s,background .25s;display:flex;flex-direction:column;gap:4px}
+						.gh-card:hover{border-color:rgba(0,255,136,0.5);background:rgba(0,255,136,0.04)}
+						.gh-name{font-size:.88rem;font-weight:bold;color:#4ade80}
+						.gh-desc{font-size:.76rem;color:rgba(255,255,255,.48);line-height:1.5;flex:1}
+						.gh-meta{display:flex;gap:12px;margin-top:7px;flex-wrap:wrap}
+						.gh-lang{font-size:.65rem;color:#fbbf24}
+						.gh-stars{font-size:.65rem;color:rgba(255,255,255,.28)}
+						.gh-updated{font-size:.62rem;color:rgba(255,255,255,.18)}
+						.gh-loading{color:rgba(0,255,136,.4);font-size:.76rem;letter-spacing:.15em;padding:16px 0;animation:ghpulse 1.5s ease-in-out infinite}
+						@keyframes ghpulse{0%,100%{opacity:.3}50%{opacity:1}}
+						@media(max-width:600px){.gh-grid{grid-template-columns:1fr}}
+					</style>
+					<div id="gh-repos" class="gh-grid">
+						<p class="gh-loading">→ fetching repos from github.com/jhanKarimov...</p>
+					</div>
+					<p style="margin-top:10px;font-size:.68rem;color:rgba(255,255,255,.18);letter-spacing:.1em">
+						→ <a href="https://github.com/jhanKarimov" target="_blank" style="color:rgba(0,255,136,.35);text-decoration:none">github.com/jhanKarimov</a>
+					</p>
+				</article>
 			</div>
 
 			<!-- Footer -->
@@ -338,7 +363,26 @@
 				retina_detect: true
 			});
 
-			// Smooth scroll for navigation links
+			// GitHub repos
+		fetch('https://api.github.com/users/jhanKarimov/repos?sort=updated&per_page=8')
+			.then(r => r.json())
+			.then(repos => {
+				const el = document.getElementById('gh-repos');
+				if (!repos || repos.message) { el.innerHTML='<p style="color:rgba(255,80,80,.5);font-size:.75rem">Could not load repos.</p>'; return; }
+				const filtered = repos.filter(r => !r.fork).slice(0,8);
+				el.innerHTML = filtered.map(r => `
+					<a class="gh-card" href="${r.html_url}" target="_blank">
+						<span class="gh-name">◈ ${r.name}</span>
+						<span class="gh-desc">${r.description||'No description provided.'}</span>
+						<div class="gh-meta">
+							${r.language?`<span class="gh-lang">⬡ ${r.language}</span>`:''}
+							<span class="gh-stars">★ ${r.stargazers_count}</span>
+							<span class="gh-updated">${new Date(r.updated_at).toLocaleDateString('en-US',{month:'short',year:'numeric'})}</span>
+						</div>
+					</a>`).join('');
+			}).catch(()=>{ document.getElementById('gh-repos').innerHTML='<p style="color:rgba(255,80,80,.5);font-size:.75rem">GitHub API unavailable.</p>'; });
+
+		// Smooth scroll for navigation links
 			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 				anchor.addEventListener('click', function (e) {
 					e.preventDefault();
