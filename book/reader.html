@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read — Between Existence and Nothingness | Xancan Kerimov</title>
+<meta name="description" content="Read 'Between Existence and Nothingness' by Xancan Kerimov (Jhan Karimov) — English translation with Hero's Journey map. A philosophical novel about consciousness and mortality.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%238a2e2e'/><text x='50' y='65' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='%23f0e8e0' text-anchor='middle'>V</text></svg>">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --red: #c44b4b;
+  --red-bright: #d94444;
+  --red-dark: #8a2e2e;
+  --black: #0a0a0a;
+  --black-light: #131313;
+  --black-mid: #1a1a1a;
+  --gray-dark: #2a2a2a;
+  --gray: #666;
+  --gray-light: #999;
+  --white: #f0e8e0;
+  --cream: #f5f0e8;
+  --text-dark: #1a1a1a;
+  --serif: 'Georgia','Times New Roman','Palatino',serif;
+  --sans: -apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --sidebar-w: 300px;
+  --font-size: 18px;
+}
+html { scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:var(--red-dark) var(--black); }
+body { font-family:var(--sans); background:var(--black); color:var(--white); line-height:1.7; overflow-x:hidden; }
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background:var(--black); }
+::-webkit-scrollbar-thumb { background:var(--red-dark); border-radius:4px; }
+h1,h2,h3,h4 { font-family:var(--serif); font-weight:400; }
+a { color:var(--red); text-decoration:none; }
+a:hover { color:var(--red-bright); }
+
+/* TOP NAV */
+.top-bar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(10,10,10,.97); backdrop-filter:blur(12px);
+  padding:0 2rem; height:52px; display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.top-bar .logo { font-family:var(--serif); font-size:1rem; color:var(--white); letter-spacing:1px; }
+.top-bar .logo span { color:var(--red); }
+.top-bar-links { display:flex; gap:1.5rem; align-items:center; }
+.top-bar-links a {
+  color:var(--gray-light); font-size:.75rem; text-transform:uppercase; letter-spacing:2px; transition:color .3s;
+}
+.top-bar-links a:hover { color:var(--white); }
+
+/* TAB SWITCHER */
+.tab-switcher {
+  position:fixed; top:52px; left:0; right:0; z-index:999;
+  background:rgba(13,13,13,.97); backdrop-filter:blur(12px);
+  display:flex; border-bottom:1px solid rgba(255,255,255,.06);
+}
+.tab-btn {
+  flex:1; padding:.8rem 1rem; text-align:center; background:none; border:none;
+  color:var(--gray-light); font-family:var(--sans); font-size:.78rem; text-transform:uppercase;
+  letter-spacing:2px; cursor:pointer; transition:all .3s; position:relative;
+}
+.tab-btn:hover { color:var(--white); background:rgba(255,255,255,.03); }
+.tab-btn.active { color:var(--red); }
+.tab-btn.active::after {
+  content:''; position:absolute; bottom:0; left:20%; right:20%; height:2px; background:var(--red);
+}
+
+/* PROGRESS BAR */
+#progress-bar {
+  position:fixed; top:52px; left:0; right:0; height:3px; z-index:1001;
+  background:rgba(255,255,255,.05);
+}
+#progress-fill { height:100%; width:0; background:linear-gradient(90deg,var(--red-dark),var(--red-bright)); transition:width .1s; }
+
+/* MAIN SECTIONS */
+.section { display:none; padding-top:100px; }
+.section.active { display:block; }
+
+/* ---- READER SECTION ---- */
+#reader-section { display:flex; min-height:100vh; }
+
+/* SIDEBAR */
+.sidebar {
+  position:fixed; top:100px; left:0; bottom:0; width:var(--sidebar-w);
+  background:var(--black-light); border-right:1px solid rgba(255,255,255,.06);
+  overflow-y:auto; z-index:100; transition:transform .4s;
+  scrollbar-width:thin; scrollbar-color:var(--red-dark) transparent;
+}
+.sidebar-header { padding:1.5rem 1.2rem .8rem; }
+.sidebar-header h3 { font-size:.7rem; text-transform:uppercase; letter-spacing:3px; color:var(--red); }
+.chapter-list { list-style:none; padding:0 0 2rem; }
+.chapter-list li { border-bottom:1px solid rgba(255,255,255,.04); }
+.chapter-list li a {
+  display:block; padding:.75rem 1.2rem; color:var(--gray-light); font-size:.82rem;
+  transition:all .3s; text-decoration:none; line-height:1.5;
+}
+.chapter-list li a:hover { background:rgba(196,75,75,.08); color:var(--white); }
+.chapter-list li a.active { color:var(--red); background:rgba(196,75,75,.1); border-left:3px solid var(--red); }
+.chapter-list li a .ch-num { font-family:var(--serif); font-size:.7rem; color:var(--gray); display:block; }
+.chapter-list li a .ch-az { font-size:.72rem; color:var(--gray); display:block; margin-top:2px; font-style:italic; }
+.chapter-list li a .ch-badge {
+  display:inline-block; font-size:.6rem; background:var(--red-dark); color:#fff; padding:1px 6px;
+  border-radius:8px; margin-top:3px; text-transform:uppercase; letter-spacing:1px;
+}
+.chapter-list li a .ch-badge.soon { background:var(--gray-dark); color:var(--gray); }
+
+/* READING PANE */
+.reading-pane {
+  margin-left:var(--sidebar-w); flex:1; display:flex; justify-content:center; padding:2rem 2rem 6rem;
+  min-height:calc(100vh - 100px);
+}
+
+/* Book page container */
+.book-page {
+  max-width:720px; width:100%; background:var(--cream); color:var(--text-dark);
+  font-family:var(--serif); font-size:var(--font-size); line-height:1.9;
+  padding:3.5rem 3rem 4rem; border-radius:2px;
+  box-shadow:0 0 60px rgba(0,0,0,.5), 0 0 120px rgba(0,0,0,.3);
+  position:relative;
+}
+.book-page.dark-mode {
+  background:#1c1c1e; color:#d4d0c8;
+  box-shadow:0 0 60px rgba(0,0,0,.7);
+}
+.book-page::before {
+  content:''; position:absolute; top:0; left:0; bottom:0; width:4px;
+  background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.02),rgba(0,0,0,.08));
+  border-radius:2px 0 0 2px;
+}
+.book-page .chapter-heading {
+  text-align:center; margin-bottom:2.5rem; padding-bottom:1.5rem;
+  border-bottom:1px solid rgba(0,0,0,.1);
+}
+.book-page.dark-mode .chapter-heading { border-bottom-color:rgba(255,255,255,.1); }
+.book-page .chapter-heading .ch-number {
+  font-family:var(--sans); font-size:.7rem; text-transform:uppercase; letter-spacing:4px;
+  color:var(--red); margin-bottom:.5rem; display:block;
+}
+.book-page .chapter-heading h1 { font-size:1.8rem; margin-bottom:.3rem; }
+.book-page .chapter-heading .reading-time {
+  font-family:var(--sans); font-size:.72rem; color:#888; letter-spacing:1px;
+}
+.book-page p { margin-bottom:1.4em; text-align:justify; text-indent:1.5em; }
+.book-page p:first-of-type { text-indent:0; }
+.book-page p:first-of-type::first-letter {
+  font-size:3.2em; float:left; line-height:.85; margin-right:.08em; margin-top:.05em;
+  color:var(--red); font-family:var(--serif);
+}
+.book-page .separator { text-align:center; margin:2rem 0; color:var(--red); font-size:1.2rem; letter-spacing:8px; }
+.book-page .epigraph { text-align:center; font-style:italic; font-size:.92em; color:#666; margin:2rem 0; line-height:1.7; }
+.book-page.dark-mode .epigraph { color:#999; }
+.book-page .epigraph-source { text-align:center; font-size:.78em; color:#999; margin-top:.5rem; }
+.book-page .coming-soon {
+  text-align:center; padding:4rem 2rem; color:#999; font-style:italic; font-size:1.1em;
+}
+.book-page .coming-soon .lock { font-size:3rem; margin-bottom:1rem; display:block; opacity:.3; }
+.book-page .page-note {
+  text-align:center; font-family:var(--sans); font-size:.7rem; color:var(--red); letter-spacing:2px;
+  text-transform:uppercase; margin-top:2rem; padding-top:1rem;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+.book-page.dark-mode .page-note { border-top-color:rgba(255,255,255,.08); }
+
+/* CONTROLS */
+.reader-controls {
+  position:fixed; bottom:2rem; right:2rem; z-index:200;
+  display:flex; flex-direction:column; gap:.5rem;
+}
+.ctrl-btn {
+  width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,10,10,.9); backdrop-filter:blur(8px); color:var(--white);
+  font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:all .3s;
+}
+.ctrl-btn:hover { border-color:var(--red); color:var(--red); background:rgba(10,10,10,.95); }
+.ctrl-btn.active { background:var(--red-dark); border-color:var(--red); }
+
+/* Sidebar toggle (mobile) */
+.sidebar-toggle {
+  display:none; position:fixed; bottom:2rem; left:1rem; z-index:201;
+  width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,10,10,.9); color:var(--white); font-size:1.2rem; cursor:pointer;
+  align-items:center; justify-content:center;
+}
+
+@media(max-width:900px){
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .sidebar-toggle { display:flex; }
+  .reading-pane { margin-left:0; padding:1.5rem 1rem 5rem; }
+  .book-page { padding:2rem 1.5rem 3rem; font-size:16px; }
+}
+@media(max-width:500px){
+  .book-page { padding:1.5rem 1rem 2rem; }
+  .book-page .chapter-heading h1 { font-size:1.4rem; }
+  .book-page p:first-of-type::first-letter { font-size:2.5em; }
+}
+
+/* ---- JOURNEY SECTION ---- */
+#journey-section { padding-top:110px; }
+.journey-container { max-width:900px; margin:0 auto; padding:2rem; }
+.journey-title { text-align:center; margin-bottom:.5rem; }
+.journey-title h2 { font-size:clamp(1.5rem,4vw,2.5rem); }
+.journey-title h2 span { color:var(--red); }
+.journey-subtitle {
+  text-align:center; font-size:.78rem; text-transform:uppercase; letter-spacing:3px;
+  color:var(--gray-light); margin-bottom:3rem;
+}
+
+/* CLOCK */
+.clock-wrapper { position:relative; width:100%; padding-bottom:100%; margin:0 auto; max-width:800px; }
+.clock-svg { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+/* Node styling */
+.journey-node { cursor:pointer; }
+.journey-node circle { transition:all .4s; }
+.journey-node:hover circle.node-bg { r:30; }
+.journey-node text { font-family:var(--sans); pointer-events:none; }
+.journey-node .node-num { font-size:11px; fill:var(--cream); font-weight:700; }
+.journey-node .node-title { font-size:8px; fill:var(--cream); font-weight:400; }
+.journey-node .node-stage { font-size:6px; fill:var(--red); text-transform:uppercase; letter-spacing:1px; font-weight:400; }
+
+/* Center */
+.center-label { font-family:var(--serif); font-size:18px; fill:var(--red); letter-spacing:4px; }
+.center-sublabel { font-family:var(--sans); font-size:7px; fill:var(--gray-light); letter-spacing:2px; }
+
+/* Journey path glow */
+@keyframes tracePath { 0% { stroke-dashoffset:2200; } 100% { stroke-dashoffset:0; } }
+.journey-path-anim {
+  stroke-dasharray:2200; stroke-dashoffset:2200;
+  animation:tracePath 8s ease-in-out forwards;
+}
+
+/* Tooltip */
+.journey-tooltip {
+  position:fixed; z-index:500; background:rgba(10,10,10,.95); border:1px solid var(--red-dark);
+  border-radius:6px; padding:1rem 1.2rem; max-width:280px; pointer-events:none;
+  opacity:0; transition:opacity .3s; backdrop-filter:blur(8px);
+  font-size:.82rem; line-height:1.5;
+}
+.journey-tooltip.show { opacity:1; }
+.journey-tooltip .tt-num { color:var(--red); font-size:.7rem; letter-spacing:2px; text-transform:uppercase; }
+.journey-tooltip .tt-title { font-family:var(--serif); font-size:1rem; margin:.3rem 0; }
+.journey-tooltip .tt-stage { color:var(--red); font-size:.7rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:.4rem; }
+.journey-tooltip .tt-desc { color:var(--gray-light); font-size:.78rem; }
+
+/* Direction indicators */
+.direction-label { font-family:var(--sans); font-size:8px; letter-spacing:2px; text-transform:uppercase; }
+
+/* Journey legend */
+.journey-legend {
+  display:flex; justify-content:center; gap:2rem; margin-top:2rem; flex-wrap:wrap;
+}
+.legend-item { display:flex; align-items:center; gap:.5rem; font-size:.72rem; color:var(--gray-light); }
+.legend-dot { width:10px; height:10px; border-radius:50%; }
+
+@media(max-width:600px){
+  .clock-wrapper { padding-bottom:120%; }
+  .journey-node .node-title { font-size:6.5px; }
+  .journey-node .node-stage { font-size:5px; }
+  .journey-node .node-num { font-size:9px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="index.html" class="logo">Between Existence <span>&amp;</span> Nothingness</a>
+  <div class="top-bar-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#chapters">Chapters</a>
+    <a href="index.html#author">Author</a>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<!-- TAB SWITCHER -->
+<div class="tab-switcher">
+  <button class="tab-btn active" data-tab="reader">Book Reader</button>
+  <button class="tab-btn" data-tab="journey">Hero's Journey</button>
+</div>
+
+<!-- ================ READER SECTION ================ -->
+<div id="reader-section" class="section active">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Chapters</h3>
+    </div>
+    <ul class="chapter-list" id="chapter-list">
+      <li><a href="#" data-ch="1" class="active">
+        <span class="ch-num">Chapter 1</span>The Roar of Silence
+        <span class="ch-az">Sukunetin Gurultusu</span>
+        <span class="ch-badge">Available</span>
+      </a></li>
+      <li><a href="#" data-ch="2">
+        <span class="ch-num">Chapter 2</span>Euthanasia Camps
+        <span class="ch-az">Evtanaziya Dushergalari</span>
+        <span class="ch-badge">Page 1</span>
+      </a></li>
+      <li><a href="#" data-ch="3">
+        <span class="ch-num">Chapter 3</span>Lara
+        <span class="ch-az">Lara</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="4">
+        <span class="ch-num">Chapter 4</span>Saudade
+        <span class="ch-az">Saudade</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="5">
+        <span class="ch-num">Chapter 5</span>Homeless and Jobless
+        <span class="ch-az">Evsiz ve Ishsiz</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="6">
+        <span class="ch-num">Chapter 6</span>Richard
+        <span class="ch-az">Richard</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="7">
+        <span class="ch-num">Chapter 7</span>Weary Hopes
+        <span class="ch-az">Yorgun Umidlar</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="8">
+        <span class="ch-num">Chapter 8</span>Hallucinations of Reality
+        <span class="ch-az">Gerchekliyin Halusinasiyalari</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="9">
+        <span class="ch-num">Chapter 9</span>Sacred Sin
+        <span class="ch-az">Muqeddes Gunah</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="10">
+        <span class="ch-num">Chapter 10</span>Pains and Pleasures
+        <span class="ch-az">Aghrilar ve Leyzetlar</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="11">
+        <span class="ch-num">Chapter 11</span>Fred
+        <span class="ch-az">Fred</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="12">
+        <span class="ch-num">Chapter 12</span>Above the Clouds
+        <span class="ch-az">Buludlarin Uzerinde</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="13">
+        <span class="ch-num">Chapter 13</span>Dialectical Monologue
+        <span class="ch-az">Dialektik Monoloq</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+      <li><a href="#" data-ch="14">
+        <span class="ch-num">Chapter 14</span>Death
+        <span class="ch-az">Olum</span>
+        <span class="ch-badge soon">Coming Soon</span>
+      </a></li>
+    </ul>
+  </aside>
+
+  <div class="reading-pane">
+    <div class="book-page" id="book-page"></div>
+  </div>
+</div>
+
+<!-- ================ JOURNEY SECTION ================ -->
+<div id="journey-section" class="section">
+  <div class="journey-container">
+    <div class="journey-title"><h2>The Hero's <span>Journey</span></h2></div>
+    <p class="journey-subtitle">14 chapters arranged as a clock &mdash; from existence to nothingness and back</p>
+
+    <div class="clock-wrapper">
+      <svg class="clock-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a5a8c" />
+            <stop offset="25%" stop-color="#5a4a7a" />
+            <stop offset="50%" stop-color="#c44b4b" />
+            <stop offset="75%" stop-color="#d4884a" />
+            <stop offset="100%" stop-color="#3a5a8c" />
+          </linearGradient>
+          <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(196,75,75,.15)" />
+            <stop offset="100%" stop-color="rgba(196,75,75,0)" />
+          </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <circle id="orbitPath" cx="400" cy="400" r="260" fill="none" />
+        </defs>
+
+        <circle cx="400" cy="400" r="320" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1" />
+        <circle cx="400" cy="400" r="260" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1.5" />
+        <circle cx="400" cy="400" r="200" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1" />
+        <circle cx="400" cy="400" r="120" fill="url(#centerGlow)" />
+
+        <g id="center-lines" opacity=".15"></g>
+
+        <circle cx="400" cy="400" r="260" fill="none" stroke="url(#pathGrad)" stroke-width="2.5"
+                class="journey-path-anim" filter="url(#glow)" />
+
+        <g transform="translate(110,400)">
+          <line x1="0" y1="-100" x2="0" y2="100" stroke="rgba(58,90,140,.4)" stroke-width="1.5" />
+          <polygon points="-5,90 5,90 0,105" fill="rgba(58,90,140,.5)" />
+          <text x="-8" y="0" class="direction-label" fill="rgba(58,90,140,.6)" transform="rotate(-90)" text-anchor="middle">Descent</text>
+        </g>
+        <g transform="translate(690,400)">
+          <line x1="0" y1="100" x2="0" y2="-100" stroke="rgba(212,136,74,.4)" stroke-width="1.5" />
+          <polygon points="-5,-90 5,-90 0,-105" fill="rgba(212,136,74,.5)" />
+          <text x="8" y="0" class="direction-label" fill="rgba(212,136,74,.6)" transform="rotate(90)" text-anchor="middle">Ascent</text>
+        </g>
+
+        <text x="400" y="393" text-anchor="middle" class="center-label">MAVI</text>
+        <text x="400" y="412" text-anchor="middle" class="center-sublabel">BETWEEN EXISTENCE</text>
+        <text x="400" y="424" text-anchor="middle" class="center-sublabel">AND NOTHINGNESS</text>
+
+        <g id="journey-nodes"></g>
+
+        <circle r="5" fill="#d94444" filter="url(#glow)">
+          <animateMotion dur="12s" repeatCount="indefinite">
+            <mpath href="#orbitPath" />
+          </animateMotion>
+        </circle>
+      </svg>
+    </div>
+
+    <div class="journey-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#3a5a8c"></div>Cold / Death / Nothingness</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c44b4b"></div>Turning Point / Ordeal</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d4884a"></div>Warm / Life / Acceptance</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div class="journey-tooltip" id="journey-tooltip">
+  <div class="tt-num"></div>
+  <div class="tt-title"></div>
+  <div class="tt-stage"></div>
+  <div class="tt-desc"></div>
+</div>
+
+<!-- CONTROLS -->
+<div class="reader-controls" id="reader-controls">
+  <button class="ctrl-btn" id="btn-font-up" title="Increase font size">A+</button>
+  <button class="ctrl-btn" id="btn-font-down" title="Decrease font size">A-</button>
+  <button class="ctrl-btn" id="btn-dark-mode" title="Toggle dark/light reading mode">&#9789;</button>
+  <button class="ctrl-btn" id="lang-btn" title="Switch Language" onclick="toggleLang()" style="font-size:.7rem;font-weight:700">EN</button>
+</div>
+<button class="sidebar-toggle" id="sidebar-toggle" title="Toggle chapters">&#9776;</button>
+
+<script>
+var chapters = [
+  {num:1, en:"The Roar of Silence", az:"Sukunetin Gurultusu", stage:"The Ordinary World", clock:"12 o\u2019clock", desc:"Mavi in his apartment, drunk, contemplating existence", color:"#3a5a8c", readTime:"18 min"},
+  {num:2, en:"Euthanasia Camps", az:"Evtanaziya Dushergalari", stage:"Call to Adventure", clock:"1 o\u2019clock", desc:"The world of legalized death is introduced", color:"#3e5588", readTime:"~25 min (full)"},
+  {num:3, en:"Lara", az:"Lara", stage:"Meeting the Mentor", clock:"2 o\u2019clock", desc:"A woman who changes perspective", color:"#4a4f82", readTime:"~20 min"},
+  {num:4, en:"Saudade", az:"Saudade", stage:"Crossing the Threshold", clock:"3 o\u2019clock", desc:"Drowning in nostalgia, the disease of memory", color:"#5a4a7a", readTime:"~22 min"},
+  {num:5, en:"Homeless and Jobless", az:"Evsiz ve Ishsiz", stage:"Tests & Allies", clock:"4 o\u2019clock", desc:"Stripped of everything, facing raw existence", color:"#6a4572", readTime:"~19 min"},
+  {num:6, en:"Richard", az:"Richard", stage:"The Approach", clock:"5 o\u2019clock", desc:"Meeting a mirror of himself in another", color:"#7a4568", readTime:"~21 min"},
+  {num:7, en:"Weary Hopes", az:"Yorgun Umidlar", stage:"The Ordeal", clock:"6 o\u2019clock", desc:"Hope itself becomes exhausted \u2014 the lowest point", color:"#c44b4b", readTime:"~24 min"},
+  {num:8, en:"Hallucinations of Reality", az:"Gerchekliyin Halusinasiyalari", stage:"Death & Rebirth", clock:"7 o\u2019clock", desc:"Reality fractures, perception shifts", color:"#c4604a", readTime:"~20 min"},
+  {num:9, en:"Sacred Sin", az:"Muqeddes Gunah", stage:"The Reward", clock:"8 o\u2019clock", desc:"Finding meaning in transgression", color:"#c8754a", readTime:"~18 min"},
+  {num:10, en:"Pains and Pleasures", az:"Aghrilar ve Leyzetlar", stage:"The Road Back", clock:"9 o\u2019clock", desc:"The body\u2019s language of being alive", color:"#d4884a", readTime:"~22 min"},
+  {num:11, en:"Fred", az:"Fred", stage:"Resurrection", clock:"10 o\u2019clock", desc:"Another life, another perspective", color:"#c8904a", readTime:"~17 min"},
+  {num:12, en:"Above the Clouds", az:"Buludlarin Uzerinde", stage:"Return with Elixir", clock:"11 o\u2019clock", desc:"Momentary transcendence", color:"#b0884a", readTime:"~20 min"},
+  {num:13, en:"Dialectical Monologue", az:"Dialektik Monoloq", stage:"The Final Test", clock:"11:30", desc:"Arguing with himself \u2014 thesis, antithesis", color:"#6a7a8a", readTime:"~23 min"},
+  {num:14, en:"Death", az:"Olum", stage:"Master of Two Worlds", clock:"12 o\u2019clock", desc:"Choosing to live despite everything \u2014 the circle completes", color:"#3a5a8c", readTime:"~15 min"}
+];
+
+var ch1Content = '<p>Some afflictions have no cure \u2014 only a name, and that name is misery. There come moments in life when you find yourself drowning inside your own existence. You collapse beneath the weight of all the notes you\u2019ve kept, all those warm and optimistic hopes, all those plans you once made. The longing and regret of the past press from one side, the panic and dread of the future from the other, squeezing your heart like a vise. Your whole world caves in on you. You don\u2019t know where to begin, and there is no one to reach out a hand. You want to sit down and weep. You can\u2019t even manage that. You apologize to yourself. You gather your shattered hopes into your arms and whisper <em>don\u2019t be cold</em>. I\u2019ll find a way, you say. But you haven\u2019t the faintest idea what you\u2019ll do. Like mothers who, in days of famine, are forced to lie to their children \u2014 you lie to yourself and to your hopes. Your spirit, trapped in its dark labyrinth, fractures and comes apart. Each day another heavy stone is added to the ones already hanging from your heart, and you want to clutch them all and hurl yourself into the nearest river. Then you lose your nerve, decide that drowning isn\u2019t such a fine idea after all, and before you know it you\u2019ve become an expert on painless methods of suicide through sheer research alone. And yet you\u2019re still alive. Because just as no mother would leave her children alive and die, no human being can leave their hopes alive and perish. You understand this, and so you begin to kill your hopes, one by one. Until they are dead, there is no peace for you. Time will tell what a fine killer you are. Only in the rarest of cases is a mother cruel enough to murder her own children.</p><p>After your repeated attempts at living again end in failure and defeat, you weigh every option and arrive once more at the same conclusion: the finest choice in life is death, for it is the only choice you can never regret. But because suicide is not easy, all of humanity ignores this finest of choices and simply goes on trying to live.</p><p>Living wasn\u2019t worth the trouble \u2014 not for him, at the very least. And he was tired now. He had just left his job. He had enough money saved to last a few months. Roughly three months\u2019 rent, food, and sundry small expenses \u2014 that was all it would cover. Within three months he either had to find work again or be dead and gone. Since living was no longer worth the trouble, the second option struck him as easier, even alluring. He could not bear the weight of his life, nor could he find a way out. He thought of it like zugzwang in chess \u2014 whatever move you make, you\u2019re mated, you\u2019ve already lost, and there is no escape. That was why he had been devising suicide plans for a long time. It was easy, of course, he thought. He would die, and that would be the end of it. All his sorrows, his pains, the torments he had endured, the tedium, the jealousies, the longing for the past, and every other quality that inflicts suffering upon a human being \u2014 all of it would rot away with him. Was suicide really that easy? It was not. And that was precisely why he had been mired in hesitation and doubt for so long. There was no other explanation for how people who suffered this much managed to stay alive for this many years. He could assign no other meaning to it. Death was, in truth, humanity\u2019s greatest enemy. Not because it ended a person\u2019s life \u2014 on the contrary, that was its virtue \u2014 but because it was difficult. Profoundly difficult. It was an obstacle lodged between ending your life and staying in it. The crossing between existence and nothingness. Death was like an enormously wide river teeming with crocodiles, separating two cities. Every time you approach to cross, you recoil in terror. As though you live in hell and there is a vast river separating you from paradise. You cannot cross it, cannot even draw near. And the far bank of that river was paradise \u2014 yes, paradise. Nonexistence. Is that not the greatest paradise of all? You are not. You cease to be. Nothingness. The sole moment of liberation from your own being. The most sacred deliverance. Humanity\u2019s greatest salvation, therefore, was to cease to exist. The only thing that could end the war inside a human being was death. Which meant, he thought, that death was in truth humanity\u2019s greatest friend. And yet the human race did everything in its power to flee from it, creating all its technology, all its medicine, driven by the thought of distancing itself a little further from death.</p><p>People cannot grasp the value of nonexistence. Their genes obstruct them, and they cannot comprehend it \u2014 how beautiful an exit death truly is. Death, not suicide. They are two different things, after all. Killing yourself sounds horrifying, and so it is. But sudden death that arrives without your knowledge, without suffering \u2014 that is the greatest happiness. You are not, and neither your pains nor your desires can wound you any longer. Nonexistence \u2014 that is, the state of not being \u2014 is therefore the greatest of all blessings.</p><p>And yet a biological mechanism as exquisite as the human brain could construct sentences like \u201cI\u2019m grateful to my family for bringing me into this world\u201d and mount a defense of them, he thought. The sentence was flawed from its inception, contrary to all logic, for existence and nonexistence cannot be compared. Only two existing things can be compared. How could an existing life be compared to nonexistence? How could a person be grateful to their family for bringing them into the world if, had they not been born, they would never have existed, would never have known they didn\u2019t exist? Someone conjures you out of nothing, and you are grateful to them. Absurd. But certain people\u2019s brain chemistry was so admirably suited to survival that they could never perceive this absurdity.</p><p>He did not think that way. Or rather, he had never thought that way, not since he first came to know himself. He loved death. It was as though they shared a distant romance. A love both of them were aware of, a love in which both ached for the other. The sole barrier between them was, without question, the biological instinct he possessed. The instinct that kept a person alive \u2014 their genes. It was as though he was the one who wanted to die, and his genes were the ones who wanted to live. Of course that\u2019s exactly how it would be, he thought. The sole purpose of a billion years of random evolution was for genes to keep themselves alive and transmit themselves in improved form to the next generation \u2014 the suffering endured was immaterial, the anguish of living borne by individuals, by billions, was immaterial. Then some of those genes that wanted to stay alive evolved to such a degree that they began producing something as complex and magnificent as consciousness itself. Consciousness, which had in truth emerged of its own accord to further increase their odds of survival, was now rising up against them \u2014 against the genes. It was questioning the meaning of its existence. Like a conservative father\u2019s son growing up and taking his revenge. From this vantage point, consciousness was perhaps the gravest defect of biological evolution, slowly annihilating it from within. But in not every human being was consciousness the winning side. More precisely, in none of those still living had consciousness yet prevailed \u2014 for they were still alive. Far from prevailing, in most of them consciousness was an advocate and ally of staying alive. From this perspective, humanity could be divided into three categories \u2014 two fortunate, one unfortunate. Those whose consciousness and genes both wanted to live; those whose consciousness wanted to die but could not overpower the genes; and those whose consciousness wanted to die, overpowered the genes, and committed suicide. The worst fate was to be stranded in the middle. Neither on this shore nor on that. Unable to live, unable to die. That was his condition. He could neither commit suicide nor live the life he wanted. He crawled between existence and nothingness.</p><p>This was the greatest war waged within the human being since the dawn of existence. Like a colossal two-headed dragon whose heads battle each other. This was life\u2019s sense of humor \u2014 like that moment when joy and tears blur together, like weeping from happiness. Like the at least two selves every person harbors, bickering with each other for a lifetime. As though all the glorious gods had assembled like an orchestra and composed the greatest works of art, swelling with pride. Creating so complex a paradox was, after all, no small feat.</p><p>Life is beautiful. But the toll of living is not borne equally by all. Suicide is decided upon at the moment when the efficiency coefficient of a person\u2019s labor of living drops below zero. Or rather, it is the ratio of the pleasure derived from life to the toil of living that determines suicide. The threshold varies from person to person. Take the sum of hope, desire, and longing, and divide it by the magnitude of suffering endured.</p><p>Then, suddenly, he thought of the first human being who ever committed suicide. It must have been an enormous revolution. And within any theory of creation. Whether in the theory of evolution or in the narrative of divine creation, the first suicide must have been a mighty upheaval in every sense. A human being was revolting against its own creation. Rebelling. And thus the first rebel was born. For the first time, one among them stood up and declared: \u201cYou know what? I\u2019m leaving.\u201d It was, in truth, the greatest act of defiance in the history of humankind. More violent, even, than the theft of the apple \u2014 that supposed first revolution of Adam and Eve in the stories of divine creation.</p><p>For a brief moment he felt a pang of longing for that first person who had taken their own life; he wished he could have met them. He felt a kinship with that soul. Even now, even at this very instant, if he could somehow meet that person, they would get along splendidly \u2014 he was certain of it. Even without a common language between them, they would still understand each other, he thought. He would place his hand on the weary shoulder of that first rebel friend, look into their eyes, and let them feel \u2014 without a single word \u2014 that they were understood...</p><p>He snapped out of his reverie for a moment and glanced at the rum in his hand \u2014 sugarcane rum \u2014 the bottle still half full. This gave him a small flicker of happiness. He had thought the rum was finished. He raised it to his lips and took another sip. His mouth puckered. He looked around, trying to locate his cigarettes. He smoked hand-rolled tobacco. He had rolled them beforehand and packed them neatly into a case. He rummaged about. Spotted the case on the floor at the far end of the couch. He rose to his feet with indolent reluctance, feeling a faint dizziness from the drink. He tried to keep his balance, lurched forward a step, and scooped the case off the floor. He loved the cigarette that was lit at precisely this stage of drunkenness more than any other. The greatest pleasure a cigarette could give belonged to exactly this moment. He plucked out a roll, placed it between his lips. Cupped both hands together, bent forward, and lit it. A long, slow drag. He inhaled deeply, pulling the smoke into his lungs, and savored the pleasure of that small moment. He released the smoke through his nose. Took another sip of rum. Rubbed his forehead and eyes with his hand. Stood still for a few seconds of silence. He tried to remember what he had last been doing, what he had been thinking. He shook his head, blinked several times. Threw himself back onto the couch. He sank down, and his gaze drifted through the window of the one-room apartment where he had lived alone for so long. The sky had been stained a deep blue, the clouds adorned with the color of melancholy. Behind the somber overcast, blue devils lurked in hiding, and somewhere in the distance, from some far-off place, the music of sorrow and grief could be heard \u2014 a blues scored in blue notes.</p><p>His thoughts wandered back to the first person who ever committed suicide. How did they do it, asked the restless inner voice. He found the thought intriguing. Surely it was even harder to take one\u2019s own life back then. Back then \u2014 but when exactly? If you went all the way back, to the forest-dwelling humans in whom consciousness was only just beginning to stir, none of the painless methods of suicide existed yet. If someone in that era had resolved to kill themselves, what would they have done? he wondered for a moment. Drowning was the first thing that came to mind. Perhaps our first hero had flung himself from a cliff at the edge of some high ridge, where the forest on the mountaintop met the sea, straight down into the water below. Or perhaps he had simply driven a stone-tipped spear into his own heart? How had it happened, really? His imagination would not cooperate in the way he wanted to find the answer. Which method had been chosen? Had that weary soul thrown himself before wild beasts? \u201cOh, come off it,\u201d his inner voice replied. Then, suddenly, he thought perhaps suicide hadn\u2019t happened at all in that era. Perhaps there hadn\u2019t been much need for it. Because the number of pains in human life had not yet multiplied, and people lived only for sustenance. Then, all at once, a longing for that era welled up inside him. A time without today\u2019s countless branching possibilities, where the probability of problems was smaller, where expectations amounted to nothing more than the day\u2019s food. \u201cThat sounds foolish,\u201d he thought. \u201cTo think that living was easier in those times is perhaps nothing but an illusion.\u201d But \u201cmost likely,\u201d he said, the first suicide had occurred in the advancing ages, in the time of the first civilizations. He thought of tribal wars. Of the times when humans lived in early groups and clans, and of the small battles and petty conflicts between them. \u201cAha,\u201d said his inner voice. In all likelihood, the first suicide had occurred around then \u2014 carried out with the first weapons of war. It must have been a bloody suicide. He pitied that first person for their bad luck. Even their suicides weren\u2019t easy; there were none of the tools that could settle the matter quickly, as there are today.</p><p>Involuntarily, he brought the rum bottle to his lips. Took a sip. If the first person who ever committed suicide were here beside him now, he would offer them this very drink, he thought. After the dizziness of the first sip or two, they would probably come to enjoy it \u2014 he affirmed this to himself. Life was almost certainly divided into two epochs: before and after the discovery of wine \u2014 the eras of harder and easier reconciliation. Without alcohol and similar substances, the suicide rate would probably have been far higher. People would not have been able to weather their sudden plunges in spirit, their psychological crises, and would have lunged toward death with far greater urgency. He considered this, then raised his drink and drained it in honor of all humanity, in honor of every lover of wine. To make sure not a single drop remained, he tilted the bottle upward again, stuck out his tongue, tipped it at an angle, and watched as the last droplet began its slow crawl from the bottom of the bottle, then gathered speed, then slowed again at the glass mouth, dangling there as if suspended \u2014 before leaping onto his tongue. He tossed the empty bottle to the floor.</p><p>He was drunk, and he was as happy as he was drunk.</p><p>He had managed to free himself \u2014 for an hour at least \u2014 from the disease of nostalgia that gripped him. He had not thought, had not remembered. For a single fleeting instant, he had been liberated from the torment of longing for the past.</p><p>Every human being is a totality of memories. Every body and brain is a totality of memories. The brain is a network of information, and every piece of information is a memory. Every memory is an experience. The sole difference between a child and an adult is the quantity of memories they possess. Walking is a memory and experience that a crawling infant does not yet have. Crawling is the memory of the act of moving on hands and knees, stored within the mind.</p><p>Red is a memory. A harmless, small memory. Blue, cold, hot, darkness, green, the sea, the pronunciation of the letter A, running, laughing \u2014 all are memories etched into the mind in their most delicate detail by hundreds or thousands of neural networks. All these harmless and minor details combine to form larger, more complex, and sometimes harmful memories. For instance, \u201cthat hot summer day on the shore when he ran after A, laughing\u201d \u2014 that was a memory. A happy moment preserved by a complex neural network. Sweet in appearance, yet wounding from time to time. Because it was past, and it had stayed in the past. If you cannot live something again, even the sweetest memories can become their own private hell. A past you cannot touch, memories you cannot embrace. Years \u2014 that is, time \u2014 and distances are the two greatest factors of the disease called nostalgia. You either ache for what is past, or for places and people that are now far away. Distances could kill a person alive. Physicians say that nostalgia is a beautiful mechanism, shaped by evolution, that allows people to recall pleasant memories and feel better in dark moments. But they forgot the black within the white. They forgot the raging thirst for the past, the violent yearning. Perhaps the memory disorders that afflict the elderly \u2014 Alzheimer\u2019s and the like \u2014 are a mercy granted by God. For within the embrace of eighty years\u2019 worth of memories, a person could be destroyed by longing.</p><p>Whenever fragments of his past flickered through his mind, he did everything he could to make his brain think about something else. Because repetition strengthens memory. Each time we recall a memory or a piece of information, impulses are sent to the neural network where that memory is stored, and each impulse leaves a deeper trace than the last, thus reinforcing the synaptic bonds \u2014 that is, the memory itself. For this reason, he no longer allowed himself to recall any memory, good or bad. Not at all. He especially refused to visualize them, because stronger impulses fortified the neural network all the more. Instead, he tried to forget. Blasting music, perhaps, or screaming, or running until his body met its limit, or pounding his fists into the walls \u2014 these were his methods of fleeing those moments of remembrance. Like a child left alone in the dark who whistles or hums to keep fear at bay, he would improvise in such moments, murmuring under his breath to scatter his brain\u2019s attention. His only difference from a frightened child was that he did it invisibly, humming in his throat without so much as moving his lips. And when none of these methods worked \u2014 which was always \u2014 he turned to drinking and smoking. Or he threw himself into the arms of whatever other artificial or natural narcotic might distance him from reality. The narcotic that performed this task of forgetting, of not remembering, of scattering attention best of all was alcohol. It was as though this were alcohol\u2019s most essential function. For from the moment it enters the body, alcohol advances rapidly toward the brain; once past the blood-brain barrier, it acts upon glutamate receptors, slowing glutamate transmission, and thereby slowing the brain\u2019s core functions: interneuronal information transfer weakens \u2014 consequently, you feel less, you perceive less, you remember less, you notice less. The neurons leading to the memory vaults where recollections are stored grow weary, and their signals fade. Thus the drunken person not only ceases to recall the past but scarcely remembers or notices even the present problems of their life, and embraces, however briefly, an artificial happiness.</p><p>His eye caught the note pinned to the wall \u2014 <em>happy death!</em> \u2014 and he remembered the newly opened Euthanasia camps he was preparing to visit for his suicide.</p><div class="separator">&bull; &bull; &bull;</div><p>If you are lonely enough, you can hear the roar of silence. The roar of his loneliness \u2014 that silence echoing through the empty room \u2014 wounded him, and he hated it more than anything else in this life.</p><div class="epigraph">Memento mori<br>Memento te hominem esse<br>Respice post te! Hominem te esse memento!<br><br><em>(Remember that you will die.<br>Remember that you are only a human.<br>Look behind you! You are only human, remember!)</em></div><div class="epigraph-source">&mdash; Roman triumph (ancient Roman victory parades)</div><div class="separator">&bull; &bull; &bull;</div>';
+
+var ch2Content = '<p>Liberalism, just as it had opened every other door, was now opening the door to death itself. States were transforming. Their goals were no longer the high demographic targets of the old order \u2014 the opposite, in fact. Maintaining balance, regulation \u2014 these had become what mattered. Euthanasia, the method by which the terminally ill could decide upon their own death and die under medical supervision, had not only been legalized but had expanded to the point where even people with no serious illness could, by their own volition, die under the watchful eye of a physician.</p><p>The process had advanced gradually. A few years earlier, the efforts of activists trying to draw attention to the euthanasia request of an elderly patient named Hugo Jeseina \u2014 who, following an accident that damaged his spinal cord, was paralyzed in his entire body save for one functioning hand \u2014 had unexpectedly garnered attention, first nationally and then on a global scale. Soon after, the country\u2019s leading private human rights organizations brought the matter to public debate and split into two opposing camps. The waning influence of religion in society had diminished the weight of religious arguments in the discussion. Still, human rights organizations opposed to euthanasia continued to emphasize \u2014 on religious or similar grounds \u2014 that human life was sacred and that ending it was wrong. Smaller, more radical religious groups, their numbers dwindling, defended the position that human life was given by God and could only be taken by God. Among the arguments of those opposed were also the claims that cures for even fatal diseases might yet be found at the last moment, that euthanasia implied life was not worth living, that legalization would lead to more deaths, and that medical research would decline.</p><p>Those in favor of euthanasia, on the other hand, stressed that a person\u2019s decisions about their own life must remain in their own hands, no matter what. Drawing attention to the pain endured by the sick, they sharply criticized those who \u2014 never having felt such agony themselves \u2014 presumed to debate whether another human being should go on living with it, and they fiercely condemned contemporary human rights standards for this hypocrisy. In various cities across the country, small groups gathered with photographs of Hugo Jeseina and other terminally and gravely ill patients who wished for euthanasia, staging modest protests and crying out: \u2018Happy death! Happy death!\u2019</p><p>The historian Suetonius, writing in the early years of the Common Era about the death of Emperor Octavian Augustus, recorded: \u2018He passed into eternity swiftly and painlessly in the arms of his wife Livia, experiencing the euthanasia he had wished for.\u2019 And so a new expression entered the history of humanity \u2014 a word meaning happy death, dignified death, or painless death: euthanasia. Now, centuries after Augustus\u2019s passing, the phrase \u2018happy death\u2019 was marching through the streets on placards, in the name of saving Hugo.</p><div class="page-note">End of translated excerpt &mdash; Page 1 of Chapter 2</div>';
+
+var currentLang = 'en';
+// AZ content will be loaded below
+var ch1Az = '<p>Bəzi dərdlərin çarəsi olmur, sadəcə adı olur o da bədbəxtlik. Həyatda bəzən elə anlar gəlir çıxır ki, öz həyatının içində itib-batırsan. Tutduğun bütün qeydlərinin, bütün ürəyini isidən nikbin ümidlərinin və planlarının içində yıxılıb qalırsan. Keçmiş həsrət və peşmançılığı bir tərəfdən, gələcək təlaş və qorxusu bir tərəfdən ürəyini məngənə kimi sıxır. Bütün dünyan başına yıxılır. Hardan başlamalı olduğunu bilmirsən və kömək əli atacaq heç kimin yoxdur. Oturub ağlamaq istəyirsən. Onu da bacarmırsan. Özündən üzr istəyirsən. Darmadağın olmuş ümidlərini qucağına alıb üşüməyin deyirsən. Bir yolunu tapacam deyirsən. Ancaq nə edəcəyin barədə ən kiçik fikrin belə yoxdur. Anaların aclıq günlərində balalarını məcbur qalıb aldatdığı kimi özünü və ümidlərini aldadırsan. Qaranlıq girdaba girmiş ruhun pozulur və parçalanır. Ürəyindən sallanan ağır daşlara hər gün yeni birisi əlavə olunur və onlara sarılıb özünü ən yaxındakı çayın sularına buraxmaq istəyirsən. Sonra qorxur, boğulmağın çox da yaxşı bir fikir olmadığını qərara alır və bir də baxırsan ki araşdıraraq əzabsız intihar üsullarının ustası olmusan. Ancaq hələ də həyatdasan. Çünki heç bir ananın öz balalarını sağ qoyub ölməyəcəyi kimi heç bir insan da öz ümidlərini sağ qoyub ölmür. Bunu başa düşürsən və yaratdığın bütün ümidlərini bir-bir öldürməyə başlayırsan. Onlar ölməyincə sənə rahat yoxdur. Nə qədər yaxşı bir qatil olduğunu zaman göstərəcək. Nadir hallarda analar öz balalarını öldürəcək qədər qəddar olur.</p><p>Təkrar yaşama cəhdlərin müvəffəqiyyətsizlik və uğursuzluqla nəticələndikdən sonra bütün seçimləri götür-qoy edir və yenidən qərara gəlirsən: Həyatda ən yaxşı seçim ölümdür, çünki o heç vaxt peşman ola bilməyəcəyin tək seçimdir. Ancaq bütün insanlar intihar asan olmadığı üçün bu ən yaxşı seçimi göz ardı edir və elə yaşamağa çalışırlar.</p><p>Yaşamaq əziyyətinə dəymirdi, ən azından onun üçün. Və o, artıq yorulmuşdu. İşindən yeni ayrılmışdı. Bir neçə ay bəs edəcək qədər pulu var idi yığıb saxladığı. Təxminən üç aylıq kira, qida və digər xırda şeylərə ancaq bəs edərdi. Üç ay içində ya yenə iş tapmalı, ya da ölüb getməliydi. Yaşamaq artıq əziyyətinə dəymədiyi üçün ikinci seçim daha asan və cazibəli gəlirdi ona sanki. Həyatının ağırlığını qaldıra bilmirdi, nə də çıxış yolu tapa bilirdi. Şahmatdakı kimi zuqzvanqa düşdüyünü düşünürdü, nə edirsən et matsan, məğlub olmusan və çıxış yolun yoxdur. Buna görə də uzun müddətdir ki intihar planları qururdu. Əlbətdə ki asan idi deyə düşündü. Ölüb gedəcəkdi, vəssalam. Bütün dərdləri, ağrıları, çəkdiyi əziyyətlər, darıxmaları, qısqanclıqları, keçmiş həsrəti və bütün insana ağrı verən xüsusiyyətləri də onunla birlikdə çürüyüb gedəcəkdi. İntihar bu qədər asan idimi doğrudan da? Deyildi. Ona görə də uzun müddətdir tərəddüdlər və vəsvəsə içindəydi. Bu qədər əzab çəkən insanların bu qədər il həyatda qalmasının da başqa açıqlaması yox idi. Başqa bir məna verə bilmirdi. Ölüm əslində insanın doğrudan da ən böyük düşmanıydı. Ona görə yox ki o insanın həyatını bitirirdi, əksinə bu yaxşı tərəfi idi, ona görə ən böyük düşmanı idi ki, çətin idi. Çox çətin idi, həyatını bitirməklə həyatda qalmaq arasındakı bir əngəl idi. Varlıq və yoxluq arasındakı keçid. Sanki iki şəhəri bir-birindən ayıran olduqca enli və içi timsahlarla dolu bir çay idi ölüm. Keçmək üçün hər yaxınlaşanda qorxub geri qayıtdığın. Sanki cəhənnəmdə yaşayırsan və səni cənnətdən ayıran enli bir çay var. Keçə bilmir, yaxınlaşa bilmirsən. Çayın digər tərəfi isə cənnət idi, bəli, cənnət. Yoxluq. Ən böyük cənnət deyilmi? Yoxsan. Yox olursan. Heçlik. Varlığından azad olduğun tək an. Ən müqəddəs qurtuluş. İnsanoğlunun ən böyük qurtuluşu yox olmasıydı ona görə. İnsanın içindəki savaşı bitirəcək olan tək şey ölüm idi. Yəni ölüm əslində insanoğlunun ən böyük dostu idi deyə düşündü. İnsansa ondan qaçmaq üçün əlindən gələn hər şeyi edirdi, bütün texnologiyasını, dava-dərmanını ölümdən daha da uzaqlaşa bilmə düşüncəsi ilə yaradırdı.</p><p>İnsanlar yoxluğun dəyərini başa düşə bilmirlər. Genləri onlara əngəl olur və dərk edə bilmirlər. Ölümün necə gözəl çıxış yolu olduğunu. İntiharın deyil, ölümün. İkisi ayrı-ayrı şeylərdir zira. Özünü öldürmək qorxunc səslənir və elədir də. Ancaq xəbərin olmadan və əzabsız olaraq gələn ani ölüm ən böyük xoşbəxtlikdir. Yoxsan və artıq nə ağrıların nə də istəklərin səni incidə bilər. Yoxluq, yəni var olmama buna görə də ən böyük nemətdir.</p><p>Ancaq insan beyni kimi mükəmməl bir bioloji mexanizm “ailəmə məni dünyaya gətirdikləri üçün minnətdaram” kimi cümlə qura bilər və bunu müdafiə edə bilərdi deyə düşünürdü. Cümlə başdan səhv və məntiqə zidd idi, zira varlıqla yoxluq bir-biriylə müqayisə edilə bilməz. Ancaq iki mövcud şey müqayisə edilə bilinər. Var olan həyat, yoxluqla necə müqayisə edilə bilərdi? Bir insan ailəsinə onu dünyaya gətirdiyi üçün necə minnətdar ola bilərdi əgər doğulmasaydı var olmayacaq və var olmadığını bilməyəcəkdisə belə? Biri səni yoxdan var edir və sən ona minnətdar olursan. Absurddur. Ancaq bəzi insanların beyin kimyası həyatda qalmaq üçün o qədər münasib və möhtəşəmdir ki bu absurdluğu heç vaxt dərk edə bilmirdilər.</p><p>O elə düşünmürdü. Daha doğrusu heç vaxt elə düşünməmişdi özünü tanıyandan. Ölümü sevirdi. Sanki onunla uzaqdan yaşadıqları bir sevgiləri var idi. İkisinin də fərqində olduğu, ikisinin də biri-birindən ötrü darıxdıqları bir sevgi. Aralarında duran tək maneə isə sahib olduğu bioloji instiktiydi şübhəsiz. İnsanı həyatda tutan instikti, genləri. Sanki ölmək istəyən o idi, yaşamaq istəyənsə genləri. Əlbətdə ki elə də olacaqdı deyə düşündü. Milyard illik təsadüfi təkamülün tək səbəbi genlərin özlərini həyatda saxlayıb bir sonrakı nəsilə daha yaxşı formada ötürə bilmələri idi, çəkilən əziyyətlər vacib deyildi, fərdlərin, milyardların çəkdikləri yaşam əziyyəti vacib deyildi. Sonra o həyatda qalmaq istəyən genlərdən bəziləri o qədər inkişaf etmişdilər ki artıq şüur kimi kompleks və möhtəşəm bir düşüncə gücü istehsal edirdilər. Əslində onların həyatda qalma ehtimallarını daha da artırmaq üçün öz-özünə ortaya çıxmış şüur, indi onlara - genlərə - baş qaldırırdı. Yaşamının mənasını sorğulayırdı. Sanki mühafizəkar atanın oğlu böyüyüb ondan intiqam alırdı. Şüur bu nöqtədən baxanda bəlkə də canlı təkamülünün ən böyük nöqsanı idi və yavaş-yavaş onu yox edirdi. Amma bütün insanlarda qalib gələn tərəf şüur deyildi. Daha doğrusu, yaşamaqda olan insanların heç birində şüur hələ ki qalib gələ bilməmişdi zira həyatdaydılar. Hətta nəinki qalib gələ bilmək, bir çoxunda şüur həyatda qalmağın tərəfdarı və dəstəkçisi idi. İnsanlar bu nöqteyi nəzərdən ikisi şanslı biri şanssız olmaq üzrə üçə bölünürdülər eləysə. Şüuru və genləri yaşamaq istəyənlər, şüuru ölmək istəyib amma genlərinə qalib gələ bilməyənlər və şüuru ölmək istəyib geninə qalib gəlib intihar etmiş olanlar. Ən pisi ortada qalmaq idi. Nə oyanlıqsan nə buyanlıq. Nə yaşaya bilirsən nə ölə. Onda da vəziyyət eləydi. Nə intihar edə bilirdi, nə istədiyi həyatı yaşaya bilirdi. Varlıqla yoxluq arasında sürünürdü.</p><p>Bu, insanın varoluşundan bu yana içindəki ən böyük savaşı idi. Başları bir-biriylə savaşan nəhəng ikibaşlı əjdaha kimi. Həyatın yumor anlayışı idi bu, sevinclə gözyaşının bir-birinə qarışdığı an kimi, sevincdən ağlamaq kimi. Hər insanın içində sahib olduğu ən az iki mənliyi və biri-birləri ilə ömrü boyu höcət halında olmaları kimi. Sanki bütün şanlı tanrılar orkestra kimi bir yerə yığılıb ən böyük sənət əsərlərini yaratmışdılar və bununla fəxr edirdilər. Belə kompleks bir paradoks yaratmaq nə də olsa asan bir iş deyildi.</p><p>Həyat gözəldir. Ancaq yaşama əziyyəti hamıda eyni dərəcəyə sahib deyil. Fərdin yaşama zəhmətinin faydalı iş əmsalının sıfırın altına endiyi andır intihara qərar verilən an. Ya da həyatdan aldığı həzzin yaşama əziyyətilə müqayisədə ki faydalı iş əmsalının dəyəridir intihar. Bu dəyərin miqdarı kişidən kişiyə dəyişə bilər. Ümid, arzu və istəklərin cəmi bölünsün çəkilən əzab-əziyyətin miqdarına.</p><p>Sonra birdən ilk intihar etmiş insanı düşündü. Böyük bir inqilab olmalıydı. Həm də istənilən yaradılış nəzəriyyəsində. İstər təkamül nəzəriyyəsi istərsə də ilahi yaradılış nəzəriyəsində ilk intihar bütün mənalarda qüdrətli bir çevriliş olmuş olmalı idi. Başqaldırırdı insan öz yaradılışına. Üsyan edirdi. İlk asi insan doğulurdu beləcə. Aralarından ilk dəfə biri çıxıb “bilirsiniz nə var? Mən gedirəm!” deyirdi. İnsanlıq tarixindəki ən böyük başqaldırı idi doğrudan da. Hətta ilahi yaradılış hekayələrindəki Adəm və Həvvanın ilk inqilabı sayıla biləcək alma oğurluğundan da daha şiddətli idi.</p><p>Bir anlıq ilk intihar etmiş insandan ötrü darıxdı, onla tanış olmaq istədi. O insanı özünə yaxın hiss etdi. Sanki indicə bu anda belə o insanla tanışsaydı əgər, çox yaxşı yola gedərdilər deyə düşündü. Ortaq bir dillərinin belə olmamasına baxmayaraq yenə də yola gedərdilər deyə düşündü. Əlini o ilk üsyanı qaldırmış bezgin dostunun çiyninə qoyardı, gözlərinin içinə baxardı və onu başa düşdüyünün hiss etdirərdi ona...</p><p>Bir anlıq xəyaldan oyanıb əlindəki şəkər qamışından hazırlanılmış roma baxdı, butulkanın yarısı doluydu hələ də. Bu ona kiçik bir xoşbəxtlik hissi verdi. Romun bitdiyini sanmışdı. Qaldırıb bir qurtum daha aldı. Ağzını büzüşdürdü. Ətrafına baxınıb siqaretin harda olduğunu müəyyənləşdirməyə çalışdı. Sarma tütün çəkirdi. Əvvəlcədən sarıb tütünləri paketə yığmışdı. Biraz vurnuxdu. Paketin divanın o başında yerdə olduğunu gördü. Tənbəlcə ayağa durdu, içkinin təsiri ilə azacıq baş gicəllənməsi hiss edirdi. Müvazinətini qorumağa çalışdı, səndələyərək irəli doğru bir addım atıb paketi yerdən götürdü. Sərxoşluğun tam bu anlarında yandırılan siqareti çox sevirdi. Ona görə siqaretdən alınan ən böyük həzz tam da bu an idi. Bir sarma götürüb dodaqlarının arasına qoydu. İki əlini birləşdirib bükərək sarmanı yandırdı. Uzunca sordu. Dərindən nəfəs alıb tüstünü ciyərlərinə çəkdi və kiçik anın həzzini yaşadı. Aldığı tüstünü burnundan çölə buraxdı. Romdan bir qurtum daha aldı. Əli ilə alnını və gözlərini ovuşdurdu. Bir neçə saniyəlik sükut içində dayandı. Ən son nə etdiyini, nə düşündüyünü xatırlamağa çalışdı. Başını silkələdi, gözlərini bir neçə dəfə yumub açdı. Divana doğru geri atdı özünü. Aşağı çökdü və uzun müddətdir yalnız yaşadığı birotaq mənzilinin pəncərəsindən çölə daldı gözləri. Səma tünd maviyə boyanmışdı, melanxoliyanın rəngi bəzəyirdi buludları. Tutqun buludların arxasında mavi şeytanlar gizlənmişdi və uzaqlarda bir yerlərdən kədər və qəmin musiqisi mavi notalı blues eşidilirdi.</p><p>İlk intihar edən insana getdi fikirləri yenə. Görəsən necə intihar etmişdi deyə sual verdi darıxan iç səsi ona. Fikir ona maraqlı gəldi. Axı o dövrdə daha da çətin idi intihar. Dövr deyəndə ki, hansı dövr? Lap əvvəllərə getsək hələ meşədə yaşayan yeni-yeni şüur inkişafı başlayan insanlara, o dövrdə axı hələ ağrısız intihar üsullarından heç biri yox idi. Özünü öldürməyə qərar vermiş biri olsaydı elə bir dövrdə, o nə edərdi deyə düşündü bir anlıq. İlk olaraq suda boğulmaq gəldi ağlına. Yüksək bir təpədə, dağın üstündəki meşə ilə dənizin birləşdiyi nöqtədəki uçurumdan düz aşağı tullanmışdı bəlkə</p><p>də ilk qəhrəmanımız. Yoxsa bəlkə də elə birbaşa ürəyinə sancmışdı daşdan düzəlmə nizəsini? Necə olmuşdu axı? Xəyalgücü ona istədiyi formada kömək etmirdi cavabı tapmaq üçün. Hansı üsul seçilmişdi. Özünü vəhşi heyvanların qabağınamı atmışdı bezgin? “Yox əşi” deyə cavab verdi iç səsi. Sonra birdən, o dövrdə bəlkə də intihar olmamışdı deyə düşündü. Çox ehtiyac da yox idi bəlkə də. Çünki hələ ki insan həyatındakı ağrıların sayı artmamışdı və sadəcə qida üçün yaşayırdılar. Sonra birdən o dövrdə yaşama həsrəti yarandı içində. İndiki kimi saysız-hesabsız seçim ehtimalınının olmadığı, problem ehtimalının daha az olduğu, gözləntilərin sadəcə günlük qidadan ibarət olduğu dövrlər. “Axmaqca səslənir” deyə düşündü, “O dövrlərdə yaşamağın daha asan olduğunu düşünmək, bəlkə də bir yanılmadan ibarətdir”. Amma, “yəqin ki” dedi, ilk intihar irəliləyən vaxtlarda, ilk sivilizasiya vaxtlarında olmuşdu. Qəbilə savaşlarını düşündü. İnsanların ilk qruplar, tayfalar halında yaşadığı vaxtları və aralarındakı kiçik savaşları, xırda münaqişələri düşündü. “Aha” dedi iç səsi. Böyük ehtimal, ilk intihar da o vaxtlarda olmuş olmalıydı. İlk savaş alətləri ilə. Qanlı bir inihar olmuş olmalıydı. İlk insanın şanssızlığını düşündü buna görə də. İntiharları belə asan deyildi, indiki kimi işi qısa müddətə həll edəcək vasitələr yox idi.</p><p>Qeyri-iradi olaraq rom butulkasını dodaqlarına yaxınlaşdırdı. Bir qurtum aldı. İlk intihar etmiş insan indi onun yanında olsaydı ona əlindəki bu spirtli içkini verərdi deyə düşündü. İlk bir-iki təcrübədəki baş gicəllənmələrindən sonra onun da xoşuna gələrdi yəqin deyə özü-özünü təsdiqlədi. Həyat, yəqin ki şərabın kəşfindən əvvəl və sonra olaraq ikiyə bölünürdü, yola verilmə ehtimalı daha çətin və daha asan olmaq üzrə. İçki və onun kimi digər maddələr olmasaydı bəlkə intihar sayıları daha çox olardı. İnsanlar ani ruh düşkünlüklərini, psixoloji sarsıntılarını sovuşdura bilməz və ölümə daha çox can atardılar. Bunu düşündü və sonra bütün insanlığın şərəfinə, bütün şərab sevərlərin şərəfinə içkisini başına çəkdi. İçində bir damcı belə olsun qalıb qalmadığından əmin olmaq üçün butulkanı yenidən yuxarı qaldırdı, dilini çıxardı, butulkanı əydi və içindəki damcının butulkanın dibindən yavaş-yavaş irəliləməyə başlayıb sonra sürətlənib şüşə qabın ağzında yenidən yavaşlayıb sanki sallanırmışcasına dayanıb, dilin üstünə tullanmağını izlədi. Boş butulkanı yerə tulladı.</p><p>Sərxoş idi və sərxoş olduğu qədər xoşbəxt idi.</p><p>Tutulduğu nostalgiya xəstəliyindən canını heç olmasa bir saatlıq qurtara bilmişdi. Düşünməmiş və xatırlamamışdı. Keçmiş həsrəti zillətindən bir anlıq belə olsa azad olmuşdu. Hər insan xatirələr bütünüdür. Hər bədən və beyin, xatirələr bütünüdür. Beyin, iformasiyalar şəbəkəsidir və hər informasiya bir xatirədir. Hər xatirə bir təcrübədir. Bir uşağı yetişkindən ayıran tək fərq sahib olduqları xatirələrin miqdarıdır. Yerimək, iməkləyən bir uşağın sahib olmadığı bir xatirə və təcrübədir. İməkləmək, əllər və dizlər üzərində hərəkət etmə aktının yaddaşda saxlanılmış xatirəsidir.</p><p>Qırmızı, bir xatirədir. Zərərsiz və kiçik xatirə. Mavi, soyuq, isti, qaranlıq, yaşıl, dəniz, A’nın tələffüzü, qaçmaq və gülmək ən incə təfərrüatlarına qədər işlənilib yaddaşa yüzlərlə ya minlərlə neyron şəbəkəsi tərəfindən həkk olunmuş xatirələrdir. Bütün bu zərərsiz və kiçik təfərrüatlar birləşərək daha böyük, kompleks və bəzən zərərli xatirələr yaradırlar. Məsələn “İsti yay günü dəniz sahili gülüşlərlə A’nın arxasınca qaçdığı o gün” bir xatirəydi. Xoşbəxt bir anın kompleks neyron şəbəkəsi tərəfindən saxlanılan xatirəsi. Şirinmiş kimi görünən amma zaman-zaman incidici xatirə. Çünki keçmişdi və keçmişdə qalmışdı. Əgər yenidən yaşaya bilmirsənsə bəzən ən şirin xatirələrin belə öz cəhənnəminə çevrilə bilər. Toxuna bilmədiyin keçmişin və qucaqlaya bilmədiyin xatirələrin. İllər, yəni zaman və məsafələr nostalgiya xəstəliyinin ən böyük iki faktorudur. Ya keçmiş üçün darıxırsan ya da indi ancaq uzaqlarda olan yerlər və kimsələr üçün. Məsafələr insanı diri-diri öldürməyə qadir idilər. Həkimlər deyir ki nostalgiya insanın xoş xatirələrini xatırlayıb pis anlarda özünü yaxşı hiss etməsi üçün gözəl bir vasitədir və təkamüli olaraq belə formalaşıb. Ancaq ağın içindəki qara özünü göstərirdi. Keçmiş üçün susama və şiddətli arzunu unudurdular. Bəlkə də yaşlıların yaşadığı yaddaş pozğunluqları ya Altsaymer xəstəliyi tanrının onlara bir lütfüdür. Zira 80 illik xatirələrin qucağında insan həsrətdən məhv ola bilər.</p><p>Keçmişindən kadrlar xatırladığı anlarda beyninin başqa bir şeyləri düşünməsi üçün əlindən gələni edirdi. Çünki təkrar, xatirəni möhkəmləndirirdi. Bir xatirəni ya informasiyanı hər dəfə yenidən xatırladığımızda o xatirənin saxlanıldığı neyron şəbəkəsinə hər dəfə impulslar ötürülür və hər ötürülən impuls əvvəlkindən daha da güclü iz buraxırdı və beləcə neyronlararası əlqəni - yəni yaddaşı möhkəmləndirirdi. Ona görə də istər pis istər yaxşı bir xatirəsini heç vaxt xatırlamamağa çalışırdı artıq. Qətiyyən. Hələ vizual olaraq heç canlandırmırdı gözündə çünki daha gülcü impulslar neyron şəbəkəsini daha da gücləndirirdi. Əksinə onları unutmağa çalışırdı. Gurultulu bir musiqi bəlkə, bəlkə qışqırmaq, bəlkə bədəninin limitini zorlayaraq qaçmaq ya da divarlara endiririlən yumruq zərbələriydi onun həmin xatırlama anlarından qaçma metodları. Qaranlıqa tək qalmış uşağın qorxmamaq üçün fit çalması ya zümzümə etməsi kimi belə anlarda özü üçün improvizasiya edərək dodaqaltı zümzümələrlə beyninin diqqətini dağıtmağa çalışırdı. Qorxmuş bir uşaqdan tək fərqi, o bunu hiss etdirmədən edirdi, dodaqlarını belə tərpətmədən hülqumunda mızıldanaraq. Bütün bu metodlar işə yaramadığı təqdirdəysə - ki heç vaxt işə yaramırdılar – içməyə və çəkməyə başlayırdı. Ya da digər reallıqdan uzaqlaşdırıcı süni ya təbii narkotiklərin qucağına atırdı özünü. Bu unutdurma, xatırlamama ya da diqqət dağıtma işini ən yaxşı bacaran narkotik alkoqol idi. Hətta alkoqolun sanki ən vacib funksiyası buymuş kimiydi. Zira alkoqol bədənə daxil olduğu andan etibarən sürətlə beyinə irəliləyir, qan-beyin bariyerini keçdikdən sonra qlutamat reseptorlarına təsir edərək qlutamatın transmissiyasını yavaşladır və beləcə onun beyindəki əsas funskiyalarını da yavaşladırdı: neyronlar arası informasiya ötürülməsi zəifləyir, dolayısilə daha az hiss edirsən, daha az qavrayırsan, daha az xatırlayırsan və daha az diqqət edirsən. Xatirələrin saxlanıldığı yaddaş anbarlarına gedən neyronlar yorğun düşür və siqnallar zəifləyir. Beləliklə sərxoş insan nəinki keçmişini, həyatındakı hazırki problemləri belə çox da xatırlamır ya da diqqət etmir və keçici olaraq süni xobşəxtliyi qucaqlayır.</p><p>Divara yapışdırılmış kağız üzərindəki qeydinə sataşdı gözü – xoşbəxt ölüm! – və intiharı üçün getməyə hazırlaşdığı yeni açılmış Evtanaziya kamplarını xatırladı. ***</p><p>Əgər yetəri qədər yalnızsınızsa, səssizliyin gurultusunu eşidə bilərsiniz. Yalnızlığının bom-boş otaqda əks-səda verən səssizliyinin gurultusu onu incidirdi və buna həyatda hər şeydən çox nifrət edirdi.</p><div class="epigraph">Memento mori</div><div class="epigraph">Memento te hominem esse</div><div class="epigraph">Respice post te! Hominem te esse memento!</div><div class="epigraph">(Fani olduğunu xatırla.</div><p>Sadəcə bir insan olduğunu xatırla,</p><p>Arxana bax! Sadəcə bir insansan, xatırla!)</p><div class="epigraph-source">&mdash; Roman triumph (qədim Roma zəfər paradları)</div><div class="separator">&bull; &bull; &bull;</div>';
+var ch2Az = '<p>Liberalizm bütün qapıları açdığı kimi ölümün də qapısını açırdı. Dövlətlər forma dəyişdirirdilər. Dövlət hədəfləri artıq əvvəlkinin əksinə yüksək demoqrafik hədəflər deyildi. Balansı qorumaq, tənzimləmək daha vacib idi artıq. Ağır xəstələrin öz ölümlərinə qərar verib həkim nəzarəti altında ölmələri üçün istifadə edilən üsul, evtanaziya, nəinki artıq leqallaşdırılmış, hətta az qala heç bir ağır xəstəliyi olmayan insanların belə öz qərarları ilə həkim nəzarətində ölmələrinə icazə verilməyə başlanılmışdı.</p><p>Proseslər yavaş-yavaş irəliləmişdi. Bir neçə il əvvəl qəza nəticəsində onurğa sütunu zədəsindən tək sağ əli xaric bütün bədəni iflic olmuş Hüqo Jeseina adlı yaşlı xəstənin evtanaziya istəyinə diqqət çəkməyə çalışan aktivistlərin cəhdləri gözlənilmədən əvvəlcə ölkə sonra isə qlobal səviyyədə səs gətirmişdi. Daha sonra ölkənin öndə gələn özəl insan haqları təşkilatları məsələni müzakirəyə çıxarmış və qarşı fikirli iki ayrı tərəfə bölünmüşdülər. Dinin cəmiyyətdəki təsirinin get-gedə azalmış olması müzakirədəki dini səbəblərin təsirini azaltmışdı. Yenə də evtanaziyaya qarşı olan insan haqları təşkilatları dini və ya bənzəri səbəblərdən insan həyatının müqəddəs olduğunu və onu sonlandırmağın düzgün olmadığını vurğulayırdılar. Daha radikal sayıları azalmış kiçik dini qruplar isə insan həyatının tanrı tərəfindən verildiyini və sadəcə tanrı tərəfindən alına biləcəyini müdafiə edirdilər. Ölümcül xətsəliklərə belə son anda çarə tapıla bilinəcəyi, evtanaziyanın həyatın yaşamağa dəymədiyi mənasına gəldiyi, leqallaşmanın daha çox ölümlərə səbəb olacağı, tibbi tədqiqatların azalacağı kimi səbəblər də var idi evtanaziyaya qarşı olan tərəflərin səbəbləri arasında.</p><p>Evtanaziyanı dəstəkləyən tərəf isə nə olursa olsun insanın həyatı barədə qərarlarının öz əlində olması gərəkdiyini vurğulayırdılar. Xəstələrin çəkdikləri ağrılara diqqət çəkərək, bu ağrıları hiss etməyən yad insanların bir insanın o ağrılarla yaşayıb yaşamayacağı haqqında müzakirə etmə haqlarının belə olmadıqlarını sərt bir dil ilə tənqid edir və müasir insan haqlarını şiddətlə qınayırdılar. Ölkənin müxtəlif şəhərlərində kiçik qruplaşmalar əllərində Hüqo Jeseina və digər evtanaziya istəyən ölümcül və ağır xəstəliklərə məhkum xəstələrin şəkilləri ilə kiçik aksiyalar edir və “Xoşbəxt ölüm! Xoşbəxt ölüm!” deyə qışqırırdılar.</p><p>Tarixçi Suetonius miladın ilk illərində imperator Oktavian Avqustun ölümü ilə bağlı belə yazırdı: “Tez və əzabsız şəkildə yoldaşı Livianın qollarında əbədiyyətə qovuşdu, arzuladığı evtanaziyanı yaşayaraq”. Beləcə, insanlıq tarixinə yeni bir ifadə daha daxil olurdu, xoşbəxt ölüm, şərəfli ölüm, ya da ağrısız ölüm mənasına gələn söz: evtanaziya. İndi, Avqustun ölümündən əsrlər sonra, xoşbəxt ölüm ifadəsi pankartlarda, küçələrdə gəzirdi, Hüqonu xilas etmək adına.</p><p>Bütün insanlıq tarixinə, bütün yaşamış insanlara, əgər hamısına insan irqinin nümayəndəsi kimi, tək nəfər ya orqanizm kimi baxa bilsək, bütün o milyardlarla insanı tək bir nəfər saymış olsaq əgər, onda, ilk insanın doğumundan bugünə qədər keçmiş müddəti sanki bir insanın doğulub böyümə prosesi kimi canlandıra bilərik gözümüzdə. Belə olan halda, ilk insan, ana rəhmindən başlayaraq böyüyən bir uşaq kimi, düşüncəsi yeni formalaşan və illər keçdikcə böyüyən, dünyanı tanımağa başlayan, kəşf edən, sonra yeniyetməlik dövrünü yaşayan, vuran, qıran sonra getdikcə daha da müdrikləşən tək bir varlıq idi. Hər əsrdə bir yaşı daha artırdı. Və yavaş-yavaş əsrlər keçdikcə, insanlıq şüuru irəliləyirdi. Keçmişdə qınanılmış, qadağa olunmuş məsələlər vaxt keçdikçə gündəlik həyatın bir parçasına çevrilir və normal qəbul edilirdi. Normal idi, kiçik bir uşaq kimi, insanlıq şüuru yetişmə mərhələsindəydi. Elm adamlarını yandıran kilsələr, qadınlara qadağalar gətirən köhnə və müasir adətlər, milliyətçilik uğruna qanlar tökən Avropa və neçə belə düşüncəsizliklər artıq tarixə qarışırdı. İnsanlıq öz köhnə atalarına baxıb onları qınayırdı. Tarix göstərirdi ki, cəmiyyətin başa düşmədiyi və qəbul etmədiyi məsələləri qavraması və anlaması, adət-ənənələr zəncirini qırıb aydınlanabilməsi vaxt alırdı və bir gün öz qaydasına düşəcəkdi mütləq. Sadəcə gözləmək lazım idi, bir gün evtanaziya da qəbul olunacaqdı.</p><p>Elmi tədqiqatlar göstərir ki, təxminən 100.000-70.000 il bundan əvvəlki insan ilə indiki insanın zəkası aşağı yuxarı eynidir. Baxmayaraq ki beyin həcmi getdikcə azalır (beyin daha da minimallaşır və neyronlar arası qısayollar tapır) zəka eyni idi təxminən. Və keçmişdə doğulmuş uşağı bugün gətirib böyütsək əgər, bəzi linqvistik problemlərin xaricində fərqi ayırd etmək mümkün olmazdı. Ancaq atalarımızla aramızda bir fərq var idi əlbət, təcrübələr və bu təcrübələrin işığında dünyanı, həyatı daha yaxşı anlama və qavrama bacarığımız. Bu təcrübələrin köməyi ilə inkifaş edən şüur və dərrakəmiz bizə yaşama sənətini xırdalıqlarına qədər öyrədir və səhvlərimizi göstərirdi. Aramızdan bəzi uzaqgörənlər çıxırdı və bizə bir şeyləri düzgün etmədiyimizi, yolunda getməyən bəzi şeylər olduğunu öyrətməyə çalışırdı, bizə dünyanın əslində dairəvi olduğunu başa salmağa çalışırdılar məsələn, ancaq atalarımız onları öldürürdülər. Bizi feodal qaydalar və kilisə zülmündən qurtarmağa çalışan, maarifləndirən və aydınlanmağa çağıran François-Marie Arouet’i, Voltaireni Bastiliya qalasına həbs edir, sürgün edirdik. Fikrlərimizi hələ təzə-təzə püxtələşdirməyə başlayan Sokratı edama məhkum edirdik. Sonra isə səhvimizi başa düşürdük, onlardan öyrənirdik. Eynicinsli insanların kilsə və məscidlərin təkidi ilə öldürülməsindən tutmuş kilsə tərəfindən evləndirilmələrinə qədər keçən proses kimi, dəyişirdik. İnsanoğlunun bir-birini sevən iki eynicinsli insanın birlikdə yaşamalarına icazə verməsi min illər çəkmişdi, insanın öz ölümünə qərar verməsinə icazə verməsinə isə az qalmışdı.</p><p>Bir neçə ölkədə evtanaziya ya da assistentli intihar müəyyən şərtlər daxilində leqallaşdırılmışdı artıq. Hüqonun bəxti gətirməmişdi. Onun iflic olması, dözülməz bir xəstəlik olaraq sayılmırdı yaşadığı ştatda. Məhkəmə və həkim qərarı Hüqoya rahat ölüm icazəsini vermədi. Ani olaraq artmış mübahisələrin sayı bir an içində azaldı. Hüqoya evtanaziya üçün onu başqa ölkəyə aparma təklifi edildi, lakin o, bu təklifi rədd etdi. Bezgin Hüqo Jaseina, o günün gecəsi, səhərə doğru tək işlək sağ qolu ilə özünü xəstəxananın pəncərəsinə doğru sürüdü, pəncərəni çətinliklə də olsa açmağa müvəffəq oldu və özünü doqquzuncu mərtəbədən yerə buraxdı. Bəlkə də heç kimi narahat etməmək üçün öz intiharını gecəyə saxlamışdı. O, sağ əli ilə intihar və inqilab etmişdi.</p><p>Bu dəhşət qarşısında sarsılmış məhkəmə heyəti və həkimlərin qərarı ilə Hüqo Jaseinanın ölümündən on saat sonra ştat</p><div class="page-note">Səhifə 1 — Fəsil 2</div>';
+
+function renderChapter(num) {
+  var ch = chapters[num - 1];
+  var page = document.getElementById('book-page');
+  var html = '<div class="chapter-heading"><span class="ch-number">Chapter ' + ch.num + '</span><h1>' + ch.en + '</h1><div style="font-style:italic;font-size:.9rem;color:#888;margin-bottom:.4rem">' + ch.az + '</div><div class="reading-time">' + ch.readTime + ' read</div></div>';
+  if (currentLang === 'en') {
+    if (num === 1) { html += ch1Content; }
+    else if (num === 2) { html += ch2Content; }
+    else { html += '<div class="coming-soon"><span class="lock">&#128274;</span>Translation coming soon...<div style="margin-top:1rem;font-size:.8em;color:#bbb;">This chapter is being translated from Azerbaijani.<br>Check back for updates.</div></div>'; }
+  } else {
+    if (num === 1 && ch1Az) { html += ch1Az; }
+    else if (num === 2 && ch2Az) { html += ch2Az; }
+    else { html += '<div class="coming-soon">Azərbaycan mətni yüklənir...</div>'; }
+  }
+  page.innerHTML = html;
+  page.scrollTop = 0;
+  window.scrollTo({top:0, behavior:'smooth'});
+  document.querySelectorAll('.chapter-list a').forEach(function(a) {
+    a.classList.toggle('active', parseInt(a.dataset.ch) === num);
+  });
+}
+
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+    if (tab === 'reader') {
+      document.getElementById('reader-section').classList.add('active');
+      document.getElementById('reader-controls').style.display = '';
+      document.getElementById('progress-bar').style.display = '';
+    } else {
+      document.getElementById('journey-section').classList.add('active');
+      document.getElementById('reader-controls').style.display = 'none';
+      document.getElementById('progress-bar').style.display = 'none';
+    }
+  });
+});
+
+document.querySelectorAll('.chapter-list a').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    currentChapter = parseInt(a.dataset.ch);
+    renderChapter(currentChapter);
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+var fontSize = 18;
+document.getElementById('btn-font-up').addEventListener('click', function() {
+  fontSize = Math.min(28, fontSize + 2);
+  document.getElementById('book-page').style.fontSize = fontSize + 'px';
+});
+document.getElementById('btn-font-down').addEventListener('click', function() {
+  fontSize = Math.max(12, fontSize - 2);
+  document.getElementById('book-page').style.fontSize = fontSize + 'px';
+});
+
+var currentChapter = 1;
+function toggleLang() {
+  var btn = document.getElementById('lang-btn');
+  if (btn.textContent === 'EN') {
+    btn.textContent = 'AZ';
+    btn.classList.add('active');
+    document.documentElement.lang = 'az';
+    showToast('Azerbaijani edition — coming soon');
+  } else {
+    btn.textContent = 'EN';
+    btn.classList.remove('active');
+    document.documentElement.lang = 'en';
+    showToast('English translation active');
+  }
+}
+function showToast(msg) {
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.95);border:1px solid rgba(196,75,75,.4);color:#f0e8e0;padding:.6rem 1.2rem;font-size:.78rem;border-radius:4px;z-index:9999;pointer-events:none;letter-spacing:1px;';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .5s';setTimeout(function(){t.remove()},500);}, 2000);
+}
+
+document.getElementById('btn-dark-mode').addEventListener('click', function() {
+  document.getElementById('book-page').classList.toggle('dark-mode');
+  this.classList.toggle('active');
+});
+
+document.getElementById('sidebar-toggle').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+});
+
+(function() {
+  var cx = 400, cy = 400, r = 260;
+  var nodesG = document.getElementById('journey-nodes');
+  var linesG = document.getElementById('center-lines');
+  var positions = [0];
+  for (var i = 1; i < 14; i++) positions.push(i * 360 / 14);
+
+  chapters.forEach(function(ch, i) {
+    var angleDeg = positions[i] - 90;
+    var angleRad = angleDeg * Math.PI / 180;
+    var nx = cx + r * Math.cos(angleRad);
+    var ny = cy + r * Math.sin(angleRad);
+
+    var line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    line.setAttribute("x1", cx); line.setAttribute("y1", cy);
+    line.setAttribute("x2", nx); line.setAttribute("y2", ny);
+    line.setAttribute("stroke", ch.color); line.setAttribute("stroke-width","1");
+    linesG.appendChild(line);
+
+    var g = document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.classList.add("journey-node"); g.dataset.index = i;
+
+    var circ = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    circ.classList.add("node-bg");
+    circ.setAttribute("cx", nx); circ.setAttribute("cy", ny); circ.setAttribute("r","24");
+    circ.setAttribute("fill", ch.color); circ.setAttribute("fill-opacity",".25");
+    circ.setAttribute("stroke", ch.color); circ.setAttribute("stroke-width","1.5");
+    g.appendChild(circ);
+
+    var inner = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    inner.setAttribute("cx", nx); inner.setAttribute("cy", ny); inner.setAttribute("r","14");
+    inner.setAttribute("fill", ch.color); inner.setAttribute("fill-opacity",".6");
+    g.appendChild(inner);
+
+    var numT = document.createElementNS("http://www.w3.org/2000/svg","text");
+    numT.classList.add("node-num");
+    numT.setAttribute("x", nx); numT.setAttribute("y", ny + 4); numT.setAttribute("text-anchor","middle");
+    numT.textContent = ch.num;
+    g.appendChild(numT);
+
+    var labelR = r + 45;
+    var lx = cx + labelR * Math.cos(angleRad);
+    var ly = cy + labelR * Math.sin(angleRad);
+    var titleT = document.createElementNS("http://www.w3.org/2000/svg","text");
+    titleT.classList.add("node-title");
+    titleT.setAttribute("x", lx); titleT.setAttribute("y", ly); titleT.setAttribute("text-anchor","middle");
+    titleT.textContent = ch.en;
+    g.appendChild(titleT);
+
+    var stageT = document.createElementNS("http://www.w3.org/2000/svg","text");
+    stageT.classList.add("node-stage");
+    stageT.setAttribute("x", lx); stageT.setAttribute("y", ly + 12); stageT.setAttribute("text-anchor","middle");
+    stageT.textContent = ch.stage;
+    g.appendChild(stageT);
+
+    g.addEventListener('mouseenter', function(e) {
+      var tooltip = document.getElementById('journey-tooltip');
+      tooltip.querySelector('.tt-num').textContent = 'Chapter ' + ch.num + ' \u2014 ' + ch.clock;
+      tooltip.querySelector('.tt-title').textContent = ch.en;
+      tooltip.querySelector('.tt-stage').textContent = ch.stage;
+      tooltip.querySelector('.tt-desc').textContent = ch.desc;
+      tooltip.classList.add('show');
+    });
+    g.addEventListener('mousemove', function(e) {
+      var tooltip = document.getElementById('journey-tooltip');
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top = (e.clientY - 10) + 'px';
+    });
+    g.addEventListener('mouseleave', function() {
+      document.getElementById('journey-tooltip').classList.remove('show');
+    });
+
+    nodesG.appendChild(g);
+  });
+})();
+
+renderChapter(1);
+</script>
+</body>
+</html>
