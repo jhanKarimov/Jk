@@ -423,20 +423,20 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">Between Existence <span>&amp;</span> Nothingness</a>
+  <a href="#hero" class="nav-logo" data-i18n="nav-logo" data-i18n-html="nav-logo">Between Existence <span>&amp;</span> Nothingness</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#chapters">Chapters</a></li>
-    <li><a href="#characters">Characters</a></li>
-    <li><a href="reader.html" style="color:var(--red)">READ →</a></li>
-    <li><a href="#buy">Get</a></li>
-    <li><a href="#author">Author</a></li>
+    <li><a href="#about" data-i18n="nav-about">About</a></li>
+    <li><a href="#chapters" data-i18n="nav-chapters">Chapters</a></li>
+    <li><a href="#characters" data-i18n="nav-characters">Characters</a></li>
+    <li><a href="reader.html" style="color:var(--red)" data-i18n="nav-read">READ →</a></li>
+    <li><a href="#buy" data-i18n="nav-get">Get</a></li>
+    <li><a href="#author" data-i18n="nav-author">Author</a></li>
     <li><a href="https://jhankarimov.com" style="font-size:.75rem;border:1px solid var(--red-dark);padding:.2rem .6rem;border-radius:3px;color:var(--gray-light);">jhankarimov.com ↗</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:.3rem;margin-left:1rem;">
-    <a href="#" id="lang-en" onclick="event.preventDefault()" style="font-size:.65rem;color:var(--red);text-transform:uppercase;letter-spacing:1px;">EN</a>
+    <a href="#" id="lang-en" onclick="event.preventDefault();switchPageLang('en');" style="font-size:.65rem;color:var(--red);text-transform:uppercase;letter-spacing:1px;">EN</a>
     <span style="color:var(--gray-dark);font-size:.6rem;">|</span>
-    <a href="#" id="lang-az" onclick="event.preventDefault();showLangToast('Az\u0259rbaycanca versiya \u2014 tezlikl\u0259');" style="font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;">AZ</a>
+    <a href="#" id="lang-az" onclick="event.preventDefault();switchPageLang('az');" style="font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;">AZ</a>
   </div>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -456,19 +456,19 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
         &ldquo;When will they destroy us?&rdquo;
         <cite>&mdash; William Faulkner</cite>
       </div>
-      <h1>Between Existence<br>and Nothingness</h1>
+      <h1 data-i18n="hero-title" data-i18n-html="hero-title">Between Existence<br>and Nothingness</h1>
       <div class="title-az">Varl&#305;q v&#601; Yoxluq Aras&#305;nda</div>
       <div class="author">by <strong>Xancan K&#601;rimov</strong> (Jhan Karimov)</div>
-      <div class="tagline">A novel about the war between existence and nothingness</div>
+      <div class="tagline" data-i18n="hero-tagline">A novel about the war between existence and nothingness</div>
       <div class="meta">
-        <span>&#9670; 396 pages</span>
-        <span>&#9670; 12 chapters</span>
+        <span data-i18n="hero-pages">&#9670; 396 pages</span>
+        <span data-i18n="hero-chapters">&#9670; 12 chapters</span>
         <span>&#9670; Alatoran, 2017</span>
       </div>
     </div>
   </div>
   <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-    <span>Scroll</span>
+    <span data-i18n="scroll">Scroll</span>
     <div class="scroll-arrow"></div>
   </div>
 </section>
@@ -477,18 +477,18 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="about">
   <div class="section-header reveal">
-    <div class="section-subtitle">About the Book</div>
-    <h2 class="section-title">A Novel of Existential Rebellion</h2>
+    <div class="section-subtitle" data-i18n="sub-about">About the Book</div>
+    <h2 class="section-title" data-i18n="title-about">A Novel of Existential Rebellion</h2>
   </div>
   <div class="about-grid">
     <div class="about-synopsis reveal reveal-d1">
-      <p>
+      <p data-i18n="about-p1" data-i18n-html="about-p1">
         <em>Varl&#305;q v&#601; Yoxluq Aras&#305;nda</em> follows <strong>Mavi</strong>&nbsp;&mdash; a young man whose name means &ldquo;Blue&rdquo;&nbsp;&mdash; as he navigates a world suspended between existence and nothingness. In a near-future where euthanasia camps have become an accepted institution, consciousness wages war against the primal survival instincts encoded in our genes.
       </p>
-      <p>
+      <p data-i18n="about-p2" data-i18n-html="about-p2">
         Through fourteen chapters that move from the roar of silence to the inevitability of death, the novel interrogates what it means to exist in a universe indifferent to our suffering. Nostalgia becomes a disease, gratitude for existence becomes absurd, and the ultimate rebellion against creation takes the form of the most forbidden act.
       </p>
-      <p>
+      <p data-i18n="about-p3" data-i18n-html="about-p3">
         Written in Azerbaijani and published by Alatoran in 2017, this philosophical novel draws on the existentialist tradition of Camus, Sartre, and Faulkner while forging its own raw, surrealist vision.
       </p>
       <div class="about-themes">
@@ -542,8 +542,8 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="chapters">
   <div class="section-header reveal">
-    <div class="section-subtitle">12 Chapters</div>
-    <h2 class="section-title">Table of Contents</h2>
+    <div class="section-subtitle" data-i18n="sub-chapters">12 Chapters</div>
+    <h2 class="section-title" data-i18n="title-chapters">Table of Contents</h2>
   </div>
   <div class="chapters-grid" id="chaptersGrid"></div>
 </section>
@@ -552,8 +552,8 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="characters">
   <div class="section-header reveal">
-    <div class="section-subtitle">Character &amp; Theme Map</div>
-    <h2 class="section-title">The Constellation of Mavi</h2>
+    <div class="section-subtitle" data-i18n="sub-characters">Character &amp; Theme Map</div>
+    <h2 class="section-title" data-i18n="title-characters">The Constellation of Mavi</h2>
   </div>
   <div class="constellation reveal" id="constellation">
     <svg class="constellation-lines" id="constellationSVG" width="100%" height="100%"></svg>
@@ -565,8 +565,8 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <section id="journey" class="full-width">
   <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
     <div class="section-header reveal">
-      <div class="section-subtitle">Narrative Structure</div>
-      <h2 class="section-title">The Hero's Journey</h2>
+      <div class="section-subtitle" data-i18n="sub-journey">Narrative Structure</div>
+      <h2 class="section-title" data-i18n="title-journey">The Hero's Journey</h2>
     </div>
     <p style="text-align:center;font-size:.78rem;text-transform:uppercase;letter-spacing:3px;color:var(--gray-light);margin-bottom:2rem;" class="reveal">14 chapters arranged as a clock — from existence to nothingness and back</p>
 
@@ -635,7 +635,7 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
     </div>
 
     <div style="text-align:center;margin-top:2rem;" class="reveal">
-      <a href="reader.html" style="display:inline-block;padding:.7rem 2rem;border:1px solid var(--red-dark);color:var(--red);text-decoration:none;font-size:.78rem;text-transform:uppercase;letter-spacing:2px;transition:all .3s;" onmouseover="this.style.background='rgba(196,75,75,.1)'" onmouseout="this.style.background='transparent'">Read Online →</a>
+      <a href="reader.html" data-i18n="read-online" style="display:inline-block;padding:.7rem 2rem;border:1px solid var(--red-dark);color:var(--red);text-decoration:none;font-size:.78rem;text-transform:uppercase;letter-spacing:2px;transition:all .3s;" onmouseover="this.style.background='rgba(196,75,75,.1)'" onmouseout="this.style.background='transparent'">Read Online →</a>
     </div>
   </div>
 </section>
@@ -644,23 +644,23 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="read">
   <div class="section-header reveal">
-    <div class="section-subtitle">Read</div>
-    <h2 class="section-title">English Translation</h2>
+    <div class="section-subtitle" data-i18n="sub-read">Read</div>
+    <h2 class="section-title" data-i18n="title-read">English Translation</h2>
   </div>
   <div class="read-content">
     <div class="reveal reveal-d1">
-      <a href="reader.html" class="coming-soon-badge" style="text-decoration:none">Read Chapter 1 Now</a>
-      <p style="color:var(--gray-light);font-size:1.05rem;margin-bottom:1rem;">
+      <a href="reader.html" class="coming-soon-badge" style="text-decoration:none" data-i18n="read-ch1">Read Chapter 1 Now</a>
+      <p style="color:var(--gray-light);font-size:1.05rem;margin-bottom:1rem;" data-i18n="read-desc" data-i18n-html="read-desc">
         The English translation of <em>Between Existence and Nothingness</em> is currently in progress. Sign up below to be notified when it becomes available.
       </p>
       <p style="color:var(--gray);font-size:.9rem;">
         The novel was originally written in Azerbaijani. Translating its existentialist prose&nbsp;&mdash; where every word carries philosophical weight&nbsp;&mdash; requires careful attention to preserve both meaning and atmosphere.
       </p>
       <div class="email-signup">
-        <p>Get notified when the English edition is released:</p>
+        <p data-i18n="notify-label">Get notified when the English edition is released:</p>
         <form class="email-form" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--red);padding:.8rem 0\'>Thank you! We will notify you when it is available.</p>';return false;">
           <input type="email" placeholder="your@email.com" required>
-          <button type="submit">Notify Me</button>
+          <button type="submit" data-i18n="notify">Notify Me</button>
         </form>
       </div>
     </div>
@@ -681,32 +681,32 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="buy">
   <div class="section-header reveal">
-    <div class="section-subtitle">Get the Book</div>
-    <h2 class="section-title">Where to Find It</h2>
+    <div class="section-subtitle" data-i18n="sub-buy">Get the Book</div>
+    <h2 class="section-title" data-i18n="title-buy">Where to Find It</h2>
   </div>
   <div class="buy-grid">
     <div class="buy-card reveal reveal-d1">
       <div class="icon">&#128214;</div>
-      <h4>Printed Copy</h4>
-      <p>The original Azerbaijani edition, 396 pages. Published by Alatoran, 2017.</p>
+      <h4 data-i18n="buy-printed">Printed Copy</h4>
+      <p data-i18n="buy-printed-desc">The original Azerbaijani edition, 396 pages. Published by Alatoran, 2017.</p>
       <span class="badge available">Available</span>
     </div>
     <div class="buy-card reveal reveal-d2">
       <div class="icon">&#127758;</div>
       <h4>Amazon KDP</h4>
-      <p>Digital and print-on-demand edition coming to Amazon Kindle Direct Publishing.</p>
+      <p data-i18n="buy-amazon-desc">Digital and print-on-demand edition coming to Amazon Kindle Direct Publishing.</p>
       <span class="badge">Coming Soon</span>
     </div>
     <div class="buy-card reveal reveal-d3">
       <div class="icon">&#128722;</div>
-      <h4>Online Store</h4>
-      <p>Order directly through our Shopify store for signed copies and special editions.</p>
+      <h4 data-i18n="buy-store">Online Store</h4>
+      <p data-i18n="buy-store-desc">Order directly through our Shopify store for signed copies and special editions.</p>
       <span class="badge">Coming Soon</span>
     </div>
     <div class="buy-card reveal reveal-d4">
       <div class="icon">&#9993;</div>
-      <h4>Contact for Orders</h4>
-      <p>For bulk orders, bookstore inquiries, or international shipping, get in touch directly.</p>
+      <h4 data-i18n="buy-contact">Contact for Orders</h4>
+      <p data-i18n="buy-contact-desc">For bulk orders, bookstore inquiries, or international shipping, get in touch directly.</p>
       <a href="mailto:jhan.karimov@gmail.com" class="buy-btn">Contact</a>
     </div>
   </div>
@@ -716,7 +716,7 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 <div class="section-divider"></div>
 <section id="author">
   <div class="section-header reveal">
-    <div class="section-subtitle">The Author</div>
+    <div class="section-subtitle" data-i18n="sub-author">The Author</div>
     <h2 class="section-title">Xancan K&#601;rimov</h2>
   </div>
   <div class="author-content reveal">
@@ -726,10 +726,10 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
     <div class="author-bio">
       <h3>Jhan Karimov <span style="color:var(--gray);font-size:.75em;font-weight:400;">(Khanjan Karimov)</span></h3>
       <div class="author-aka">Xancan K&#601;rimov · Khanjan Karimov</div>
-      <p>
+      <p data-i18n="author-p1" data-i18n-html="author-p1">
         Jhan Karimov is an Azerbaijani writer whose work explores the boundaries between philosophical inquiry and literary fiction. <em>Varl&#305;q v&#601; Yoxluq Aras&#305;nda</em> (Between Existence and Nothingness), published in 2017, is a novel that channels the existentialist tradition through a distinctly contemporary and deeply personal lens.
       </p>
-      <p>
+      <p data-i18n="author-p2" data-i18n-html="author-p2">
         Drawing inspiration from Faulkner, Camus, and the absurdist tradition, Karimov constructs narratives that probe the fundamental questions of consciousness, mortality, and the meaning&nbsp;&mdash; or meaninglessness&nbsp;&mdash; of human existence.
       </p>
     </div>
@@ -738,7 +738,7 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2017&ndash;2026 Xancan K&#601;rimov. All rights reserved.</p>
+  <p>&copy; 2017&ndash;2026 Xancan K&#601;rimov. <span data-i18n="footer-rights">All rights reserved.</span></p>
   <p class="isbn">ISBN 978-9953-8066-5-9 &middot; Alatoran Yay&#305;nlar&#305;</p>
 </footer>
 
@@ -924,13 +924,93 @@ new IntersectionObserver(function(e) {
   if (e[0].isIntersecting) drawLines();
 }, {threshold: 0.1}).observe(cst);
 
-// Language toast
-window.showLangToast = function(msg) {
-  var t = document.createElement('div');
-  t.style.cssText = 'position:fixed;top:5rem;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.95);border:1px solid rgba(196,75,75,.4);color:#f0e8e0;padding:.6rem 1.5rem;font-size:.8rem;border-radius:4px;z-index:9999;pointer-events:none;letter-spacing:1px;';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .5s';setTimeout(function(){t.remove()},500);}, 2000);
+// i18n translations
+var currentPageLang = 'en';
+var i18n = {
+  'nav-logo': {en: 'Between Existence <span>&</span> Nothingness', az: 'Varlıq <span>və</span> Yoxluq Arasında'},
+  'nav-about': {en: 'About', az: 'Haqqında'},
+  'nav-chapters': {en: 'Chapters', az: 'Fəsillər'},
+  'nav-characters': {en: 'Characters', az: 'Personajlar'},
+  'nav-read': {en: 'READ →', az: 'OXU →'},
+  'nav-get': {en: 'Get', az: 'Al'},
+  'nav-author': {en: 'Author', az: 'Müəllif'},
+  'hero-title': {en: 'Between Existence<br>and Nothingness', az: 'Varlıq və Yoxluq<br>Arasında'},
+  'hero-tagline': {en: 'A novel about the war between existence and nothingness', az: 'Varlıq və yoxluq arasındakı müharibə haqqında roman'},
+  'hero-pages': {en: '♦ 396 pages', az: '♦ 396 səhifə'},
+  'hero-chapters': {en: '♦ 12 chapters', az: '♦ 12 fəsil'},
+  'sub-about': {en: 'About the Book', az: 'Kitab haqqında'},
+  'title-about': {en: 'A Novel of Existential Rebellion', az: 'Ekzistensial Üsyanın Romanı'},
+  'sub-chapters': {en: '12 Chapters', az: '12 Fəsil'},
+  'title-chapters': {en: 'Table of Contents', az: 'Mündəricat'},
+  'sub-characters': {en: 'Character & Theme Map', az: 'Personaj və Mövzu Xəritəsi'},
+  'title-characters': {en: 'The Constellation of Mavi', az: 'Mavinin Bürcü'},
+  'sub-journey': {en: 'Narrative Structure', az: 'Narrativ Quruluş'},
+  'title-journey': {en: "The Hero's Journey", az: 'Qəhrəmanın Səyahəti'},
+  'sub-read': {en: 'Read', az: 'Oxu'},
+  'title-read': {en: 'English Translation', az: 'İngilis Tərcüməsi'},
+  'sub-buy': {en: 'Get the Book', az: 'Kitabı Al'},
+  'title-buy': {en: 'Where to Find It', az: 'Harada Tapmaq Olar'},
+  'sub-author': {en: 'The Author', az: 'Müəllif'},
+  'about-p1': {
+    en: '<em>Varlıq və Yoxluq Arasında</em> follows <strong>Mavi</strong>&nbsp;— a young man whose name means "Blue"&nbsp;— as he navigates a world suspended between existence and nothingness. In a near-future where euthanasia camps have become an accepted institution, consciousness wages war against the primal survival instincts encoded in our genes.',
+    az: '<em>Varlıq və Yoxluq Arasında</em> <strong>Mavi</strong> adlı gənc bir insanın — adı "Mavi" mənasına gələn — varlıq və yoxluq arasında asılı qalmış dünyada yolunu tapma hekayəsidir. Evtanaziya kamplarının qəbul edilmiş bir qurum halına gəldiyi yaxın gələcəkdə, şüur genlərimizdə kodlanmış ilkin yaşam instinktlərinə qarşı müharibə aparır.'
+  },
+  'about-p2': {
+    en: 'Through fourteen chapters that move from the roar of silence to the inevitability of death, the novel interrogates what it means to exist in a universe indifferent to our suffering. Nostalgia becomes a disease, gratitude for existence becomes absurd, and the ultimate rebellion against creation takes the form of the most forbidden act.',
+    az: 'Səssizliyin gurultusundan ölümün qaçılmazlığına qədər uzanan on dörd fəsil boyunca roman, əzablarımıza biganə bir kainatda var olmağın nə demək olduğunu sorğulayır. Nostalgiya xəstəliyə çevrilir, varlığa görə minnətdarlıq absurd olur və yaradılışa qarşı ən böyük üsyan ən qadağan aktın formasını alır.'
+  },
+  'about-p3': {
+    en: 'Written in Azerbaijani and published by Alatoran in 2017, this philosophical novel draws on the existentialist tradition of Camus, Sartre, and Faulkner while forging its own raw, surrealist vision.',
+    az: 'Azərbaycan dilində yazılmış və 2017-ci ildə Alatoran tərəfindən nəşr edilmiş bu fəlsəfi roman Kamü, Sartr və Folknerin ekzistensial ənənələrindən bəhrələnərək öz xam, sürrealist baxışını formalaşdırır.'
+  },
+  'buy-printed': {en: 'Printed Copy', az: 'Çap Nüsxəsi'},
+  'buy-printed-desc': {en: 'The original Azerbaijani edition, 396 pages. Published by Alatoran, 2017.', az: 'Orijinal Azərbaycan nəşri, 396 səhifə. Alatoran, 2017.'},
+  'buy-amazon-desc': {en: 'Digital and print-on-demand edition coming to Amazon Kindle Direct Publishing.', az: 'Rəqəmsal və sifarişlə çap nəşri Amazon KDP-də tezliklə.'},
+  'buy-store': {en: 'Online Store', az: 'Onlayn Mağaza'},
+  'buy-store-desc': {en: 'Order directly through our Shopify store for signed copies and special editions.', az: 'İmzalı nüsxələr və xüsusi nəşrlər üçün birbaşa mağazamızdan sifariş edin.'},
+  'buy-contact': {en: 'Contact for Orders', az: 'Sifarişlər üçün Əlaqə'},
+  'buy-contact-desc': {en: 'For bulk orders, bookstore inquiries, or international shipping, get in touch directly.', az: 'Topdan sifarişlər, kitab mağazası sorğuları və ya beynəlxalq çatdırılma üçün bizimlə əlaqə saxlayın.'},
+  'author-p1': {
+    en: 'Jhan Karimov is an Azerbaijani writer whose work explores the boundaries between philosophical inquiry and literary fiction. <em>Varlıq və Yoxluq Arasında</em> (Between Existence and Nothingness), published in 2017, is a novel that channels the existentialist tradition through a distinctly contemporary and deeply personal lens.',
+    az: 'Jhan Kərimov fəlsəfi araşdırma və bədii ədəbiyyat arasındakı sərhədləri araşdıran Azərbaycanlı yazıçıdır. 2017-ci ildə nəşr olunan <em>Varlıq və Yoxluq Arasında</em> romanı ekzistensial ənənəni müasir və şəxsi bir perspektivdən əks etdirir.'
+  },
+  'author-p2': {
+    en: 'Drawing inspiration from Faulkner, Camus, and the absurdist tradition, Karimov constructs narratives that probe the fundamental questions of consciousness, mortality, and the meaning&nbsp;— or meaninglessness&nbsp;— of human existence.',
+    az: 'Folkner, Kamü və absurdizm ənənəsindən ilham alaraq Kərimov şüur, ölüm və insan varlığının mənası — ya da mənasızlığı — haqqında əsas sualları araşdıran hekayələr qurur.'
+  },
+  'footer-rights': {en: 'All rights reserved.', az: 'Bütün hüquqlar qorunur.'},
+  'scroll': {en: 'Scroll', az: 'Aşağı'},
+  'read-ch1': {en: 'Read Chapter 1 Now', az: 'Fəsil 1-i İndi Oxu'},
+  'read-online': {en: 'Read Online →', az: 'Onlayn Oxu →'},
+  'read-desc': {en: 'The English translation of <em>Between Existence and Nothingness</em> is currently in progress. Sign up below to be notified when it becomes available.', az: '<em>Varlıq və Yoxluq Arasında</em> romanının ingilis dilinə tərcüməsi davam edir. Hazır olanda xəbərdar olmaq üçün aşağıda qeydiyyatdan keçin.'},
+  'notify': {en: 'Notify Me', az: 'Xəbər Ver'},
+  'notify-label': {en: 'Get notified when the English edition is released:', az: 'İngilis nəşri hazır olanda xəbər alın:'}
+};
+
+window.switchPageLang = function(lang) {
+  currentPageLang = lang;
+  document.documentElement.lang = lang;
+  // Update toggle styles
+  document.getElementById('lang-en').style.color = lang === 'en' ? 'var(--red)' : 'var(--gray)';
+  document.getElementById('lang-az').style.color = lang === 'az' ? 'var(--red)' : 'var(--gray)';
+  // Swap all data-i18n elements (text only)
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (i18n[key] && i18n[key][lang]) {
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = i18n[key][lang];
+      } else {
+        el.textContent = i18n[key][lang];
+      }
+    }
+  });
+  // Swap all data-i18n-html elements (innerHTML)
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-html');
+    if (i18n[key] && i18n[key][lang]) {
+      el.innerHTML = i18n[key][lang];
+    }
+  });
 };
 
 // Hero's Journey Clock
