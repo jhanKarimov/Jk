@@ -423,15 +423,21 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">V&amp;Y · Varl&#305;q v&#601; Yoxluq Aras&#305;nda</a>
+  <a href="#hero" class="nav-logo">Between Existence <span>&amp;</span> Nothingness</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#chapters">Chapters</a></li>
     <li><a href="#characters">Characters</a></li>
-    <li><a href="#read" style="color:var(--red)">READ →</a></li>
+    <li><a href="reader.html" style="color:var(--red)">READ →</a></li>
     <li><a href="#buy">Get</a></li>
     <li><a href="#author">Author</a></li>
+    <li><a href="https://jhankarimov.com" style="font-size:.65rem;opacity:.6;">JK</a></li>
   </ul>
+  <div style="display:flex;align-items:center;gap:.3rem;margin-left:1rem;">
+    <a href="#" id="lang-en" onclick="event.preventDefault()" style="font-size:.65rem;color:var(--red);text-transform:uppercase;letter-spacing:1px;">EN</a>
+    <span style="color:var(--gray-dark);font-size:.6rem;">|</span>
+    <a href="#" id="lang-az" onclick="event.preventDefault();showLangToast('Az\u0259rbaycanca versiya \u2014 tezlikl\u0259');" style="font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;">AZ</a>
+  </div>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -556,14 +562,81 @@ footer .isbn { font-family:monospace; font-size:.75rem; color:var(--gray); margi
 
 <!-- HERO'S JOURNEY -->
 <div class="section-divider"></div>
-<section id="journey">
-  <div class="section-header reveal">
-    <div class="section-subtitle">Narrative Structure</div>
-    <h2 class="section-title">The Hero's Journey</h2>
-  </div>
-  <div style="text-align:center;padding:2rem 0;" class="reveal">
-    <p style="color:var(--gray-light);margin-bottom:1.5rem;font-size:1rem;">Follow Mavi's arc through the twelve stages of the hero's journey — from the ordinary world through the abyss and toward transformation.</p>
-    <a href="reader.html" style="display:inline-block;padding:.9rem 2.5rem;border:1px solid var(--red-dark);color:var(--red);text-decoration:none;font-size:.82rem;text-transform:uppercase;letter-spacing:2px;transition:all .3s;" onmouseover="this.style.background='rgba(196,75,75,.1)'" onmouseout="this.style.background='transparent'">View Hero's Journey Map →</a>
+<section id="journey" class="full-width">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <div class="section-header reveal">
+      <div class="section-subtitle">Narrative Structure</div>
+      <h2 class="section-title">The Hero's Journey</h2>
+    </div>
+    <p style="text-align:center;font-size:.78rem;text-transform:uppercase;letter-spacing:3px;color:var(--gray-light);margin-bottom:2rem;" class="reveal">14 chapters arranged as a clock — from existence to nothingness and back</p>
+
+    <div class="reveal" style="position:relative;width:100%;padding-bottom:100%;margin:0 auto;max-width:800px;">
+      <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pathGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a5a8c" />
+            <stop offset="25%" stop-color="#5a4a7a" />
+            <stop offset="50%" stop-color="#c44b4b" />
+            <stop offset="75%" stop-color="#d4884a" />
+            <stop offset="100%" stop-color="#3a5a8c" />
+          </linearGradient>
+          <radialGradient id="centerGlow2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(196,75,75,.15)" />
+            <stop offset="100%" stop-color="rgba(196,75,75,0)" />
+          </radialGradient>
+          <filter id="glow2">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <circle id="orbitPath2" cx="400" cy="400" r="260" fill="none" />
+        </defs>
+
+        <circle cx="400" cy="400" r="320" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1" />
+        <circle cx="400" cy="400" r="260" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1.5" />
+        <circle cx="400" cy="400" r="200" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1" />
+        <circle cx="400" cy="400" r="120" fill="url(#centerGlow2)" />
+
+        <g id="center-lines-main" opacity=".15"></g>
+
+        <circle cx="400" cy="400" r="260" fill="none" stroke="url(#pathGrad2)" stroke-width="2.5" filter="url(#glow2)"
+                stroke-dasharray="2200" stroke-dashoffset="2200">
+          <animate attributeName="stroke-dashoffset" from="2200" to="0" dur="8s" fill="freeze" begin="0s"/>
+        </circle>
+
+        <g transform="translate(110,400)">
+          <line x1="0" y1="-100" x2="0" y2="100" stroke="rgba(58,90,140,.4)" stroke-width="1.5" />
+          <polygon points="-5,90 5,90 0,105" fill="rgba(58,90,140,.5)" />
+          <text x="-8" y="0" font-family="-apple-system,sans-serif" font-size="8" letter-spacing="2" text-transform="uppercase" fill="rgba(58,90,140,.6)" transform="rotate(-90)" text-anchor="middle">Descent</text>
+        </g>
+        <g transform="translate(690,400)">
+          <line x1="0" y1="100" x2="0" y2="-100" stroke="rgba(212,136,74,.4)" stroke-width="1.5" />
+          <polygon points="-5,-90 5,-90 0,-105" fill="rgba(212,136,74,.5)" />
+          <text x="8" y="0" font-family="-apple-system,sans-serif" font-size="8" letter-spacing="2" text-transform="uppercase" fill="rgba(212,136,74,.6)" transform="rotate(90)" text-anchor="middle">Ascent</text>
+        </g>
+
+        <text x="400" y="393" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#c44b4b" letter-spacing="4">MAVI</text>
+        <text x="400" y="412" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#999" letter-spacing="2">BETWEEN EXISTENCE</text>
+        <text x="400" y="424" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#999" letter-spacing="2">AND NOTHINGNESS</text>
+
+        <g id="journey-nodes-main"></g>
+
+        <circle r="5" fill="#d94444" filter="url(#glow2)">
+          <animateMotion dur="12s" repeatCount="indefinite">
+            <mpath href="#orbitPath2" />
+          </animateMotion>
+        </circle>
+      </svg>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap;" class="reveal">
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--gray-light);"><div style="width:10px;height:10px;border-radius:50%;background:#3a5a8c;"></div> Cold / Death / Nothingness</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--gray-light);"><div style="width:10px;height:10px;border-radius:50%;background:#c44b4b;"></div> Turning Point / Ordeal</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--gray-light);"><div style="width:10px;height:10px;border-radius:50%;background:#d4884a;"></div> Warm / Life / Acceptance</div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;" class="reveal">
+      <a href="reader.html" style="display:inline-block;padding:.7rem 2rem;border:1px solid var(--red-dark);color:var(--red);text-decoration:none;font-size:.78rem;text-transform:uppercase;letter-spacing:2px;transition:all .3s;" onmouseover="this.style.background='rgba(196,75,75,.1)'" onmouseout="this.style.background='transparent'">Read Online →</a>
+    </div>
   </div>
 </section>
 
@@ -850,6 +923,88 @@ window.addEventListener('scroll', function() {
 new IntersectionObserver(function(e) {
   if (e[0].isIntersecting) drawLines();
 }, {threshold: 0.1}).observe(cst);
+
+// Language toast
+window.showLangToast = function(msg) {
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;top:5rem;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.95);border:1px solid rgba(196,75,75,.4);color:#f0e8e0;padding:.6rem 1.5rem;font-size:.8rem;border-radius:4px;z-index:9999;pointer-events:none;letter-spacing:1px;';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';t.style.transition='opacity .5s';setTimeout(function(){t.remove()},500);}, 2000);
+};
+
+// Hero's Journey Clock
+(function(){
+  var jChapters = [
+    {num:1, en:"The Roar of Silence", stage:"The Ordinary World", color:"#3a5a8c"},
+    {num:2, en:"Euthanasia Camps", stage:"Call to Adventure", color:"#3e5588"},
+    {num:3, en:"Lara", stage:"Meeting the Mentor", color:"#4a4f82"},
+    {num:4, en:"Saudade", stage:"Crossing the Threshold", color:"#5a4a7a"},
+    {num:5, en:"Homeless and Jobless", stage:"Tests & Allies", color:"#6a4572"},
+    {num:6, en:"Richard", stage:"The Approach", color:"#7a4568"},
+    {num:7, en:"Weary Hopes", stage:"The Ordeal", color:"#8a4560"},
+    {num:8, en:"Hallucinations of Reality", stage:"Death & Rebirth", color:"#c44b4b"},
+    {num:9, en:"Sacred Sin", stage:"The Reward", color:"#c8754a"},
+    {num:10, en:"Pains and Pleasures", stage:"The Road Back", color:"#d4884a"},
+    {num:11, en:"Fred", stage:"Resurrection", color:"#c8904a"},
+    {num:12, en:"Above the Clouds", stage:"Return with Elixir", color:"#b0884a"},
+    {num:13, en:"Dialectical Monologue", stage:"The Final Test", color:"#6a7a8a"},
+    {num:14, en:"Death", stage:"Master of Two Worlds", color:"#3a5a8c"}
+  ];
+  var cx = 400, cy = 400, r = 260;
+  var nodesG = document.getElementById('journey-nodes-main');
+  var linesG = document.getElementById('center-lines-main');
+  if (!nodesG || !linesG) return;
+  jChapters.forEach(function(ch, i) {
+    var angleDeg = i * 360 / 14 - 90;
+    var angleRad = angleDeg * Math.PI / 180;
+    var nx = cx + r * Math.cos(angleRad);
+    var ny = cy + r * Math.sin(angleRad);
+    var ns = 'http://www.w3.org/2000/svg';
+    var line = document.createElementNS(ns,"line");
+    line.setAttribute("x1", cx); line.setAttribute("y1", cy);
+    line.setAttribute("x2", nx); line.setAttribute("y2", ny);
+    line.setAttribute("stroke", ch.color); line.setAttribute("stroke-width","1");
+    linesG.appendChild(line);
+    var g = document.createElementNS(ns,"g");
+    var circ = document.createElementNS(ns,"circle");
+    circ.setAttribute("cx", nx); circ.setAttribute("cy", ny); circ.setAttribute("r","24");
+    circ.setAttribute("fill", ch.color); circ.setAttribute("fill-opacity",".25");
+    circ.setAttribute("stroke", ch.color); circ.setAttribute("stroke-width","1.5");
+    g.appendChild(circ);
+    var inner = document.createElementNS(ns,"circle");
+    inner.setAttribute("cx", nx); inner.setAttribute("cy", ny); inner.setAttribute("r","14");
+    inner.setAttribute("fill", ch.color); inner.setAttribute("fill-opacity",".6");
+    g.appendChild(inner);
+    var numT = document.createElementNS(ns,"text");
+    numT.setAttribute("x", nx); numT.setAttribute("y", ny + 4);
+    numT.setAttribute("text-anchor","middle");
+    numT.setAttribute("font-family","-apple-system,sans-serif");
+    numT.setAttribute("font-size","11"); numT.setAttribute("fill","#f5f0e8");
+    numT.setAttribute("font-weight","700");
+    numT.textContent = ch.num;
+    g.appendChild(numT);
+    var labelR = r + 45;
+    var lx = cx + labelR * Math.cos(angleRad);
+    var ly = cy + labelR * Math.sin(angleRad);
+    var titleT = document.createElementNS(ns,"text");
+    titleT.setAttribute("x", lx); titleT.setAttribute("y", ly);
+    titleT.setAttribute("text-anchor","middle");
+    titleT.setAttribute("font-family","-apple-system,sans-serif");
+    titleT.setAttribute("font-size","8"); titleT.setAttribute("fill","#f5f0e8");
+    titleT.textContent = ch.en;
+    g.appendChild(titleT);
+    var stageT = document.createElementNS(ns,"text");
+    stageT.setAttribute("x", lx); stageT.setAttribute("y", ly + 12);
+    stageT.setAttribute("text-anchor","middle");
+    stageT.setAttribute("font-family","-apple-system,sans-serif");
+    stageT.setAttribute("font-size","6"); stageT.setAttribute("fill","#c44b4b");
+    stageT.setAttribute("letter-spacing","1");
+    stageT.textContent = ch.stage.toUpperCase();
+    g.appendChild(stageT);
+    nodesG.appendChild(g);
+  });
+})();
 
 })();
 </script>
