@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Living Archive — Jhan Karimov</title>
+<meta name="description" content="A living archive timeline by Jhan Karimov mixing photographs, book fragments, songs, cities, and dates into one scroll.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f3ebdd;
+  --panel: rgba(255, 250, 241, 0.78);
+  --ink: #171412;
+  --muted: #675d52;
+  --line: rgba(23, 20, 18, 0.14);
+  --signal: #9d341f;
+  --signal-2: #b58930;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background:
+    linear-gradient(180deg, rgba(243,235,221,0.98), rgba(233,223,205,0.98)),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(23,20,18,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23,20,18,0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+a { color: inherit; }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.3rem;
+  background: rgba(243,235,221,0.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav-group {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-link, .nav-pill, .mood-btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.56rem;
+  padding: 0.58rem 0.8rem;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.44);
+}
+.nav-link:hover, .mood-btn:hover, .mood-btn.active {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
+header {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3rem 1.3rem 1.5rem;
+}
+.eyebrow {
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.58rem;
+  margin-bottom: 0.9rem;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8.2vw, 6.8rem);
+  line-height: 0.9;
+  max-width: 980px;
+}
+.lede {
+  max-width: 950px;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+.mood-bar {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 1.3rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 3rem;
+}
+.timeline-year {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0 2rem;
+}
+.timeline-top {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.year-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.9;
+}
+.year-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 0.95rem 1rem;
+  min-height: 100%;
+}
+.year-card strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.56rem;
+  margin-bottom: 0.55rem;
+  color: var(--signal);
+}
+.year-card p {
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.9;
+}
+.year-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  line-height: 1.08;
+}
+.timeline-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+.timeline-card {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.48);
+  cursor: pointer;
+}
+.timeline-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+.timeline-card figcaption {
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.timeline-card strong {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.timeline-card span {
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.8;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(10, 8, 7, 0.94);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+}
+.lightbox button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+footer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 3rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 980px) {
+  .timeline-top {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-group">
+    <a class="nav-link" href="photos.html">Classic Gallery</a>
+    <a class="nav-link" href="jk-universe.html">JK Universe</a>
+    <a class="nav-link" href="book-photo-atlas.html">Book x Photo</a>
+  </div>
+  <div class="nav-title">Living Archive</div>
+  <div class="nav-group">
+    <span class="nav-pill" id="archive-count">0 fragments</span>
+    <a class="nav-link" href="index.html">Home</a>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Timeline / Cities / Songs / Fragments</div>
+  <h1>One scroll for the whole JK weather system.</h1>
+  <p class="lede">This is the archive as a living sequence instead of a folder dump: years, cities, songs, prose fragments, and the images that survived each phase. Use the mood filter if you want to travel by feeling instead of chronology. Leave it on all if you want the larger autobiography.</p>
+</header>
+
+<section class="mood-bar" id="mood-bar">
+  <button class="mood-btn active" data-mood="all">All</button>
+  <button class="mood-btn" data-mood="nightlife">Nightlife</button>
+  <button class="mood-btn" data-mood="lovers">Lovers</button>
+  <button class="mood-btn" data-mood="solitude">Solitude</button>
+  <button class="mood-btn" data-mood="street">Street</button>
+  <button class="mood-btn" data-mood="travel">Travel</button>
+</section>
+
+<main id="timeline"></main>
+
+<div class="lightbox" id="lightbox">
+  <button class="nav-link" id="lightbox-close">Close</button>
+  <img id="lightbox-image" alt="">
+</div>
+
+<footer>
+  The next version of this page can go even harder: single-photo permalinks, city maps, embedded songs, bilingual book fragments, and a deeper archive stretching further back than 2019.
+</footer>
+
+<script src="assets/js/jk-public-gallery.js"></script>
+<script>
+const YEAR_NOTES = {
+  '2019': {
+    city: 'Boston / Cambridge / the beginning of the darker public persona.',
+    song: 'Random Access Memories / Buy Guitars Not Guns / HÈÄ†',
+    quote: 'There is something strangely familiar in your face.',
+    note: 'The archive starts to sharpen here: streets, clubs, portraits, and a self-mythology beginning to harden around nightlife and longing.'
+  },
+  '2020': {
+    city: 'Boston / Somerville / winter rooms / fashion studios / the long after-midnight.',
+    song: 'sin city / frisson / a-maze / the things that you\'ve been through',
+    quote: 'Every human being is a totality of memories.',
+    note: '2020 is thick with staged intimacy, private dread, cigarettes, fashion, and the sensation of being trapped inside your own recall system.'
+  },
+  '2021': {
+    city: 'Boston / aftermath / a year of persistence and bruised glamour.',
+    song: 'music is the answer / tear apart / 2021: still hard to be a human',
+    quote: 'You are only human, remember.',
+    note: 'The images get barer here. Less ceremony, more aftermath. This part of the timeline reads like survival written in low light.'
+  },
+  '2022': {
+    city: 'New York / transition / the city as unsolicited acid trip.',
+    song: 'mirror gaze / magical existence / moving cities',
+    quote: 'The only thing that could end the war inside a human being was death.',
+    note: 'The archive turns toward movement and rebirth: mirror rituals, city shifts, travel fragments, and more exposed tenderness.'
+  },
+  '2023': {
+    city: 'Story residue / afterimages / soft fragments after the main chapters.',
+    song: 'quiet transmission / favorite story frames / memory still flickering',
+    quote: 'You look half-dead. Come out with me.',
+    note: 'These are smaller fragments, but they matter. The stories work like sparks around the larger published self.'
+  }
+};
+
+const YEAR_ORDER = ['2019', '2020', '2021', '2022', '2023'];
+const gallery = Array.isArray(window.JK_PUBLIC_GALLERY) ? window.JK_PUBLIC_GALLERY : [];
+let currentMood = 'all';
+
+function filteredItems() {
+  return gallery.filter((item) => currentMood === 'all' || (item.moods || []).includes(currentMood));
+}
+
+function renderTimeline() {
+  const timeline = document.getElementById('timeline');
+  const items = filteredItems();
+  document.getElementById('archive-count').textContent = `${items.length} fragments`;
+  timeline.innerHTML = YEAR_ORDER.map((year) => {
+    const yearItems = items.filter((item) => item.year === year).slice(0, 12);
+    if (!yearItems.length) return '';
+    const note = YEAR_NOTES[year];
+    return `
+      <section class="timeline-year" id="year-${year}">
+        <div class="timeline-top">
+          <div class="year-label">${year}</div>
+          <article class="year-card">
+            <strong>Cityline</strong>
+            <p>${note.city}</p>
+          </article>
+          <article class="year-card">
+            <strong>Songline</strong>
+            <p>${note.song}</p>
+          </article>
+          <article class="year-card">
+            <strong>Book Fragment</strong>
+            <p class="year-quote">“${note.quote}”</p>
+            <p style="margin-top:0.7rem;">${note.note}</p>
+          </article>
+        </div>
+        <div class="timeline-grid">
+          ${yearItems.map((item) => `
+            <figure class="timeline-card" data-src="${item.src}" data-alt="${item.title}">
+              <img src="${item.src}" alt="${item.title}" loading="lazy">
+              <figcaption>
+                <strong>${item.title}</strong>
+                <span>${item.category} · ${item.month || '00'} · ${item.captionShort || item.caption || 'JK archive fragment'}</span>
+              </figcaption>
+            </figure>
+          `).join('')}
+        </div>
+      </section>
+    `;
+  }).join('');
+
+  timeline.querySelectorAll('.timeline-card').forEach((card) => {
+    card.addEventListener('click', () => openLightbox(card.dataset.src, card.dataset.alt));
+  });
+}
+
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-image').src = src;
+  document.getElementById('lightbox-image').alt = alt || '';
+  document.getElementById('lightbox').classList.add('open');
+}
+
+document.getElementById('mood-bar').querySelectorAll('[data-mood]').forEach((button) => {
+  button.addEventListener('click', () => {
+    currentMood = button.dataset.mood;
+    document.querySelectorAll('#mood-bar .mood-btn').forEach((btn) => btn.classList.remove('active'));
+    button.classList.add('active');
+    renderTimeline();
+  });
+});
+
+document.getElementById('lightbox-close').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('open');
+});
+document.getElementById('lightbox').addEventListener('click', (event) => {
+  if (event.target.id === 'lightbox') {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+});
+
+renderTimeline();
+</script>
+</body>
+</html>

@@ -107,6 +107,26 @@ h1 {
   gap: 0.8rem;
   margin-top: 1.4rem;
 }
+.atlas-rail {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+.rail-frame {
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.46);
+  overflow: hidden;
+}
+.rail-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .meta-card {
   border: 1px solid var(--line);
   padding: 0.9rem 1rem;
@@ -213,6 +233,9 @@ footer {
   letter-spacing: 0.08em;
 }
 @media (max-width: 700px) {
+  .atlas-rail {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .atlas-grid {
     grid-template-columns: 1fr;
   }
@@ -224,6 +247,7 @@ footer {
   <div class="nav-group">
     <a class="nav-link" href="photos.html">Classic Gallery</a>
     <a class="nav-link" href="jk-universe.html">JK Universe</a>
+    <a class="nav-link" href="living-archive.html">Living Archive</a>
   </div>
   <div class="nav-title">Book x Photo Atlas</div>
   <div class="nav-group">
@@ -252,6 +276,8 @@ footer {
   </div>
 </header>
 
+<section class="atlas-rail" id="atlas-rail"></section>
+
 <main>
   <section class="atlas-grid" id="atlas"></section>
 </main>
@@ -270,7 +296,7 @@ const PAIRS = [
     note: 'A body framed like a private cathedral. The image feels like a solitary emblem before it feels documentary.'
   },
   {
-    photoId: 'favorite-current-05-tiger-embrace',
+    photoId: 'favorite-recovered-04-night-lounge',
     chapter: '03 — Lara',
     quote: 'There is something strangely familiar in your face.',
     note: 'The closeness in this frame turns recognition into drama. It reads less like a portrait and more like fate arriving at table level.'
@@ -296,7 +322,7 @@ const PAIRS = [
   {
     photoId: 'favorite-recovered-01-mirror-gaze',
     chapter: '01 — The Roar of Silence',
-    quote: 'You gather your shattered hopes into your arms and whisper don\\'t be cold.',
+    quote: 'You gather your shattered hopes into your arms and whisper don\'t be cold.',
     note: 'The mirror turns affection into ritual. The tenderness in the line helps the image read as devotion instead of performance.'
   },
   {
@@ -304,12 +330,56 @@ const PAIRS = [
     chapter: '02 — Euthanasia Camps',
     quote: 'Happy death wandered the streets on placards.',
     note: 'Still life as omen. Metallic objects, staged calm, and a phrase from the novel that lands with ceremonial menace.'
+  },
+  {
+    photoId: 'public-batch-019-in-a-dream-i',
+    chapter: '01 — The Roar of Silence',
+    quote: 'In a dream, I saw tigers of a blue I had never seen before.',
+    note: 'This pairing is almost too perfect to ignore: the image already carries the same sentence that haunts the novel, turning dream-logic into portrait logic.'
+  },
+  {
+    photoId: 'public-batch-017-the-things-that-you-ve',
+    chapter: '01 — The Roar of Silence',
+    quote: 'Every human being is a totality of memories.',
+    note: 'The title already reads like aftermath. It lets the novel’s obsession with memory sit beside a quieter, more observational frame.'
+  },
+  {
+    photoId: 'public-batch-040-the-end-of-a',
+    chapter: '03 — Lara',
+    quote: 'They wanted to weep until they died, from happiness or from misery.',
+    note: 'A line that understands the photograph’s double weather: exhaustion and tenderness, late-night collapse and the refusal to fully let go.'
+  },
+  {
+    photoId: 'public-batch-043-2021-still-hard-to',
+    chapter: '02 — Euthanasia Camps',
+    quote: 'You are only human, remember.',
+    note: 'The title speaks in plain contemporary language; the book answers with an older, harder reminder about frailty and scale.'
+  },
+  {
+    photoId: 'public-batch-024-studio-funkmeup-nyc-cheeemsss',
+    chapter: '03 — Lara',
+    quote: 'As though she were the goddess of passion that life had sent him at the last to test him.',
+    note: 'Fashion studio energy meets fatalism. This is where the archive becomes less documentary and more mythic city literature.'
+  },
+  {
+    photoId: 'review-18-memorial-park',
+    chapter: '02 — Euthanasia Camps',
+    quote: 'The world was entering a dark age. Every prediction of the future had gone wrong.',
+    note: 'The city image gives the chapter a visible skyline. It keeps the philosophical dread grounded in actual streets and actual light.'
   }
+];
+
+const RAIL_IDS = [
+  'favorite-recovered-04-night-lounge',
+  'favorite-current-03-aphrodite-pair',
+  'public-batch-019-in-a-dream-i',
+  'favorite-recovered-01-mirror-gaze'
 ];
 
 const galleryItems = Array.isArray(window.JK_PUBLIC_GALLERY) ? window.JK_PUBLIC_GALLERY : [];
 const itemById = new Map(galleryItems.map(item => [item.id, item]));
 const atlas = document.getElementById('atlas');
+const atlasRail = document.getElementById('atlas-rail');
 
 function renderPair(pair) {
   const item = itemById.get(pair.photoId);
@@ -334,8 +404,13 @@ function renderPair(pair) {
   `;
 }
 
-atlas.innerHTML = PAIRS.map(renderPair).join('');
-document.getElementById('pair-count').textContent = `${PAIRS.length} pairings`;
+atlas.innerHTML = PAIRS.map(renderPair).filter(Boolean).join('');
+atlasRail.innerHTML = RAIL_IDS.map((id) => {
+  const item = itemById.get(id);
+  if (!item) return '';
+  return `<div class="rail-frame"><img src="${item.src}" alt="${item.title}" loading="lazy"></div>`;
+}).join('');
+document.getElementById('pair-count').textContent = `${atlas.children.length} pairings`;
 </script>
 </body>
 </html>

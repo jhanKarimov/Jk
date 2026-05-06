@@ -18,6 +18,36 @@
   --signal: #d3a84f;
   --danger: #b53b2d;
 }
+body[data-theme="editorial"] {
+  --bg: #eee6d8;
+  --panel: #f7f0e5;
+  --panel-2: #ece0cf;
+  --line: rgba(23,20,18,0.12);
+  --text: #171412;
+  --muted: #685f55;
+  --signal: #8e3b25;
+  --danger: #b95e2a;
+}
+body[data-theme="brutalist"] {
+  --bg: #efeadb;
+  --panel: #f6f0e4;
+  --panel-2: #e5dac3;
+  --line: rgba(23,20,18,0.16);
+  --text: #111;
+  --muted: #443d36;
+  --signal: #c93f1d;
+  --danger: #111;
+}
+body[data-theme="chaos"] {
+  --bg: #05010a;
+  --panel: #120813;
+  --panel-2: #1f0d24;
+  --line: rgba(255,255,255,0.12);
+  --text: #f6e8d6;
+  --muted: #e1a4a9;
+  --signal: #ff7d2a;
+  --danger: #ff2d55;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background:
@@ -329,6 +359,7 @@ footer {
   <div class="nav-left">
     <a class="nav-link" href="photos.html">Classic Gallery</a>
     <a class="nav-link" href="book-photo-atlas.html">Book x Photo</a>
+    <a class="nav-link" href="living-archive.html">Living Archive</a>
   </div>
   <div class="nav-brand">JK Universe</div>
   <div class="nav-right">
@@ -366,6 +397,12 @@ footer {
       <option value="2021">2021</option>
       <option value="2022">2022</option>
       <option value="2023">2023</option>
+    </select>
+    <select id="theme-select">
+      <option value="universe">Universe</option>
+      <option value="editorial">Editorial</option>
+      <option value="brutalist">Brutalist</option>
+      <option value="chaos">Chaos</option>
     </select>
   </div>
 </section>
@@ -410,6 +447,7 @@ const manifest = legacyHighlights.concat(Array.isArray(window.JK_PUBLIC_GALLERY)
 let currentMood = 'all';
 let currentMode = 'grid';
 let currentYear = 'all';
+let currentTheme = localStorage.getItem('jk-universe-theme') || 'universe';
 let flashIndex = 0;
 let flashTimer = null;
 let flashPlaying = true;
@@ -498,10 +536,11 @@ function ensureFlash(items) {
   clearInterval(flashTimer);
   renderFlash(items);
   if (!flashPlaying || !items.length) return;
+  const delay = currentTheme === 'chaos' ? 1250 : currentTheme === 'editorial' ? 3600 : currentTheme === 'brutalist' ? 2100 : 2400;
   flashTimer = setInterval(() => {
     flashIndex = (flashIndex + 1) % items.length;
     renderFlash(items);
-  }, 2400);
+  }, delay);
 }
 
 function render() {
@@ -548,6 +587,13 @@ document.getElementById('flash-toggle').addEventListener('click', (e) => {
   ensureFlash(filteredItems());
 });
 
+document.getElementById('theme-select').addEventListener('change', (e) => {
+  currentTheme = e.target.value;
+  document.body.dataset.theme = currentTheme === 'universe' ? '' : currentTheme;
+  localStorage.setItem('jk-universe-theme', currentTheme);
+  ensureFlash(filteredItems());
+});
+
 document.getElementById('lightbox-close').addEventListener('click', () => {
   document.getElementById('lightbox').classList.remove('open');
 });
@@ -557,6 +603,8 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
   }
 });
 
+document.getElementById('theme-select').value = currentTheme;
+document.body.dataset.theme = currentTheme === 'universe' ? '' : currentTheme;
 render();
 </script>
 </body>
