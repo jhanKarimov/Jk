@@ -1,0 +1,148 @@
+{
+  "manifest": "images/gallery/favorites/current-favorites-2026-05-06.json",
+  "exportsRoot": "/Users/jhankarimov/Downloads/photos-insta",
+  "dest": "images/gallery/favorites/current",
+  "copied": [
+    {
+      "index": 1,
+      "filename": "001-17945480374698817.webp",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202201/17945480374698817.webp",
+      "relPath": "media/posts/202201/17945480374698817.webp",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2022",
+      "month": "01"
+    },
+    {
+      "index": 2,
+      "filename": "002-17899968088825806.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202103/17899968088825806.jpg",
+      "relPath": "media/posts/202103/17899968088825806.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2021",
+      "month": "03"
+    },
+    {
+      "index": 3,
+      "filename": "003-17967088315387943.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202103/17967088315387943.jpg",
+      "relPath": "media/posts/202103/17967088315387943.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-evGXBgMl",
+      "type": "posts",
+      "year": "2021",
+      "month": "03"
+    },
+    {
+      "index": 4,
+      "filename": "004-18178402294066611.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202101/18178402294066611.jpg",
+      "relPath": "media/posts/202101/18178402294066611.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2021",
+      "month": "01"
+    },
+    {
+      "index": 5,
+      "filename": "005-17872127164551454.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202001/17872127164551454.jpg",
+      "relPath": "media/posts/202001/17872127164551454.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2020",
+      "month": "01"
+    },
+    {
+      "index": 6,
+      "filename": "006-17855832010798428.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202002/17855832010798428.jpg",
+      "relPath": "media/posts/202002/17855832010798428.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2020",
+      "month": "02"
+    },
+    {
+      "index": 7,
+      "filename": "007-17864541038228950.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202012/17864541038228950.jpg",
+      "relPath": "media/posts/202012/17864541038228950.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2020",
+      "month": "12"
+    },
+    {
+      "index": 8,
+      "filename": "008-17968053730873713.webp",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/202209/17968053730873713.webp",
+      "relPath": "media/archived_posts/202209/17968053730873713.webp",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "archived_posts",
+      "year": "2022",
+      "month": "09"
+    },
+    {
+      "index": 9,
+      "filename": "009-17902451300775349.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/stories/202304/17902451300775349.jpg",
+      "relPath": "media/stories/202304/17902451300775349.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "stories",
+      "year": "2023",
+      "month": "04"
+    },
+    {
+      "index": 10,
+      "filename": "010-18245340526091435.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/stories/202304/18245340526091435.jpg",
+      "relPath": "media/stories/202304/18245340526091435.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "stories",
+      "year": "2023",
+      "month": "04"
+    },
+    {
+      "index": 11,
+      "filename": "011-17990851324848497.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/stories/202303/17990851324848497.jpg",
+      "relPath": "media/stories/202303/17990851324848497.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "stories",
+      "year": "2023",
+      "month": "03"
+    },
+    {
+      "index": 12,
+      "filename": "012-17860563215904524.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/stories/202303/17860563215904524.jpg",
+      "relPath": "media/stories/202303/17860563215904524.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "stories",
+      "year": "2023",
+      "month": "03"
+    },
+    {
+      "index": 13,
+      "filename": "013-17891221013495917.webp",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-evGXBgMl/media/stories/202201/17891221013495917.webp",
+      "relPath": "media/stories/202201/17891221013495917.webp",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "stories",
+      "year": "2022",
+      "month": "01"
+    },
+    {
+      "index": 14,
+      "filename": "014-17865200755604627.jpg",
+      "source": "/Users/jhankarimov/Downloads/photos-insta/instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202001/17865200755604627.jpg",
+      "relPath": "media/posts/202001/17865200755604627.jpg",
+      "archiveHint": "instagram-jhan_karimov-2026-02-02-mMRIlvyh",
+      "type": "posts",
+      "year": "2020",
+      "month": "01"
+    }
+  ],
+  "missing": []
+}

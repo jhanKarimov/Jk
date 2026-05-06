@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book x Photo Atlas — Jhan Karimov</title>
+<meta name="description" content="A literary photo atlas by Jhan Karimov pairing selected photographs with English lines from Between Being and Nothingness.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #efe5d2;
+  --paper-deep: #dbc9a6;
+  --ink: #15120f;
+  --muted: #665b4d;
+  --line: rgba(21, 18, 15, 0.16);
+  --signal: #922f21;
+  --panel: rgba(255, 251, 242, 0.72);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(circle at top left, rgba(146,47,33,0.08), transparent 30%),
+    linear-gradient(180deg, rgba(239,229,210,0.96), rgba(231,220,196,0.98)),
+    var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.26;
+  background-image:
+    linear-gradient(rgba(21,18,15,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,18,15,0.02) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+a { color: inherit; }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.3rem;
+  background: rgba(239,229,210,0.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.nav-link, .nav-pill {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.58rem;
+  padding: 0.58rem 0.82rem;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.42);
+}
+.nav-link:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+}
+header {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3.2rem 1.3rem 2rem;
+}
+.eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 0.9rem;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  line-height: 0.9;
+  max-width: 960px;
+}
+.lede {
+  max-width: 950px;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+.atlas-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+.meta-card {
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+  background: var(--panel);
+}
+.meta-card strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.58rem;
+  margin-bottom: 0.45rem;
+}
+.meta-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.8;
+}
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 3rem;
+}
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+.atlas-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.82);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
+}
+.atlas-image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #d9d1c0;
+}
+.atlas-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.atlas-body {
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+.atlas-kicker {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+.atlas-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.08;
+}
+.atlas-source {
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.atlas-text {
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+}
+.atlas-links {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.atlas-links a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.55rem;
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.75rem;
+}
+.atlas-links a:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+footer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.3rem 3rem;
+}
+.footer-note {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 700px) {
+  .atlas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-group">
+    <a class="nav-link" href="photos.html">Classic Gallery</a>
+    <a class="nav-link" href="jk-universe.html">JK Universe</a>
+  </div>
+  <div class="nav-title">Book x Photo Atlas</div>
+  <div class="nav-group">
+    <span class="nav-pill" id="pair-count">0 pairings</span>
+    <a class="nav-link" href="index.html">Home</a>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Archive / Novel / Photo Index</div>
+  <h1>Images that already sounded like prose.</h1>
+  <p class="lede">This page starts turning the photo archive into a literary one. Each pairing pulls from the shared gallery manifest and places it beside an English fragment from <em>Between Being and Nothingness</em>, building a more indexable and legacy-oriented version of the JK universe: part novel, part visual diary, part web archive.</p>
+  <div class="atlas-meta">
+    <div class="meta-card">
+      <strong>Chapters Used</strong>
+      <span>The Roar of Silence, Euthanasia Camps, and Lara.</span>
+    </div>
+    <div class="meta-card">
+      <strong>Photo Window</strong>
+      <span>Mostly 2020–2022 favorites and selected public archive work.</span>
+    </div>
+    <div class="meta-card">
+      <strong>Intent</strong>
+      <span>Give the photos language, give the book a visible body, and let search engines index the archive as authored work.</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="atlas-grid" id="atlas"></section>
+</main>
+
+<footer>
+  <p class="footer-note">Next evolutions for this mode: chapter-specific galleries, quote randomizer, bilingual toggles, city timelines, and single-photo permalink pages that join image, caption, quote, place, and year into one archival page.</p>
+</footer>
+
+<script src="assets/js/jk-public-gallery.js"></script>
+<script>
+const PAIRS = [
+  {
+    photoId: 'favorite-current-14-sin-city-torso',
+    chapter: '01 — The Roar of Silence',
+    quote: 'If you are lonely enough, you can hear the roar of silence.',
+    note: 'A body framed like a private cathedral. The image feels like a solitary emblem before it feels documentary.'
+  },
+  {
+    photoId: 'favorite-current-05-tiger-embrace',
+    chapter: '03 — Lara',
+    quote: 'There is something strangely familiar in your face.',
+    note: 'The closeness in this frame turns recognition into drama. It reads less like a portrait and more like fate arriving at table level.'
+  },
+  {
+    photoId: 'favorite-current-06-lost-in-time-room',
+    chapter: '02 — Euthanasia Camps',
+    quote: 'We owe these people, who are ending the suffering of the lives they have lived, at the very least one beautiful day.',
+    note: 'A room in motion, but tenderly so. This works as a counterpoint to the book: pleasure, community, and a brief civic tenderness.'
+  },
+  {
+    photoId: 'favorite-current-07-a-maze-portrait',
+    chapter: '03 — Lara',
+    quote: 'People whose pains had become common ground.',
+    note: 'The frame holds intimacy without explaining it. It lets shared damage become style, warmth, and a small truce.'
+  },
+  {
+    photoId: 'favorite-current-03-aphrodite-pair',
+    chapter: '03 — Lara',
+    quote: 'Two strangers, freshly met, embraced each other as though they had known each other for years.',
+    note: 'One of the strongest bridges between the novel and the photographs. The image already behaves like a sentence with longing inside it.'
+  },
+  {
+    photoId: 'favorite-recovered-01-mirror-gaze',
+    chapter: '01 — The Roar of Silence',
+    quote: 'You gather your shattered hopes into your arms and whisper don\\'t be cold.',
+    note: 'The mirror turns affection into ritual. The tenderness in the line helps the image read as devotion instead of performance.'
+  },
+  {
+    photoId: 'favorite-recovered-03-golden-objects',
+    chapter: '02 — Euthanasia Camps',
+    quote: 'Happy death wandered the streets on placards.',
+    note: 'Still life as omen. Metallic objects, staged calm, and a phrase from the novel that lands with ceremonial menace.'
+  }
+];
+
+const galleryItems = Array.isArray(window.JK_PUBLIC_GALLERY) ? window.JK_PUBLIC_GALLERY : [];
+const itemById = new Map(galleryItems.map(item => [item.id, item]));
+const atlas = document.getElementById('atlas');
+
+function renderPair(pair) {
+  const item = itemById.get(pair.photoId);
+  if (!item) return '';
+  const anchor = item.id || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  return `
+    <article class="atlas-card" id="${anchor}">
+      <div class="atlas-image">
+        <img src="${item.src}" alt="${item.title}" loading="lazy">
+      </div>
+      <div class="atlas-body">
+        <div class="atlas-kicker">${item.category} · ${item.year}-${item.month || '00'} · ${pair.chapter}</div>
+        <blockquote class="atlas-quote">“${pair.quote}”</blockquote>
+        <div class="atlas-source">${item.title} · ${item.captionShort || item.caption || 'JK archive fragment'}</div>
+        <p class="atlas-text">${pair.note}</p>
+        <div class="atlas-links">
+          <a href="jk-universe.html#${anchor}">Open In Universe</a>
+          <a href="${item.src}">Open Image</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+atlas.innerHTML = PAIRS.map(renderPair).join('');
+document.getElementById('pair-count').textContent = `${PAIRS.length} pairings`;
+</script>
+</body>
+</html>

@@ -87,6 +87,41 @@ nav {
   border-bottom: 1px solid var(--smoke);
   max-width: 1400px; margin: 0 auto;
 }
+.view-rack {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+.view-link {
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  padding: 1rem 1rem 1.1rem;
+  color: var(--white);
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.view-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(184,150,62,0.10), rgba(255,255,255,0.02));
+}
+.view-link strong {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+.view-link span {
+  display: block;
+  font-size: 0.58rem;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  color: var(--ash);
+}
 .filter-btn {
   font-family: 'Space Mono', monospace;
   font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -119,6 +154,13 @@ nav {
 }
 .gallery-item:hover .item-overlay { opacity: 1; }
 .item-label { font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.gallery-empty {
+  padding: 2rem 0;
+  color: var(--ash);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 
 /* LIGHTBOX */
 #lightbox {
@@ -204,6 +246,21 @@ nav {
   <p>Street · Portrait · Travel &nbsp;·&nbsp; NYC / Warsaw / Ankara / Baku</p>
 </div>
 
+<div class="view-rack">
+  <a class="view-link" href="jk-universe.html">
+    <strong>JK Universe</strong>
+    <span>Switch between grid, orbit, flash, and archive modes. Mood filters, captions, and a more living-archive feeling.</span>
+  </a>
+  <a class="view-link" href="book-photo-atlas.html">
+    <strong>Book x Photo</strong>
+    <span>English lines from the novel paired with selected images. More literary, more indexable, more legacy-oriented.</span>
+  </a>
+  <a class="view-link" href="images/gallery/review-2019-2023/review-contact-sheet.jpg">
+    <strong>Review Batch</strong>
+    <span>The current 2019–2023 curation sheet you can keep pruning. The public gallery now reads from the approved manifest.</span>
+  </a>
+</div>
+
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
@@ -215,70 +272,14 @@ nav {
 
 <!-- GALLERY -->
 <div class="gallery-wrap">
-  <div class="gallery-grid" id="gallery">
-
-    <!--
-    ══════════════════════════════════════════════
-    HOW TO ADD YOUR PHOTOS — READ THIS ONCE:
-
-    1. Drop image files into the /images/ folder
-       (keep them under 2MB ideally for fast load)
-
-    2. Copy a <div class="gallery-item"> block below
-
-    3. Change:
-       - data-src="images/YOUR-FILE.jpg"
-       - src="images/YOUR-FILE.jpg"
-       - data-label="Description · Location"
-       - data-category: portrait / street / travel / music
-       - alt="description"
-
-    4. git add images/yourfile.jpg photos.html
-       git commit -m "add photos"
-       git push
-       — OR — just drop the file and tell Claude to update the page
-
-    Want 100 photos? Add them all to /images/ and
-    paste 100 blocks. The masonry grid handles layout automatically.
-    ══════════════════════════════════════════════
-    -->
-
-    <div class="gallery-item" data-category="portrait"
-         onclick="openLightbox(this)"
-         data-src="images/jhankk.jpeg"
-         data-label="Portrait · New York">
-      <img src="images/jhankk.jpeg" alt="Jhan Karimov" loading="lazy" />
-      <div class="item-overlay"><span class="item-label">Portrait</span></div>
-    </div>
-
-    <div class="gallery-item" data-category="street"
-         onclick="openLightbox(this)"
-         data-src="images/backyard.jpeg"
-         data-label="Backyard · New York">
-      <img src="images/backyard.jpeg" alt="Backyard" loading="lazy" />
-      <div class="item-overlay"><span class="item-label">Street</span></div>
-    </div>
-
-    <div class="gallery-item" data-category="music"
-         onclick="openLightbox(this)"
-         data-src="images/guitar.jpeg"
-         data-label="Guitar · Music">
-      <img src="images/guitar.jpeg" alt="Guitar" loading="lazy" />
-      <div class="item-overlay"><span class="item-label">Music</span></div>
-    </div>
-
-    <!-- ← ADD MORE PHOTOS HERE -->
-
-  </div>
+  <div class="gallery-grid" id="gallery"></div>
+  <div class="gallery-empty" id="gallery-empty" hidden>No photos in this filter yet.</div>
 
   <div class="add-note">
-    <h3>📷 &nbsp;Adding Your Photos</h3>
+    <h3>Curating The Archive</h3>
     <p>
-      Drop images into <code>/images/</code> →
-      copy a block above → change <code>src</code>, <code>data-src</code>, <code>data-label</code> and <code>data-category</code> →
-      <code>git push</code>.<br>
-      You can also just dump the files in the folder and say <em>"add my new photos to the gallery"</em> and Claude will handle the HTML.<br>
-      For ~100 photos: create a subfolder <code>/images/gallery/</code> so things stay organized.
+      This page now renders from <code>images/gallery/public-gallery-manifest.json</code>, so the classic gallery, the universe view, and the book-photo experiments all share one approved source of truth.<br>
+      Hide anything private by moving it out of the public folders, keep pruning in <code>images/gallery/review-2019-2023/</code>, and use the Instagram viewer favorites export flow whenever you want to materialize new picks.
     </p>
   </div>
 </div>
@@ -298,15 +299,66 @@ nav {
   <span>© Jhan Karimov</span>
 </div>
 
+<script src="assets/js/jk-public-gallery.js"></script>
 <script>
+const legacyHighlights = [
+  {
+    src: 'images/jhankk.jpeg',
+    title: 'Jhan Karimov',
+    category: 'portrait',
+    captionShort: 'Portrait · New York',
+    featuredClassic: true
+  },
+  {
+    src: 'images/backyard.jpeg',
+    title: 'Backyard',
+    category: 'street',
+    captionShort: 'Backyard · New York',
+    featuredClassic: true
+  },
+  {
+    src: 'images/guitar.jpeg',
+    title: 'Guitar',
+    category: 'music',
+    captionShort: 'Guitar · Music',
+    featuredClassic: true
+  }
+];
+
 let allItems = [];
 let currentIndex = 0;
 
-function buildItems() {
+function renderCard(item) {
+  const card = document.createElement('div');
+  card.className = 'gallery-item';
+  card.dataset.category = item.category;
+  card.dataset.src = item.src;
+  card.dataset.label = item.captionShort || item.title;
+  card.onclick = () => openLightbox(card);
+
+  const img = document.createElement('img');
+  img.src = item.src;
+  img.alt = item.title;
+  img.loading = 'lazy';
+
+  const overlay = document.createElement('div');
+  overlay.className = 'item-overlay';
+  overlay.innerHTML = `<span class="item-label">${item.category}</span>`;
+
+  card.appendChild(img);
+  card.appendChild(overlay);
+  return card;
+}
+
+async function loadGallery() {
+  const manifest = Array.isArray(window.JK_PUBLIC_GALLERY) ? window.JK_PUBLIC_GALLERY : [];
+  const featured = legacyHighlights.concat(manifest.filter(item => item.featuredClassic));
+  const gallery = document.getElementById('gallery');
+  gallery.innerHTML = '';
+  featured.forEach(item => gallery.appendChild(renderCard(item)));
   allItems = Array.from(document.querySelectorAll('.gallery-item'));
   document.getElementById('photo-count').textContent = allItems.length + ' photos';
 }
-buildItems();
 
 function filterGallery(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -314,6 +366,7 @@ function filterGallery(cat, btn) {
   allItems.forEach(item => {
     item.style.display = (cat === 'all' || item.dataset.category === cat) ? 'block' : 'none';
   });
+  document.getElementById('gallery-empty').hidden = visibleItems().length !== 0;
 }
 
 function visibleItems() {
@@ -350,6 +403,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') lightboxNav(1);
   if (e.key === 'ArrowLeft')  lightboxNav(-1);
 });
+
+loadGallery();
 </script>
 
 </body>

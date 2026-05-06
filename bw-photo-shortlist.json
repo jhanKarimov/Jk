@@ -1,0 +1,336 @@
+{
+  "main": [
+    {
+      "rank": 1,
+      "category": "portrait",
+      "slug": "striped-portrait",
+      "filename": "main-01-striped-portrait.webp",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202201/17935414486884852.webp",
+      "month": "202201",
+      "score": 0.941,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 3,
+      "category": "street",
+      "slug": "mural-window",
+      "filename": "main-03-mural-window.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201909/17905373260367778.jpg",
+      "month": "201909",
+      "score": 0.938,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 4,
+      "category": "street",
+      "slug": "city-lamps",
+      "filename": "main-04-city-lamps.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201912/17857325074675140.jpg",
+      "month": "201912",
+      "score": 0.937,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 5,
+      "category": "portrait",
+      "slug": "duo-graffiti",
+      "filename": "main-05-duo-graffiti.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202003/17856539806798189.jpg",
+      "month": "202003",
+      "score": 0.936,
+      "width": 1117,
+      "height": 1396
+    },
+    {
+      "rank": 8,
+      "category": "street",
+      "slug": "ring-light-graffiti",
+      "filename": "main-08-ring-light-graffiti.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201909/17995530502263906.jpg",
+      "month": "201909",
+      "score": 0.933,
+      "width": 1080,
+      "height": 1351
+    },
+    {
+      "rank": 10,
+      "category": "portrait",
+      "slug": "doorway-portrait",
+      "filename": "main-10-doorway-portrait.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202001/17937227389331352.jpg",
+      "month": "202001",
+      "score": 0.93,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 11,
+      "category": "travel",
+      "slug": "dome-field",
+      "filename": "main-11-dome-field.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201910/18105661513021797.jpg",
+      "month": "201910",
+      "score": 0.93,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 12,
+      "category": "music",
+      "slug": "musician-duo",
+      "filename": "main-12-musician-duo.webp",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202208/17951358206024454.webp",
+      "month": "202208",
+      "score": 0.93,
+      "width": 1439,
+      "height": 1796
+    },
+    {
+      "rank": 13,
+      "category": "portrait",
+      "slug": "mirror-note",
+      "filename": "main-13-mirror-note.webp",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/202205/17883467000610046.webp",
+      "month": "202205",
+      "score": 0.929,
+      "width": 1440,
+      "height": 1800
+    },
+    {
+      "rank": 15,
+      "category": "portrait",
+      "slug": "brick-stance",
+      "filename": "main-15-brick-stance.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201912/17860936939610487.jpg",
+      "month": "201912",
+      "score": 0.924,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 16,
+      "category": "portrait",
+      "slug": "doorway-couple",
+      "filename": "main-16-doorway-couple.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/202012/17861107454324563.jpg",
+      "month": "202012",
+      "score": 0.922,
+      "width": 1440,
+      "height": 1802
+    },
+    {
+      "rank": 17,
+      "category": "portrait",
+      "slug": "skate-vest",
+      "filename": "main-17-skate-vest.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201911/17851565311707385.jpg",
+      "month": "201911",
+      "score": 0.922,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 19,
+      "category": "street",
+      "slug": "ring-light-shadow",
+      "filename": "main-19-ring-light-shadow.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201909/17980393426302210.jpg",
+      "month": "201909",
+      "score": 0.921,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 21,
+      "category": "street",
+      "slug": "rooftop-rest",
+      "filename": "main-21-rooftop-rest.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201908/17864034832482136.jpg",
+      "month": "201908",
+      "score": 0.921,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 25,
+      "category": "portrait",
+      "slug": "cactus-portrait",
+      "filename": "main-25-cactus-portrait.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/202009/17911098283500084.jpg",
+      "month": "202009",
+      "score": 0.916,
+      "width": 1440,
+      "height": 1800
+    },
+    {
+      "rank": 26,
+      "category": "music",
+      "slug": "alley-piano",
+      "filename": "main-26-alley-piano.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202006/17843961689258111.jpg",
+      "month": "202006",
+      "score": 0.916,
+      "width": 1440,
+      "height": 1800
+    },
+    {
+      "rank": 27,
+      "category": "street",
+      "slug": "downtown-facade",
+      "filename": "main-27-downtown-facade.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201911/17864147245573691.jpg",
+      "month": "201911",
+      "score": 0.914,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 28,
+      "category": "portrait",
+      "slug": "smoking-leather",
+      "filename": "main-28-smoking-leather.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201912/18000980356276888.jpg",
+      "month": "201912",
+      "score": 0.913,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 29,
+      "category": "portrait",
+      "slug": "water-portrait",
+      "filename": "main-29-water-portrait.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/201908/17991408958261918.jpg",
+      "month": "201908",
+      "score": 0.912,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 31,
+      "category": "street",
+      "slug": "midtown-crosswalk",
+      "filename": "main-31-midtown-crosswalk.webp",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202205/18237968932103618.webp",
+      "month": "202205",
+      "score": 0.911,
+      "width": 1440,
+      "height": 1800
+    }
+  ],
+  "alternates": [
+    {
+      "rank": 9,
+      "category": "portrait",
+      "slug": "blurred-street",
+      "filename": "alternates-09-blurred-street.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/archived_posts/201908/17868251380454260.jpg",
+      "month": "201908",
+      "score": 0.931,
+      "width": 966,
+      "height": 1208
+    },
+    {
+      "rank": 14,
+      "category": "street",
+      "slug": "backyard-tv",
+      "filename": "alternates-14-backyard-tv.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202009/17851529867293639.jpg",
+      "month": "202009",
+      "score": 0.927,
+      "width": 1440,
+      "height": 961
+    },
+    {
+      "rank": 18,
+      "category": "street",
+      "slug": "winter-backyards",
+      "filename": "alternates-18-winter-backyards.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201912/17844813178863974.jpg",
+      "month": "201912",
+      "score": 0.921,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 20,
+      "category": "portrait",
+      "slug": "house-duo",
+      "filename": "alternates-20-house-duo.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202001/17929120054352797.jpg",
+      "month": "202001",
+      "score": 0.921,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 22,
+      "category": "music",
+      "slug": "festival-jersey",
+      "filename": "alternates-22-festival-jersey.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201910/18024590071224258.jpg",
+      "month": "201910",
+      "score": 0.919,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 23,
+      "category": "music",
+      "slug": "ring-light-stage",
+      "filename": "alternates-23-ring-light-stage.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201909/17908380778364489.jpg",
+      "month": "201909",
+      "score": 0.919,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 24,
+      "category": "portrait",
+      "slug": "ring-light-close",
+      "filename": "alternates-24-ring-light-close.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-evGXBgMl/media/posts/201909/18022191103233769.jpg",
+      "month": "201909",
+      "score": 0.918,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 30,
+      "category": "portrait",
+      "slug": "double-exposure",
+      "filename": "alternates-30-double-exposure.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/202001/17853077803771931.jpg",
+      "month": "202001",
+      "score": 0.912,
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "rank": 35,
+      "category": "street",
+      "slug": "night-block",
+      "filename": "alternates-35-night-block.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201911/18007100572268108.jpg",
+      "month": "201911",
+      "score": 0.908,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "rank": 36,
+      "category": "portrait",
+      "slug": "suit-yard",
+      "filename": "alternates-36-suit-yard.jpg",
+      "source": "instagram-jhan_karimov-2026-02-02-mMRIlvyh/media/posts/201912/18118007701000732.jpg",
+      "month": "201912",
+      "score": 0.907,
+      "width": 1080,
+      "height": 1080
+    }
+  ]
+}

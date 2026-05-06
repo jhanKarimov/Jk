@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JK Universe — Photo Archive Modes</title>
+<meta name="description" content="An experimental photo universe by Jhan Karimov: orbit view, flash mode, archive ledger, and mood filters across portrait, street, travel, and music imagery.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --panel: #111111;
+  --panel-2: #171717;
+  --line: rgba(255,255,255,0.08);
+  --text: #f1ece4;
+  --muted: #938a80;
+  --signal: #d3a84f;
+  --danger: #b53b2d;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(211,168,79,0.08), transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(181,59,45,0.09), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+a { color: inherit; }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(8,8,8,0.86);
+  backdrop-filter: blur(10px);
+}
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.nav-link, .nav-pill, .control-btn, select {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.56rem;
+  padding: 0.58rem 0.8rem;
+}
+.nav-link:hover, .nav-pill:hover, .control-btn:hover, .control-btn.active {
+  color: var(--text);
+  border-color: var(--signal);
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+header {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem 2rem;
+}
+.eyebrow {
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.58rem;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.88;
+  font-weight: 700;
+  max-width: 900px;
+}
+.lede {
+  margin-top: 1rem;
+  max-width: 920px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+.controls {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.4rem 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: end;
+}
+.control-group {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+.stats {
+  color: rgba(255,255,255,0.22);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.56rem;
+}
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1.4rem 4rem;
+}
+.mode {
+  display: none;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  min-height: 70vh;
+}
+.mode.active {
+  display: block;
+}
+#grid-view {
+  columns: 4 240px;
+  column-gap: 10px;
+  padding: 1rem;
+}
+.grid-card {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  display: block;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: #0f0f0f;
+  cursor: pointer;
+}
+.grid-card img {
+  width: 100%;
+  display: block;
+}
+.grid-card figcaption {
+  padding: 0.75rem;
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#orbit-view {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+.orbit-stage {
+  position: relative;
+  min-height: 72vh;
+}
+.orbit-card {
+  position: absolute;
+  width: min(18vw, 220px);
+  min-width: 130px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,10,10,0.78);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  transform: rotate(var(--tilt));
+  animation: drift var(--dur) ease-in-out infinite;
+  cursor: pointer;
+}
+.orbit-card img {
+  width: 100%;
+  display: block;
+}
+.orbit-card div {
+  padding: 0.65rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+@keyframes drift {
+  0%, 100% { transform: translate3d(0,0,0) rotate(var(--tilt)); }
+  50% { transform: translate3d(0,-16px,0) rotate(calc(var(--tilt) * -1)); }
+}
+#flash-view {
+  position: relative;
+  padding: 1rem;
+}
+.flash-stage {
+  position: relative;
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #050505;
+}
+.flash-stage img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.flash-info {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  max-width: 520px;
+  padding: 0.9rem 1rem;
+  background: rgba(8,8,8,0.72);
+  border: 1px solid var(--line);
+}
+.flash-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+}
+.flash-caption {
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.45rem;
+}
+.flash-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.55rem;
+}
+#ledger-view {
+  padding: 1rem;
+}
+.ledger-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ledger-row img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+}
+.ledger-meta h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+.ledger-line {
+  color: var(--signal);
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+.ledger-caption {
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.9;
+  max-width: 700px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,5,5,0.95);
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+footer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1rem 1.4rem 3rem;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  #grid-view {
+    columns: 2 180px;
+  }
+  .ledger-row {
+    grid-template-columns: 1fr;
+  }
+  .orbit-card {
+    width: 42vw;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a class="nav-link" href="photos.html">Classic Gallery</a>
+    <a class="nav-link" href="book-photo-atlas.html">Book x Photo</a>
+  </div>
+  <div class="nav-brand">JK Universe</div>
+  <div class="nav-right">
+    <span class="nav-pill" id="result-count">0 items</span>
+    <a class="nav-link" href="index.html">Home</a>
+  </div>
+</nav>
+
+<header>
+  <div class="eyebrow">Photo Modes / Archive / Mood Engine</div>
+  <h1>One archive, four ways to feel it.</h1>
+  <p class="lede">This is the more experimental wing of the photo site: a classic grid when you want to browse, an orbit mode when you want myth, a flash mode when you want sensation, and a ledger mode when you want context, captions, dates, and indexable text. Use the mood filters to slide through nightlife, street, lovers, solitude, and travel without locking the work into one rigid taxonomy.</p>
+</header>
+
+<section class="controls">
+  <div class="control-group" id="mood-controls">
+    <button class="control-btn active" data-mood="all">All Moods</button>
+    <button class="control-btn" data-mood="nightlife">Nightlife</button>
+    <button class="control-btn" data-mood="street">Street</button>
+    <button class="control-btn" data-mood="lovers">Lovers</button>
+    <button class="control-btn" data-mood="solitude">Solitude</button>
+    <button class="control-btn" data-mood="travel">Travel</button>
+  </div>
+  <div class="control-group" id="mode-controls">
+    <button class="control-btn active" data-mode="grid">Grid</button>
+    <button class="control-btn" data-mode="orbit">Orbit</button>
+    <button class="control-btn" data-mode="flash">Flash</button>
+    <button class="control-btn" data-mode="ledger">Ledger</button>
+  </div>
+  <div class="control-group">
+    <select id="year-filter">
+      <option value="all">All Years</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+    </select>
+  </div>
+</section>
+
+<main>
+  <section class="mode active" id="grid-view"></section>
+  <section class="mode" id="orbit-view"><div class="orbit-stage" id="orbit-stage"></div></section>
+  <section class="mode" id="flash-view">
+    <div class="flash-stage">
+      <div class="flash-actions">
+        <button class="control-btn" id="flash-random">Next</button>
+        <button class="control-btn" id="flash-toggle">Pause</button>
+      </div>
+      <img id="flash-image" alt="">
+      <div class="flash-info">
+        <div class="flash-title" id="flash-title"></div>
+        <div class="flash-caption" id="flash-caption"></div>
+      </div>
+    </div>
+  </section>
+  <section class="mode" id="ledger-view"></section>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="control-btn lightbox-close" id="lightbox-close">Close</button>
+  <img id="lightbox-img" alt="">
+</div>
+
+<footer>
+  Universe page powered by the shared public manifest. Same archive, different nervous systems.
+</footer>
+
+<script src="assets/js/jk-public-gallery.js"></script>
+<script>
+const legacyHighlights = [
+  { src: 'images/jhankk.jpeg', title: 'Jhan Karimov', category: 'portrait', year: '2018', month: '01', moods: ['solitude'], captionShort: 'Portrait · New York' },
+  { src: 'images/backyard.jpeg', title: 'Backyard', category: 'street', year: '2018', month: '01', moods: ['street', 'solitude'], captionShort: 'Backyard · New York' },
+  { src: 'images/guitar.jpeg', title: 'Guitar', category: 'music', year: '2018', month: '01', moods: ['nightlife'], captionShort: 'Guitar · Music' }
+];
+
+const manifest = legacyHighlights.concat(Array.isArray(window.JK_PUBLIC_GALLERY) ? window.JK_PUBLIC_GALLERY : []);
+let currentMood = 'all';
+let currentMode = 'grid';
+let currentYear = 'all';
+let flashIndex = 0;
+let flashTimer = null;
+let flashPlaying = true;
+
+function filteredItems() {
+  return manifest.filter(item => {
+    const moodOk = currentMood === 'all' || (item.moods || []).includes(currentMood);
+    const yearOk = currentYear === 'all' || item.year === currentYear;
+    return moodOk && yearOk;
+  });
+}
+
+function setCount(items) {
+  document.getElementById('result-count').textContent = `${items.length} items`;
+}
+
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt || '';
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function renderGrid(items) {
+  const el = document.getElementById('grid-view');
+  el.innerHTML = items.map(item => `
+    <figure class="grid-card" data-src="${item.src}">
+      <img src="${item.src}" alt="${item.title}" loading="lazy">
+      <figcaption>${item.title} · ${item.category} · ${item.year}</figcaption>
+    </figure>
+  `).join('');
+  el.querySelectorAll('.grid-card').forEach(card => {
+    card.addEventListener('click', () => openLightbox(card.dataset.src, card.querySelector('img').alt));
+  });
+}
+
+function renderOrbit(items) {
+  const stage = document.getElementById('orbit-stage');
+  stage.innerHTML = '';
+  items.forEach((item, index) => {
+    const card = document.createElement('article');
+    card.className = 'orbit-card';
+    card.style.left = `${6 + (index * 17) % 72}%`;
+    card.style.top = `${4 + (index * 13) % 72}%`;
+    card.style.setProperty('--tilt', `${((index % 7) - 3) * 1.8}deg`);
+    card.style.setProperty('--dur', `${8 + (index % 5) * 1.6}s`);
+    card.innerHTML = `<img src="${item.src}" alt="${item.title}" loading="lazy"><div>${item.title}<br>${item.category} · ${item.year}</div>`;
+    card.addEventListener('click', () => openLightbox(item.src, item.title));
+    stage.appendChild(card);
+  });
+}
+
+function renderLedger(items) {
+  const el = document.getElementById('ledger-view');
+  el.innerHTML = items.map(item => `
+    <article class="ledger-row" id="${item.id || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">
+      <img src="${item.src}" alt="${item.title}" loading="lazy" data-src="${item.src}">
+      <div class="ledger-meta">
+        <div class="ledger-line">${item.category} · ${item.year}-${item.month || '00'} · ${(item.moods || []).join(' / ')}</div>
+        <h3>${item.title}</h3>
+        <p class="ledger-caption">${item.captionShort || item.caption || 'Untitled fragment from the JK archive.'}</p>
+      </div>
+    </article>
+  `).join('');
+  el.querySelectorAll('img[data-src]').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.dataset.src, img.alt));
+  });
+}
+
+function renderFlash(items) {
+  if (!items.length) {
+    document.getElementById('flash-image').src = '';
+    document.getElementById('flash-title').textContent = 'No images in this filter';
+    document.getElementById('flash-caption').textContent = '';
+    return;
+  }
+  flashIndex = ((flashIndex % items.length) + items.length) % items.length;
+  const item = items[flashIndex];
+  document.getElementById('flash-image').src = item.src;
+  document.getElementById('flash-image').alt = item.title;
+  document.getElementById('flash-image').onclick = () => openLightbox(item.src, item.title);
+  document.getElementById('flash-title').textContent = item.title;
+  document.getElementById('flash-caption').textContent = `${item.category} · ${item.year}-${item.month || '00'} · ${item.captionShort || item.caption || 'JK archive fragment'}`;
+}
+
+function ensureFlash(items) {
+  clearInterval(flashTimer);
+  renderFlash(items);
+  if (!flashPlaying || !items.length) return;
+  flashTimer = setInterval(() => {
+    flashIndex = (flashIndex + 1) % items.length;
+    renderFlash(items);
+  }, 2400);
+}
+
+function render() {
+  const items = filteredItems();
+  setCount(items);
+  renderGrid(items);
+  renderOrbit(items);
+  renderLedger(items);
+  ensureFlash(items);
+}
+
+document.getElementById('mood-controls').querySelectorAll('[data-mood]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentMood = btn.dataset.mood;
+    document.querySelectorAll('#mood-controls .control-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('mode-controls').querySelectorAll('[data-mode]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentMode = btn.dataset.mode;
+    document.querySelectorAll('#mode-controls .control-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.mode').forEach(mode => mode.classList.remove('active'));
+    document.getElementById(`${currentMode}-view`).classList.add('active');
+  });
+});
+
+document.getElementById('year-filter').addEventListener('change', (e) => {
+  currentYear = e.target.value;
+  render();
+});
+
+document.getElementById('flash-random').addEventListener('click', () => {
+  flashIndex += 1;
+  renderFlash(filteredItems());
+});
+
+document.getElementById('flash-toggle').addEventListener('click', (e) => {
+  flashPlaying = !flashPlaying;
+  e.target.textContent = flashPlaying ? 'Pause' : 'Play';
+  ensureFlash(filteredItems());
+});
+
+document.getElementById('lightbox-close').addEventListener('click', () => {
+  document.getElementById('lightbox').classList.remove('open');
+});
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+});
+
+render();
+</script>
+</body>
+</html>
